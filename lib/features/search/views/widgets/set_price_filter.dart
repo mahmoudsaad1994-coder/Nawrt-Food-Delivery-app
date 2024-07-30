@@ -1,0 +1,76 @@
+import 'package:flutter/material.dart';
+
+import '../../../../constants.dart';
+import '../../../../core/utils/styles.dart';
+import '../../../../core/widgets/view_item_title.dart';
+import '../../manager/search_cubit.dart';
+
+class SetPriceFilter extends StatelessWidget {
+  const SetPriceFilter({super.key, required this.cubit});
+  final SearchCubit cubit;
+  @override
+  Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    return Column(
+      children: [
+        ViewItemTitle(
+          onPressed: () {},
+          title: 'السعر',
+          onPressTitle: '',
+          isButtonHidden: true,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: width * .025),
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: RangeSlider(
+              values: RangeValues(cubit.startPrice, cubit.endPrice),
+              onChanged: (rangeValues) {
+                cubit.changeRangePrice(rangeValues: rangeValues);
+              },
+              min: 0,
+              max: 700,
+              divisions: 70,
+              labels: RangeLabels(
+                  cubit.startPrice.toString(), cubit.endPrice.toString()),
+              inactiveColor: k0xfff4f3f1Color, // اللي مش مقروء
+              activeColor: kFFC436Color, // المقروء
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: width * .06),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    cubit.endPrice.round().toString(),
+                    style: Styles.textStyle23.copyWith(fontSize: width * .04),
+                  ),
+                  Text(
+                    ' : إلي',
+                    style: Styles.textStyle14.copyWith(fontSize: width * .04),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text(
+                    cubit.startPrice.round().toString(),
+                    style: Styles.textStyle23.copyWith(fontSize: width * .04),
+                  ),
+                  Text(
+                    ' : من',
+                    style: Styles.textStyle14.copyWith(fontSize: width * .04),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
