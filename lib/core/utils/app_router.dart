@@ -1,10 +1,9 @@
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/forget_password/views/forget_password_view.dart';
-import '../../features/auth/login_register/pages/login/views/login_view.dart';
-import '../../features/auth/login_register/pages/register/views/activate_code_view.dart';
-import '../../features/auth/login_register/pages/register/views/register_infromations.dart';
-import '../../features/auth/login_register/pages/register/views/register_view.dart';
+import '../../features/auth/login_register/presentation/views/login/login_view.dart';
+import '../../features/auth/login_register/presentation/views/register/activate_code_view.dart';
+import '../../features/auth/login_register/presentation/views/register/register_view.dart';
 import '../../features/auth/registration_page/presentation/view/registration_page_body_view.dart';
 import '../../features/auth/splash/view/splash_view.dart';
 import '../../features/layout/views/layout_view.dart';
@@ -15,7 +14,6 @@ abstract class AppRouter {
   static const String kRegisterScreen = '/register';
   static const String kLoginScreen = '/login';
   static const String kActivateCodeScreen = '/activateCode';
-  static const String kRegisterInfromationScreen = '/registerInfromation';
   static const String kForgetPasswordScreen = '/forgetPasswordScreen';
   static const String kSearchView = '/SearchView';
   static const String kLayoutView = '/layoutView';
@@ -32,7 +30,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kRegisterScreen,
-        builder: (context, state) => const RegisterScreen(),
+        builder: (context, state) => const RegisterView(),
       ),
       GoRoute(
         path: kLoginScreen,
@@ -41,10 +39,6 @@ abstract class AppRouter {
       GoRoute(
         path: kActivateCodeScreen,
         builder: (context, state) => const ActivateCode(),
-      ),
-      GoRoute(
-        path: kRegisterInfromationScreen,
-        builder: (context, state) => const RegisterInfromationsScreen(),
       ),
       GoRoute(
         path: kForgetPasswordScreen,

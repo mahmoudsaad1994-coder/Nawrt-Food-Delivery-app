@@ -24,17 +24,17 @@ class AuthRepoImp extends AuthRepo {
     }
   }
 
-  // @override
-  // Future<Either<Failure, AuthEntity>> register(
-  //     RegisterParams registerParams) async {
-  //   try {
-  //     final data = await loginRemoteDataSource.register(registerParams);
-  //     return right(data);
-  //   } catch (e) {
-  //     if (e is DioException) {
-  //       return left(ServerFailure.fromDiorError(e));
-  //     }
-  //     return left(ServerFailure(e.toString()));
-  //   }
-  // }
+  @override
+  Future<Either<Failure, AuthEntity>> register(
+      RegisterParams registerParams) async {
+    try {
+      final data = await authRemoteDataSource.register(registerParams);
+      return right(data);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

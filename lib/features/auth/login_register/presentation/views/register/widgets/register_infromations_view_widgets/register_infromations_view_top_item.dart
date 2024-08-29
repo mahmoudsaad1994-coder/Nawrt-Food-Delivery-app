@@ -6,21 +6,21 @@ import '../../../../../../../../core/utils/styles.dart';
 import '../../../../../../../../core/widgets/respnsive_text.dart';
 import '../../../../../../../../core/widgets/top_auth_item.dart';
 
-class RegisterInfromationsViewTopItem extends StatelessWidget {
-  const RegisterInfromationsViewTopItem({super.key});
+class RegisterViewTopItem extends StatelessWidget {
+  const RegisterViewTopItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return TopAuthItem(
-      sizeHeight: .45,
+      sizeHeight: .4,
       title: ResponsiveText(
         height: size.width * .08,
-        text: 'استكمال البيانات',
+        text: 'إنشاء حساب',
         style: Styles.textStyle23,
       ),
       image: AspectRatio(
-        aspectRatio: Responsive.isMobile(context) ? 1 / .45 : 1 / .3,
+        aspectRatio: Responsive.isMobile(context) ? 1 / .4 : 1 / .25,
         child: Image.asset(
           AssetsData.registerInfromationsImage,
         ),

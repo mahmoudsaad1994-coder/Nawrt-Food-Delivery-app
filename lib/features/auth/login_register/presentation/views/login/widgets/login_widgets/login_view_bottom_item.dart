@@ -10,8 +10,8 @@ import '../../../../../../../../core/utils/build_error_snack_bar.dart';
 import '../../../../../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../../../../../core/widgets/respnsive_text.dart';
 import '../../../../../domain/repos/auth_repo.dart';
-import '../../../manager/cubit.dart';
-import '../../../manager/states.dart';
+import '../../../../manager/cubit.dart';
+import '../../../../manager/states.dart';
 
 class LoginViewBottomItem extends StatefulWidget {
   const LoginViewBottomItem({super.key});
@@ -34,17 +34,17 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return BlocConsumer<LoginCubit, LoginStates>(listener: (context, state) {
-      if (state is SucsessLoginStates) {
+    return BlocConsumer<AuthCubit, AuthStates>(listener: (context, state) {
+      if (state is SucsessAuthStates) {
         GoRouter.of(context).pushReplacement(AppRouter.kLayoutView);
       }
-      if (state is ErrorLoginStates) {
+      if (state is ErrorAuthStates) {
         ScaffoldMessenger.of(context).showSnackBar(
           buildErrorWidget(state.error),
         );
       }
     }, builder: (context, state) {
-      var cubit = LoginCubit.get(context);
+      var cubit = AuthCubit.get(context);
       return Expanded(
         child: Padding(
           padding: EdgeInsets.all(size.width * .06),

@@ -6,7 +6,7 @@ import '../model/login_model.dart';
 
 abstract class AuthRemoteDataSource {
   Future<AuthEntity> login(LoginParams loginParams);
-  // Future<AuthEntity> register(RegisterParams registerParams);
+  Future<AuthEntity> register(RegisterParams registerParams);
 }
 
 class AuthRemoteDatasourceImpl implements AuthRemoteDataSource {
@@ -25,14 +25,14 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDataSource {
     return newData;
   }
 
-  // @override
-  // Future<AuthEntity> register(RegisterParams registerParams) async {
-  //   final data = await apiService.postRequest(
-  //     UrlApiList.register,
-  //     data: registerParams.toJson(),
-  //   );
-  //   AuthEntity newData = LoginModel.fromJson(data);
+  @override
+  Future<AuthEntity> register(RegisterParams registerParams) async {
+    final data = await apiService.postRequest(
+      UrlApiList.register,
+      data: registerParams.toJson(),
+    );
+    AuthEntity newData = LoginModel.fromJson(data);
 
-  //   return newData;
-  // }
+    return newData;
+  }
 }

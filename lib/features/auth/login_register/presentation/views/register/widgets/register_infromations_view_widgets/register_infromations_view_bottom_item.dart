@@ -8,16 +8,14 @@ import '../../../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../../../../../core/widgets/respnsive_text.dart';
 
-class RegisterInfromationsViewBottomItem extends StatefulWidget {
-  const RegisterInfromationsViewBottomItem({super.key});
+class RegisterViewBottomItem extends StatefulWidget {
+  const RegisterViewBottomItem({super.key});
 
   @override
-  State<RegisterInfromationsViewBottomItem> createState() =>
-      _RegisterInfromationsViewBottomItemState();
+  State<RegisterViewBottomItem> createState() => _RegisterViewBottomItemState();
 }
 
-class _RegisterInfromationsViewBottomItemState
-    extends State<RegisterInfromationsViewBottomItem> {
+class _RegisterViewBottomItemState extends State<RegisterViewBottomItem> {
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -33,16 +31,25 @@ class _RegisterInfromationsViewBottomItemState
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   SizedBox(
-                    height: constrain.maxHeight * .14,
+                    height: constrain.maxHeight * .12,
                     width: double.infinity,
                     child: const CustomTextFormField(
                       hintText: 'اسم المستخدم',
                       icon: Icons.person_outline_rounded,
                     ),
                   ),
-                  SizedBox(height: constrain.maxHeight * .04),
+                  SizedBox(height: constrain.maxHeight * .03),
                   SizedBox(
-                    height: constrain.maxHeight * .14,
+                    height: constrain.maxHeight * .12,
+                    width: double.infinity,
+                    child: const CustomTextFormField(
+                      hintText: 'البريد الألكتروني',
+                      icon: Icons.email_outlined,
+                    ),
+                  ),
+                  SizedBox(height: constrain.maxHeight * .03),
+                  SizedBox(
+                    height: constrain.maxHeight * .12,
                     width: double.infinity,
                     child: const CustomTextFormField(
                       hintText: 'كلمة المرور',
@@ -50,9 +57,9 @@ class _RegisterInfromationsViewBottomItemState
                       suffixIcon: Icons.visibility_off_outlined,
                     ),
                   ),
-                  SizedBox(height: constrain.maxHeight * .04),
+                  SizedBox(height: constrain.maxHeight * .03),
                   SizedBox(
-                    height: constrain.maxHeight * .14,
+                    height: constrain.maxHeight * .12,
                     width: double.infinity,
                     child: const CustomTextFormField(
                       hintText: 'تأكيد كلمة المرور',
@@ -63,7 +70,7 @@ class _RegisterInfromationsViewBottomItemState
                   SizedBox(height: constrain.maxHeight * .06),
                   SizedBox(
                     width: double.infinity,
-                    height: constrain.maxHeight * .14,
+                    height: constrain.maxHeight * .12,
                     child: CustomButton(
                       child: ResponsiveText(
                         height: constrain.maxHeight * .06,
@@ -76,7 +83,7 @@ class _RegisterInfromationsViewBottomItemState
                       },
                     ),
                   ),
-                  SizedBox(height: constrain.maxHeight * .04),
+                  SizedBox(height: constrain.maxHeight * .03),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -87,21 +94,21 @@ class _RegisterInfromationsViewBottomItemState
                         onPressed: () {
                           GoRouter.of(context).push(AppRouter.kLoginScreen);
                         },
-                        child: ResponsiveText(
-                          height: constrain.maxHeight * .07,
-                          text: 'تسجيل دخول',
+                        child: Text(
+                          'تسجيل دخول',
                           style: Styles.textStyle16.copyWith(
                             color: kFFC436Color,
                             fontWeight: FontWeight.w400,
+                            fontSize: constrain.maxWidth * .06,
                           ),
                         ),
                       ),
-                      ResponsiveText(
-                        height: constrain.maxHeight * .07,
-                        text: ' لديك حساب بالفعل؟ ',
+                      Text(
+                        ' لديك حساب بالفعل؟ ',
                         style: Styles.textStyle16.copyWith(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
+                          fontSize: constrain.maxWidth * .05,
                         ),
                       ),
                     ],

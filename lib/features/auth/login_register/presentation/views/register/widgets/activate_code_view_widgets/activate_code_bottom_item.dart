@@ -68,8 +68,7 @@ class ActivateCodeBottomItem extends StatelessWidget {
                     style: Styles.textStyle16,
                   ),
                   onPressed: () {
-                    GoRouter.of(context)
-                        .push(AppRouter.kRegisterInfromationScreen);
+                    GoRouter.of(context).push(AppRouter.kLayoutView);
                   },
                 ),
               ),
