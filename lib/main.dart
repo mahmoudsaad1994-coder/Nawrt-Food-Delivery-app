@@ -7,7 +7,7 @@ import 'constants.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/bloc_observer.dart';
 import 'core/utils/get_it.dart';
-import 'features/auth/login/domain/entities/login_entity.dart';
+import 'features/auth/login_register/domain/entities/login_entity.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

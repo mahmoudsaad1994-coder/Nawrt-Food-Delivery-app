@@ -9,11 +9,19 @@ class CustomTextFormField extends StatelessWidget {
     required this.icon,
     this.color,
     this.suffixIcon,
+    this.controller,
+    this.hidden = false,
+    this.validator,
+    this.suffixOnPressed,
   });
   final String hintText;
   final IconData icon;
   final IconData? suffixIcon;
   final Color? color;
+  final TextEditingController? controller;
+  final bool hidden;
+  final String? Function(String?)? validator;
+  final void Function()? suffixOnPressed;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -27,9 +35,12 @@ class CustomTextFormField extends StatelessWidget {
         ),
         alignment: Alignment.center,
         child: TextFormField(
+          controller: controller,
           textAlign: TextAlign.right,
           textDirection: TextDirection.rtl,
           maxLines: 1,
+          obscureText: hidden,
+          validator: validator,
           decoration: InputDecoration(
             border: InputBorder.none,
             isDense: true,
@@ -41,9 +52,12 @@ class CustomTextFormField extends StatelessWidget {
               size: MediaQuery.of(context).size.width * .05,
             ),
             hintText: hintText,
-            suffixIcon: Icon(
-              suffixIcon,
-              size: MediaQuery.of(context).size.width * .05,
+            suffixIcon: IconButton(
+              icon: Icon(
+                suffixIcon,
+                size: MediaQuery.of(context).size.width * .05,
+              ),
+              onPressed: suffixOnPressed,
             ),
           ),
         ),

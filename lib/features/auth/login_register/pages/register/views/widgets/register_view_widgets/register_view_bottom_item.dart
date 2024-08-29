@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../constants.dart';
-import '../../../../../../core/utils/app_router.dart';
-import '../../../../../../core/utils/styles.dart';
-import '../../../../../../core/widgets/custom_button.dart';
-import '../../../../../../core/widgets/custom_text_form_field.dart';
-import '../../../../../../core/widgets/respnsive_text.dart';
+import '../../../../../../../../constants.dart';
+import '../../../../../../../../core/utils/app_router.dart';
+import '../../../../../../../../core/utils/styles.dart';
+import '../../../../../../../../core/widgets/custom_button.dart';
+import '../../../../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../../../../core/widgets/respnsive_text.dart';
 
 class RegisterViewBottomItem extends StatelessWidget {
   const RegisterViewBottomItem({super.key});

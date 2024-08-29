@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../constants.dart';
-import '../../../../../../core/utils/app_router.dart';
-import '../../../../../../core/utils/assets.dart';
-import '../../../../../../core/utils/styles.dart';
-import '../../../../../../core/widgets/background_image.dart';
-import '../../../../../../core/widgets/respnsive_text.dart';
+import '../../../../../../../../constants.dart';
+import '../../../../../../../../core/utils/app_router.dart';
+import '../../../../../../../../core/utils/assets.dart';
+import '../../../../../../../../core/utils/styles.dart';
+import '../../../../../../../../core/widgets/background_image.dart';
+import '../../../../../../../../core/widgets/respnsive_text.dart';
 
 class ActivateCodeTopItem extends StatelessWidget {
   const ActivateCodeTopItem({super.key});

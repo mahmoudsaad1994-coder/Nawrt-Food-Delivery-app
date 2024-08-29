@@ -18,9 +18,12 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
+    navigateToSplashHome(context);
+  }
+
+  void navigateToSplashHome(context) {
     Future.delayed(const Duration(seconds: 4), () {
-      //go to splah login
-      GoRouter.of(context).push(AppRouter.kSplashScreen);
+      GoRouter.of(context).push(AppRouter.kRegistrationPage);
     });
   }
 
