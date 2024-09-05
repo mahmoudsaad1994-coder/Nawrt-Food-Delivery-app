@@ -35,7 +35,7 @@ class ForgetPasswordViewBottomItem extends StatelessWidget {
                   child: ResponsiveText(
                     height: constrain.maxHeight * .075,
                     text: 'إرسال الكود',
-                    style: Styles.textStyle16,
+                    style: Styles.textStyle16old,
                   ),
                   onPressed: () {
                     GoRouter.of(context).push(AppRouter.kActivateCodeScreen);

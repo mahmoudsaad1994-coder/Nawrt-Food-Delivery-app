@@ -16,7 +16,7 @@ class LoginViewTopItem extends StatelessWidget {
       title: ResponsiveText(
         height: MediaQuery.of(context).size.width * .1,
         text: 'تسجيل الدخول',
-        style: Styles.textStyle23,
+        style: Styles.textStyle23(context),
       ),
       image: AspectRatio(
           aspectRatio: Responsive.isMobile(context) ? 1 / .35 : 1 / .24,

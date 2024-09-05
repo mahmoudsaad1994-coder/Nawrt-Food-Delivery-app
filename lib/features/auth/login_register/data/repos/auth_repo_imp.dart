@@ -20,7 +20,7 @@ class AuthRepoImp extends AuthRepo {
       if (e is DioException) {
         return left(ServerFailure.fromDiorError(e));
       }
-      return left(ServerFailure(e.toString()));
+      return left(ServerFailure(messageFailure: e.toString()));
     }
   }
 
@@ -31,10 +31,11 @@ class AuthRepoImp extends AuthRepo {
       final data = await authRemoteDataSource.register(registerParams);
       return right(data);
     } catch (e) {
+      print('e : $e');
       if (e is DioException) {
         return left(ServerFailure.fromDiorError(e));
       }
-      return left(ServerFailure(e.toString()));
+      return left(ServerFailure(messageFailure: e.toString()));
     }
   }
 }

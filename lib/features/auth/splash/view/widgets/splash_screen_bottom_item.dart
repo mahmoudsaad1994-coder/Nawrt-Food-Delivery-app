@@ -29,7 +29,7 @@ class SplashScreenBottomItem extends StatelessWidget {
                     height: constrain.maxHeight * .07,
                     width: double.infinity,
                     text: 'إنشاء حساب',
-                    style: Styles.textStyle16.copyWith(
+                    style: Styles.textStyle16old.copyWith(
                       fontFamily: kAvenirArabic,
                       fontWeight: FontWeight.w800,
                     ),
@@ -53,7 +53,7 @@ class SplashScreenBottomItem extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         'تسجيل دخول',
-                        style: Styles.textStyle16.copyWith(
+                        style: Styles.textStyle16old.copyWith(
                           fontFamily: kAvenirArabic,
                           color: Colors.black,
                           fontWeight: FontWeight.w800,

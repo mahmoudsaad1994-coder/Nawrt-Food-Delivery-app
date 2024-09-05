@@ -21,13 +21,14 @@ class ResetNewPasswordTopItem extends StatelessWidget {
           ResponsiveText(
             height: size.width * .09,
             text: 'إعادة تعيين كلمة المرور',
-            style: Styles.textStyle23,
+            style: Styles.textStyle23(context),
           ),
           SizedBox(height: size.width * .02),
           ResponsiveText(
             height: size.width * .054,
             text: 'ادخل كلمة المرور الجديدة',
-            style: Styles.textStyle14.copyWith(
+            style: Styles.textStyle14(
+              context,
               color: k96908AColor,
             ),
           ),

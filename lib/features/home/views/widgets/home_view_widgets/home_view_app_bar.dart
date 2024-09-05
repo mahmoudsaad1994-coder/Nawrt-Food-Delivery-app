@@ -40,14 +40,14 @@ class HomeViewAppBar extends StatelessWidget {
                         ResponsiveText(
                           height: constrain.maxWidth * .07,
                           text: '$name ,',
-                          style: Styles.textStyle16.copyWith(
+                          style: Styles.textStyle16old.copyWith(
                             color: Colors.black,
                           ),
                         ),
                         ResponsiveText(
                           height: constrain.maxWidth * .06,
                           text: 'أهلا بعودتك',
-                          style: Styles.textStyle16.copyWith(
+                          style: Styles.textStyle16old.copyWith(
                             color: Colors.black,
                           ),
                         ),
@@ -61,7 +61,8 @@ class HomeViewAppBar extends StatelessWidget {
                           child: ResponsiveText(
                             height: constrain.maxWidth * .05,
                             text: 'تغيير العنوان',
-                            style: Styles.textStyle14.copyWith(
+                            style: Styles.textStyle14(
+                              context,
                               color: kFFC436Color,
                             ),
                           ),
@@ -70,7 +71,8 @@ class HomeViewAppBar extends StatelessWidget {
                         ResponsiveText(
                           height: constrain.maxWidth * .05,
                           text: 'العنوان الحالي',
-                          style: Styles.textStyle14.copyWith(
+                          style: Styles.textStyle14(
+                            context,
                             color: k96908AColor,
                           ),
                         ),

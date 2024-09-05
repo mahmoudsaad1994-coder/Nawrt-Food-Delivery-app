@@ -6,7 +6,6 @@ import '../../../../../../../../core/utils/app_router.dart';
 import '../../../../../../../../core/utils/assets.dart';
 import '../../../../../../../../core/utils/styles.dart';
 import '../../../../../../../../core/widgets/background_image.dart';
-import '../../../../../../../../core/widgets/respnsive_text.dart';
 
 class ActivateCodeTopItem extends StatelessWidget {
   const ActivateCodeTopItem({super.key});
@@ -34,48 +33,45 @@ class ActivateCodeTopItem extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        ResponsiveText(
-                          height: constrains.maxHeight * .09,
-                          style: Styles.textStyle23,
-                          text: 'كود التفعيل',
+                        Text(
+                          'كود التفعيل',
+                          style: Styles.textStyle23(context),
                         ),
-                        SizedBox(height: constrains.maxHeight * .04),
-                        ResponsiveText(
-                          height: constrains.maxHeight * .06,
-                          text: 'تم ارسال كود التفعيل على رقم الهاتف',
-                          style: Styles.textStyle14.copyWith(
+                        SizedBox(height: constrains.maxHeight * .03),
+                        Text(
+                          'تم ارسال كود التفعيل على البريد الألكتروني',
+                          style: Styles.textStyle14(
+                            context,
                             color: k96908AColor,
                           ),
                         ),
-                        SizedBox(height: constrains.maxHeight * .02),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            SizedBox(
-                              height: constrains.maxHeight * .06,
-                              child: TextButton(
-                                style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                ),
-                                onPressed: () {
-                                  GoRouter.of(context)
-                                      .push(AppRouter.kLoginScreen);
-                                },
-                                child: ResponsiveText(
-                                  height: constrains.maxHeight * .06,
-                                  text: 'تعديل الرقم',
-                                  style: Styles.textStyle14.copyWith(
-                                    color: kFFC436Color,
-                                  ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                              ),
+                              onPressed: () {
+                                GoRouter.of(context)
+                                    .push(AppRouter.kRegisterScreen);
+                              },
+                              child: Text(
+                                'تعديل البريد',
+                                style: Styles.textStyle14(
+                                  context,
+                                  color: kFFC436Color,
                                 ),
                               ),
                             ),
                             SizedBox(width: constrains.maxWidth * .02),
-                            ResponsiveText(
-                              height: constrains.maxHeight * .06,
-                              text: '+20 123456789',
-                              style: Styles.textStyle14,
+                            Flexible(
+                              child: Text(
+                                'mah00s0smodsaad22@gmai.com',
+                                style: Styles.textStyle14(context),
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ],
                         ),

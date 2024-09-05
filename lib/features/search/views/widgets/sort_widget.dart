@@ -29,7 +29,7 @@ class SortWidget extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20))),
           title: Text(
             title,
-            style: Styles.textStyle16.copyWith(
+            style: Styles.textStyle16old.copyWith(
               color: kBlackColor,
               fontSize: width * .04,
             ),

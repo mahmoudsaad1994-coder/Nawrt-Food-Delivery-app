@@ -3,14 +3,26 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 abstract class Styles {
-  static const textStyle23 = TextStyle(
-    fontSize: 23,
-    fontWeight: FontWeight.w700,
-  );
-  static const textStyle14 =
-      TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: kBlackColor);
+  static textStyle23(context) => TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .06,
+        fontWeight: FontWeight.w700,
+      );
+  static textStyle14(context,
+          {color = kBlackColor, fontWeight = FontWeight.w500}) =>
+      TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .04,
+        fontWeight: fontWeight,
+        color: color,
+      );
+  static textStyle16(context,
+          {color = Colors.white, fontWeight = FontWeight.w700}) =>
+      TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .04,
+        fontWeight: fontWeight,
+        color: color,
+      );
 
-  static const textStyle16 = TextStyle(
+  static const textStyle16old = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w700,
     color: Colors.white,

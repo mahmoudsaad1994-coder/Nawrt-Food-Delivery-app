@@ -3,6 +3,7 @@ import '../../../../../core/api/api_service.dart';
 import '../../domain/entities/login_entity.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../model/login_model.dart';
+import '../model/register_model.dart';
 
 abstract class AuthRemoteDataSource {
   Future<AuthEntity> login(LoginParams loginParams);
@@ -31,8 +32,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDataSource {
       UrlApiList.register,
       data: registerParams.toJson(),
     );
-    AuthEntity newData = LoginModel.fromJson(data);
-
+    AuthEntity newData = RegisterModel.fromJson(data);
     return newData;
   }
 }

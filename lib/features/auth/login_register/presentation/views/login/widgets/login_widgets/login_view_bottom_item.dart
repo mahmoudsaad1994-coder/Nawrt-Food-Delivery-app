@@ -6,7 +6,7 @@ import '../../../../../../../../../constants.dart';
 import '../../../../../../../../../core/utils/app_router.dart';
 import '../../../../../../../../../core/utils/styles.dart';
 import '../../../../../../../../../core/widgets/custom_button.dart';
-import '../../../../../../../../core/utils/build_error_snack_bar.dart';
+import '../../../../../../../../core/utils/build_error_widget.dart';
 import '../../../../../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../../../../../core/widgets/respnsive_text.dart';
 import '../../../../../domain/repos/auth_repo.dart';
@@ -40,7 +40,7 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
       }
       if (state is ErrorAuthStates) {
         ScaffoldMessenger.of(context).showSnackBar(
-          buildErrorWidget(state.error),
+          buildErrorWidget(state.error.toString()),
         );
       }
     }, builder: (context, state) {
@@ -68,7 +68,9 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
                   CustomTextFormField(
                     hintText: 'كلمة المرور',
                     icon: Icons.lock_outline,
-                    suffixIcon: Icons.visibility_off_outlined,
+                    suffixIcon: cubit.isHidden
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
                     suffixOnPressed: cubit.togglePassowrd,
                     hidden: cubit.isHidden,
                     controller: passwordControlor,
@@ -90,7 +92,7 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
                       child: ResponsiveText(
                         height: constrain.maxHeight * .07,
                         text: 'هل نسيت كلمة المرور؟',
-                        style: Styles.textStyle16.copyWith(
+                        style: Styles.textStyle16old.copyWith(
                           fontWeight: FontWeight.w400,
                           color: Colors.black,
                         ),
@@ -110,7 +112,7 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
                           : ResponsiveText(
                               height: constrain.maxWidth * .07,
                               text: 'متابعة',
-                              style: Styles.textStyle16,
+                              style: Styles.textStyle16old,
                             ),
                       onPressed: () {
                         if (formkey.currentState!.validate()) {
@@ -138,7 +140,7 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
                         child: ResponsiveText(
                           height: constrain.maxWidth * .06,
                           text: 'إنشاء حساب جديد',
-                          style: Styles.textStyle16.copyWith(
+                          style: Styles.textStyle16old.copyWith(
                             color: kFFC436Color,
                             fontWeight: FontWeight.w400,
                           ),
@@ -147,7 +149,7 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
                       ResponsiveText(
                         height: constrain.maxWidth * .06,
                         text: ' لديك حساب بالفعل؟ ',
-                        style: Styles.textStyle16.copyWith(
+                        style: Styles.textStyle16old.copyWith(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
                         ),

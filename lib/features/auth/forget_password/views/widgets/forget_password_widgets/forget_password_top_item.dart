@@ -21,13 +21,14 @@ class ForgetPasswordTopItem extends StatelessWidget {
           ResponsiveText(
             height: size.width * .09,
             text: 'إعادة تعيين كلمة المرور',
-            style: Styles.textStyle23,
+            style: Styles.textStyle23(context),
           ),
           const SizedBox(height: 16),
           ResponsiveText(
             height: size.width * .054,
             text: 'ادخل بريدك الالكتروني لارسال كود التفعيل',
-            style: Styles.textStyle14.copyWith(
+            style: Styles.textStyle14(
+              context,
               color: k96908AColor,
             ),
           ),

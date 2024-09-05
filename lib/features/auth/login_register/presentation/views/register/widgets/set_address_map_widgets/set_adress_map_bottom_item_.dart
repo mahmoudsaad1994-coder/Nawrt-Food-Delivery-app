@@ -23,7 +23,7 @@ class SetAressMapBotomView extends StatelessWidget {
           CustomButton(
             child: const Text(
               'تأكيد الموقع',
-              style: Styles.textStyle16,
+              style: Styles.textStyle16old,
             ),
             onPressed: () {
               // GoRouter.of(context)

@@ -17,7 +17,7 @@ class RegisterViewTopItem extends StatelessWidget {
       title: ResponsiveText(
         height: size.width * .08,
         text: 'إنشاء حساب',
-        style: Styles.textStyle23,
+        style: Styles.textStyle23(context),
       ),
       image: AspectRatio(
         aspectRatio: Responsive.isMobile(context) ? 1 / .4 : 1 / .25,

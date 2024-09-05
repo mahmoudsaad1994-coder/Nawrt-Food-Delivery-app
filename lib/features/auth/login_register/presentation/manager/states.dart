@@ -8,6 +8,8 @@ class TogglePasswordStates extends AuthStates {}
 
 class LoadingAuthStates extends AuthStates {}
 
+class GetEmailStates extends AuthStates {}
+
 class SucsessAuthStates extends AuthStates {
   final AuthEntity data;
 
@@ -15,7 +17,7 @@ class SucsessAuthStates extends AuthStates {
 }
 
 class ErrorAuthStates extends AuthStates {
-  final String error;
-
-  ErrorAuthStates({required this.error});
+  final String? error;
+  final Map? messageMap;
+  ErrorAuthStates({this.messageMap, this.error});
 }

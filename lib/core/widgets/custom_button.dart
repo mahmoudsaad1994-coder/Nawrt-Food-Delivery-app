@@ -8,10 +8,12 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor,
     this.borderRadius,
     required this.child,
-    this.borderSide,
     required this.onPressed,
+    this.borderSide,
+    this.focusNode,
   });
   final Widget child;
+  final FocusNode? focusNode;
   final Color? backgroundColor;
   final BorderSide? borderSide;
   final BorderRadius? borderRadius;
@@ -20,6 +22,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
+      focusNode: focusNode,
       style: TextButton.styleFrom(
         backgroundColor: backgroundColor ?? kPrimaryColor,
         shape: RoundedRectangleBorder(

@@ -23,9 +23,7 @@ class ShowAs extends StatelessWidget {
             },
             title: Text(
               'عرض المنتجات ذات تصنيف +4 نجوم فقط',
-              style: Styles.textStyle14.copyWith(
-                fontSize: width * .04,
-              ),
+              style: Styles.textStyle14(context),
             ),
             activeTrackColor: kFFC436Color,
             activeColor: Colors.white,
@@ -39,9 +37,7 @@ class ShowAs extends StatelessWidget {
             },
             title: Text(
               'عرض الاسعار مع الخصم',
-              style: Styles.textStyle14.copyWith(
-                fontSize: width * .04,
-              ),
+              style: Styles.textStyle14(context),
             ),
             activeTrackColor: kFFC436Color,
             activeColor: Colors.white,

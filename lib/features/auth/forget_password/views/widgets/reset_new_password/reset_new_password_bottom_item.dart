@@ -43,7 +43,7 @@ class ResetNewPasswordViewBottomItem extends StatelessWidget {
                   child: ResponsiveText(
                     height: constrain.maxHeight * .06,
                     text: 'تم',
-                    style: Styles.textStyle16,
+                    style: Styles.textStyle16old,
                   ),
                   onPressed: () {
                     // GoRouter.of(context)

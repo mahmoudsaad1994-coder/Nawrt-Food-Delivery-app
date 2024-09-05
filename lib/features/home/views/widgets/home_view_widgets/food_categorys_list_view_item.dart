@@ -37,7 +37,7 @@ class FoodCategorysListViewItem extends StatelessWidget {
                 ResponsiveText(
                   height: width * .05,
                   text: homeCategorysList[index].categoryName,
-                  style: Styles.textStyle14,
+                  style: Styles.textStyle14(context),
                 ),
               ],
             ),

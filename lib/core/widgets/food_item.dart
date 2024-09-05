@@ -52,15 +52,15 @@ class FooditemWidget extends StatelessWidget {
                               ResponsiveText(
                                 height: constrain.maxHeight * .11,
                                 text: foodName,
-                                style: Styles.textStyle14
-                                    .copyWith(fontWeight: FontWeight.w700),
+                                style: Styles.textStyle14(context,
+                                    fontWeight: FontWeight.w700),
                               ),
                               Text(
                                 description,
-                                style: Styles.textStyle14.copyWith(
+                                style: Styles.textStyle14(
+                                  context,
                                   fontWeight: FontWeight.w700,
                                   color: k96908AColor,
-                                  fontSize: constrain.maxHeight * .07,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,

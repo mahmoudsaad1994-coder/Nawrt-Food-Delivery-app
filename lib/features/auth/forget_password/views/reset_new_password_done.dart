@@ -32,7 +32,7 @@ class ResetNewPasswordDoneScreen extends StatelessWidget {
               ResponsiveText(
                 height: size.height * .05,
                 text: 'تم تغيير كلمة المرور بنجاح',
-                style: Styles.textStyle23,
+                style: Styles.textStyle23(context),
               ),
               const SizedBox(height: 50),
               Container(
@@ -43,7 +43,7 @@ class ResetNewPasswordDoneScreen extends StatelessWidget {
                   child: ResponsiveText(
                     height: size.width * .06,
                     text: 'تم',
-                    style: Styles.textStyle16,
+                    style: Styles.textStyle16old,
                   ),
                   onPressed: () {
                     // GoRouter.of(context)

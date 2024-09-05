@@ -66,7 +66,8 @@ class CustomCardOffer extends StatelessWidget {
                     ResponsiveText(
                       height: constrain.maxHeight * .12,
                       text: 'عرض خاص',
-                      style: Styles.textStyle14.copyWith(
+                      style: Styles.textStyle14(
+                        context,
                         fontWeight: FontWeight.w400,
                         color: k96908AColor,
                       ),
@@ -77,7 +78,7 @@ class CustomCardOffer extends StatelessWidget {
                       height: constrain.maxHeight * .24,
                       child: Text(
                         title,
-                        style: Styles.textStyle16.copyWith(
+                        style: Styles.textStyle16old.copyWith(
                           color: Colors.black,
                           fontSize: constrain.maxHeight * .084,
                         ),
@@ -117,7 +118,7 @@ class CustomCardOffer extends StatelessWidget {
                         child: ResponsiveText(
                           height: constrain.maxHeight * .14,
                           text: 'اطلب الآن',
-                          style: Styles.textStyle16,
+                          style: Styles.textStyle16old,
                         ),
                       ),
                     ),

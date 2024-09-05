@@ -54,7 +54,7 @@ class SearchFilterView extends StatelessWidget {
                           onPressed: () {},
                           child: Text(
                             'تطبيق الفلتر',
-                            style: Styles.textStyle16.copyWith(
+                            style: Styles.textStyle16old.copyWith(
                               fontSize: width * .05,
                             ),
                           ),

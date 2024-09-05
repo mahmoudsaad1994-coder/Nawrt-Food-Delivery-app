@@ -87,14 +87,14 @@ class FoodItemWithOffer extends StatelessWidget {
                   ResponsiveText(
                     height: constraints.maxHeight * .14,
                     text: foodName,
-                    style: Styles.textStyle16.copyWith(color: kBlackColor),
+                    style: Styles.textStyle16old.copyWith(color: kBlackColor),
                   ),
                   Text(
                     description,
-                    style: Styles.textStyle14.copyWith(
+                    style: Styles.textStyle14(
+                      context,
                       fontWeight: FontWeight.w700,
                       color: k96908AColor,
-                      fontSize: Responsive.isMobile(context) ? 14 : 30,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

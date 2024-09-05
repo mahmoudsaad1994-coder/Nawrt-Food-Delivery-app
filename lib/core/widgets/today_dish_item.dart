@@ -69,7 +69,8 @@ class TodayDishItem extends StatelessWidget {
                         ResponsiveText(
                           height: constrain.maxWidth * .06,
                           text: 'طبق اليوم',
-                          style: Styles.textStyle14.copyWith(
+                          style: Styles.textStyle14(
+                            context,
                             fontWeight: FontWeight.w400,
                             color: k96908AColor,
                           ),
@@ -78,7 +79,7 @@ class TodayDishItem extends StatelessWidget {
                         ResponsiveText(
                           height: constrain.maxWidth * .08,
                           text: title,
-                          style: Styles.textStyle16.copyWith(
+                          style: Styles.textStyle16old.copyWith(
                             color: Colors.white,
                           ),
                         ),
@@ -115,7 +116,7 @@ class TodayDishItem extends StatelessWidget {
                             child: ResponsiveText(
                               height: constrain.maxWidth * .08,
                               text: 'اطلب الآن',
-                              style: Styles.textStyle16,
+                              style: Styles.textStyle16old,
                             ),
                           ),
                         ),

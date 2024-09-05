@@ -29,7 +29,7 @@ class ViewItemTitle extends StatelessWidget {
               child: ResponsiveText(
                 height: MediaQuery.of(context).size.width * .06,
                 text: onPressTitle,
-                style: Styles.textStyle16.copyWith(
+                style: Styles.textStyle16old.copyWith(
                   color: kFFC436Color,
                   fontWeight: FontWeight.w500,
                 ),
