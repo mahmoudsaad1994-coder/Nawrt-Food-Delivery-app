@@ -75,7 +75,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   validator: (val) {
                     String p =
                         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-                    RegExp regExp = new RegExp(p);
+                    RegExp regExp = RegExp(p);
                     if (val!.isEmpty) {
                       return 'نسيت تدخل ايميلك';
                     } else if (regExp.hasMatch(val)) {

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../../../../../../../constants.dart';
 import '../../../../../../../../core/utils/app_router.dart';
@@ -121,17 +122,22 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                         'إعادة إرسال كود التفعيل',
                         style: Styles.textStyle14(context,
                             color: kFFC436Color, fontWeight: FontWeight.w300),
-                      ),
+                      ).animate().fadeIn(),
                     ),
                   SizedBox(height: constrain.maxHeight * .05),
                   SizedBox(
                     width: double.infinity,
                     height: constrain.maxHeight * .15,
                     child: CustomButton(
-                      child: Text(
-                        'متابعة',
-                        style: Styles.textStyle16(context),
-                      ),
+                      child: cubit.isLoading
+                          ? const Center(
+                              child: CircularProgressIndicator(
+                                  color: Colors.white),
+                            )
+                          : Text(
+                              'متابعة',
+                              style: Styles.textStyle16(context),
+                            ),
                       onPressed: () {
                         cubit.verify(
                             verfyParams: VerifyParams(

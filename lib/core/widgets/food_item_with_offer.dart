@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import '../utils/responsive.dart';
 import '../utils/styles.dart';
 import 'respnsive_text.dart';
 

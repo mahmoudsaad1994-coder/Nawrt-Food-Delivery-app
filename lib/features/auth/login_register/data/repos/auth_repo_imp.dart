@@ -31,7 +31,6 @@ class AuthRepoImp extends AuthRepo {
       final data = await authRemoteDataSource.register(registerParams);
       return right(data);
     } catch (e) {
-      print('e : $e');
       if (e is DioException) {
         return left(ServerFailure.fromDiorError(e));
       }
@@ -45,7 +44,6 @@ class AuthRepoImp extends AuthRepo {
       final data = await authRemoteDataSource.reSendOtp(email);
       return right(data);
     } catch (e) {
-      print('e : $e');
       if (e is DioException) {
         return left(ServerFailure.fromDiorError(e));
       }
@@ -59,7 +57,6 @@ class AuthRepoImp extends AuthRepo {
       final data = await authRemoteDataSource.verify(verifyParams);
       return right(data);
     } catch (e) {
-      print('e : $e');
       if (e is DioException) {
         return left(ServerFailure.fromDiorError(e));
       }

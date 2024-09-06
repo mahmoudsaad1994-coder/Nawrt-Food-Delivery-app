@@ -26,16 +26,11 @@ class CustomSearchBar extends StatelessWidget {
           hintStyle: WidgetStatePropertyAll(TextStyle(
             fontSize: size * .04,
           )),
-          onChanged: (value) {
-            print(value);
-          },
-          onSubmitted: (searchText) {
-            print('222object');
-          },
+          onChanged: (value) {},
+          onSubmitted: (searchText) {},
           onTap: () {
             if (isHome) {
               //go to search screen
-              print('objectddddddd');
             }
           },
           leading: Icon(

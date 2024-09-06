@@ -36,6 +36,9 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
     var size = MediaQuery.of(context).size;
     return BlocConsumer<AuthCubit, AuthStates>(listener: (context, state) {
       if (state is SucsessAuthStates) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          buildErrorWidget(state.data.logiMessage!),
+        );
         GoRouter.of(context).pushReplacement(AppRouter.kLayoutView);
       }
       if (state is ErrorAuthStates) {
