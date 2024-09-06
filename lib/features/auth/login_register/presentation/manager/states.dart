@@ -4,7 +4,7 @@ abstract class AuthStates {}
 
 class InitialAuthStates extends AuthStates {}
 
-class TogglePasswordStates extends AuthStates {}
+class ToggleStates extends AuthStates {}
 
 class LoadingAuthStates extends AuthStates {}
 

@@ -44,7 +44,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDataSource {
       UrlApiList.reSendOtp,
       data: {'email': email},
     );
-    AuthEntity newData = LoginModel.fromJson(data);
+    AuthEntity newData = RegisterModel.fromJson(data);
     return newData;
   }
 
@@ -54,7 +54,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDataSource {
       UrlApiList.verify,
       data: verifyParams.toJson(),
     );
-    AuthEntity newData = LoginModel.fromJson(data);
+    AuthEntity newData = RegisterModel.fromJson(data);
     return newData;
   }
 }

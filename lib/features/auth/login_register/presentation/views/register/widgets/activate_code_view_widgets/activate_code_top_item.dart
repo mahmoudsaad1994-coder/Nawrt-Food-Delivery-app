@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../../../constants.dart';
@@ -6,6 +7,7 @@ import '../../../../../../../../core/utils/app_router.dart';
 import '../../../../../../../../core/utils/assets.dart';
 import '../../../../../../../../core/utils/styles.dart';
 import '../../../../../../../../core/widgets/background_image.dart';
+import '../../../../manager/cubit.dart';
 
 class ActivateCodeTopItem extends StatelessWidget {
   const ActivateCodeTopItem({super.key});
@@ -51,7 +53,7 @@ class ActivateCodeTopItem extends StatelessWidget {
                           children: [
                             Flexible(
                               child: Text(
-                                'mah00s0smodsaad22@gmai.com',
+                                BlocProvider.of<AuthCubit>(context).email,
                                 style: Styles.textStyle14(context),
                                 overflow: TextOverflow.ellipsis,
                               ),

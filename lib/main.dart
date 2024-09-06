@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:nawrt/features/auth/login_register/domain/use_cases/re_send_otp_usecase.dart';
+import 'package:nawrt/features/auth/login_register/domain/use_cases/verify_usecase.dart';
 
 import 'constants.dart';
 import 'core/utils/app_router.dart';
@@ -39,12 +41,19 @@ class Nawrt extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthCubit(
-              loginUseCase: LoginUseCase(
-                getIt.get<AuthRepoImp>(),
-              ),
-              registerUseCase: RegisterUseCase(
-                getIt.get<AuthRepoImp>(),
-              )),
+            loginUseCase: LoginUseCase(
+              getIt.get<AuthRepoImp>(),
+            ),
+            registerUseCase: RegisterUseCase(
+              getIt.get<AuthRepoImp>(),
+            ),
+            reSendOtpUsecase: ReSendOtpUsecase(
+              getIt.get<AuthRepoImp>(),
+            ),
+            verifyUsecase: VerifyUsecase(
+              getIt.get<AuthRepoImp>(),
+            ),
+          ),
         )
       ],
       child: MaterialApp.router(

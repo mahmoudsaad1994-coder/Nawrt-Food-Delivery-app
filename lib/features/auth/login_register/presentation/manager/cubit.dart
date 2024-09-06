@@ -23,13 +23,13 @@ class AuthCubit extends Cubit<AuthStates> {
   bool isHidden = true;
   togglePassowrd() {
     isHidden = !isHidden;
-    emit(TogglePasswordStates());
+    emit(ToggleStates());
   }
 
   bool isHiddenConfirm = true;
   toggleConfirmPassowrd() {
     isHiddenConfirm = !isHiddenConfirm;
-    emit(TogglePasswordStates());
+    emit(ToggleStates());
   }
 
   bool isLoading = false;
@@ -84,6 +84,12 @@ class AuthCubit extends Cubit<AuthStates> {
   }
 
   //re-send otp
+  bool reSendCode = false;
+  toggleReSendCode() {
+    reSendCode = !reSendCode;
+    emit(ToggleStates());
+  }
+
   final ReSendOtpUsecase? reSendOtpUsecase;
   Future<void> reSendOtp({required String email}) async {
     emit(LoadingAuthStates());
@@ -100,7 +106,6 @@ class AuthCubit extends Cubit<AuthStates> {
           }
         },
         (data) {
-          isLoading = false;
           emit(SucsessAuthStates(data: data));
         },
       );
@@ -112,11 +117,11 @@ class AuthCubit extends Cubit<AuthStates> {
 
   //verify
   final VerifyUsecase? verifyUsecase;
-  Future<void> verify({required VerifyParams params}) async {
+  Future<void> verify({required VerifyParams verfyParams}) async {
     isLoading = true;
     emit(LoadingAuthStates());
     try {
-      final result = await verifyUsecase!.call(params);
+      final result = await verifyUsecase!.call(verfyParams);
 
       result.fold(
         (failure) {
@@ -139,13 +144,14 @@ class AuthCubit extends Cubit<AuthStates> {
     }
   }
 
-  //activate code
+  //email
   String email = '';
   getEmail(String mail) {
     email = mail;
     emit(GetEmailStates());
   }
 
+  //timer counter
   int totalTimeInSeconds = 3 * 60;
   changeTimeCounter() {
     totalTimeInSeconds--;

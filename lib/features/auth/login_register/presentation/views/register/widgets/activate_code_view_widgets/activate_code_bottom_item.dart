@@ -2,10 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../../../../constants.dart';
+import '../../../../../../../../core/utils/app_router.dart';
+import '../../../../../../../../core/utils/build_error_widget.dart';
 import '../../../../../../../../core/utils/styles.dart';
 import '../../../../../../../../core/widgets/custom_button.dart';
+import '../../../../../domain/repos/auth_repo.dart';
 import '../../../../manager/cubit.dart';
 import '../../../../manager/states.dart';
 import 'test_field_widget.dart';
@@ -22,8 +26,6 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
       List.generate(6, (_) => TextEditingController());
   final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
 
-  String combinedCode = '';
-
   Timer? timer;
 
   @override
@@ -39,7 +41,21 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: constrain.maxWidth * .1),
           child: BlocConsumer<AuthCubit, AuthStates>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              if (state is SucsessAuthStates) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  buildErrorWidget(state.data.logiMessage.toString()),
+                );
+                GoRouter.of(context).pushReplacement(AppRouter.kLayoutView);
+              }
+              if (state is ErrorAuthStates) {
+                if (state.error != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    buildErrorWidget(state.error.toString()),
+                  );
+                }
+              }
+            },
             builder: (context, state) {
               var cubit = AuthCubit.get(context);
               return Column(
@@ -94,14 +110,19 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                       ),
                     ],
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'إعادة إرسال كود التفعيل',
-                      style: Styles.textStyle14(context,
-                          color: kFFC436Color, fontWeight: FontWeight.w300),
+                  if (cubit.reSendCode)
+                    TextButton(
+                      onPressed: () {
+                        cubit.toggleReSendCode();
+                        cubit.reSendOtpUsecase!(cubit.email);
+                        startTimer();
+                      },
+                      child: Text(
+                        'إعادة إرسال كود التفعيل',
+                        style: Styles.textStyle14(context,
+                            color: kFFC436Color, fontWeight: FontWeight.w300),
+                      ),
                     ),
-                  ),
                   SizedBox(height: constrain.maxHeight * .05),
                   SizedBox(
                     width: double.infinity,
@@ -111,7 +132,13 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                         'متابعة',
                         style: Styles.textStyle16(context),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        cubit.verify(
+                            verfyParams: VerifyParams(
+                          email: cubit.email,
+                          code: collectText(),
+                        ));
+                      },
                     ),
                   ),
                 ],
@@ -167,8 +194,18 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
       if (BlocProvider.of<AuthCubit>(context).totalTimeInSeconds > 0) {
         BlocProvider.of<AuthCubit>(context).changeTimeCounter();
       } else {
+        BlocProvider.of<AuthCubit>(context).toggleReSendCode();
         timer?.cancel();
+        BlocProvider.of<AuthCubit>(context).totalTimeInSeconds = 3 * 60;
       }
     });
+  }
+
+  String collectText() {
+    String collectedText = '';
+    for (var controller in _controllers) {
+      collectedText += controller.text;
+    }
+    return collectedText;
   }
 }

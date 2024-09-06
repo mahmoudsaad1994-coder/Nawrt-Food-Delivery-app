@@ -5,6 +5,7 @@ import '../../features/auth/login_register/presentation/views/login/login_view.d
 import '../../features/auth/login_register/presentation/views/register/activate_code_view.dart';
 import '../../features/auth/login_register/presentation/views/register/register_view.dart';
 import '../../features/auth/registration_page/presentation/view/registration_page_body_view.dart';
+import '../../features/auth/splash/view/splash_view.dart';
 import '../../features/layout/views/layout_view.dart';
 import '../../features/search/views/search_view.dart';
 
@@ -21,7 +22,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const ActivateCode(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
         path: kRegistrationPage,
