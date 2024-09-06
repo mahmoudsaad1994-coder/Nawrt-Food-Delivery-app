@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/error/failure.dart';
@@ -11,20 +13,21 @@ class AuthCubit extends Cubit<AuthStates> {
       : super(InitialAuthStates());
   static AuthCubit get(context) => BlocProvider.of(context);
 
+  //toggle passowrd
   bool isHidden = true;
-  bool isHiddenConfirm = true;
-
   togglePassowrd() {
     isHidden = !isHidden;
     emit(TogglePasswordStates());
   }
 
+  bool isHiddenConfirm = true;
   toggleConfirmPassowrd() {
     isHiddenConfirm = !isHiddenConfirm;
     emit(TogglePasswordStates());
   }
 
   bool isLoading = false;
+  //logim
   final LoginUseCase? loginUseCase;
   Future<void> login({required LoginParams params}) async {
     isLoading = true;
@@ -45,6 +48,7 @@ class AuthCubit extends Cubit<AuthStates> {
     );
   }
 
+  //register
   final RegisterUseCase? registerUseCase;
   Future<void> register({required RegisterParams params}) async {
     isLoading = true;
@@ -73,9 +77,16 @@ class AuthCubit extends Cubit<AuthStates> {
     }
   }
 
+  //activate code
   String email = '';
   getEmail(String mail) {
     email = mail;
     emit(GetEmailStates());
+  }
+
+  int totalTimeInSeconds = 3 * 60;
+  changeTimeCounter() {
+    totalTimeInSeconds--;
+    emit(ChangeTimeStates());
   }
 }

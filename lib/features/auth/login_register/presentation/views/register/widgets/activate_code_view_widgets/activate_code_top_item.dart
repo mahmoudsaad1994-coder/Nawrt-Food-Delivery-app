@@ -24,14 +24,14 @@ class ActivateCodeTopItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: Alignment.topRight,
+                  alignment: AlignmentDirectional.topStart,
                   child: Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: constrains.maxWidth * .1,
                       vertical: constrains.maxHeight * .05,
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'كود التفعيل',
@@ -46,9 +46,17 @@ class ActivateCodeTopItem extends StatelessWidget {
                           ),
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
+                            Flexible(
+                              child: Text(
+                                'mah00s0smodsaad22@gmai.com',
+                                style: Styles.textStyle14(context),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            SizedBox(width: constrains.maxWidth * .02),
                             TextButton(
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
@@ -63,14 +71,6 @@ class ActivateCodeTopItem extends StatelessWidget {
                                   context,
                                   color: kFFC436Color,
                                 ),
-                              ),
-                            ),
-                            SizedBox(width: constrains.maxWidth * .02),
-                            Flexible(
-                              child: Text(
-                                'mah00s0smodsaad22@gmai.com',
-                                style: Styles.textStyle14(context),
-                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
