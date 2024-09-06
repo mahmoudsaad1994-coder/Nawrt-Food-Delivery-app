@@ -5,12 +5,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/error/failure.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../../domain/use_cases/login_usecase.dart';
+import '../../domain/use_cases/re_send_otp_usecase.dart';
 import '../../domain/use_cases/register_usecase.dart';
+import '../../domain/use_cases/verify_usecase.dart';
 import 'states.dart';
 
 class AuthCubit extends Cubit<AuthStates> {
-  AuthCubit({this.registerUseCase, this.loginUseCase})
-      : super(InitialAuthStates());
+  AuthCubit({
+    this.registerUseCase,
+    this.loginUseCase,
+    this.reSendOtpUsecase,
+    this.verifyUsecase,
+  }) : super(InitialAuthStates());
   static AuthCubit get(context) => BlocProvider.of(context);
 
   //toggle passowrd
@@ -55,6 +61,62 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(LoadingAuthStates());
     try {
       final result = await registerUseCase!.call(params);
+
+      result.fold(
+        (failure) {
+          if (failure is ServerFailure) {
+            isLoading = false;
+            if (failure.messageMapFailure == null) {
+              emit(ErrorAuthStates(error: failure.message));
+            }
+            emit(ErrorAuthStates(messageMap: failure.messageMapFailure));
+          }
+        },
+        (data) {
+          isLoading = false;
+          emit(SucsessAuthStates(data: data));
+        },
+      );
+    } catch (e) {
+      isLoading = false;
+      emit(ErrorAuthStates(error: e.toString()));
+    }
+  }
+
+  //re-send otp
+  final ReSendOtpUsecase? reSendOtpUsecase;
+  Future<void> reSendOtp({required String email}) async {
+    emit(LoadingAuthStates());
+    try {
+      final result = await reSendOtpUsecase!.call(email);
+
+      result.fold(
+        (failure) {
+          if (failure is ServerFailure) {
+            if (failure.messageMapFailure == null) {
+              emit(ErrorAuthStates(error: failure.message));
+            }
+            emit(ErrorAuthStates(messageMap: failure.messageMapFailure));
+          }
+        },
+        (data) {
+          isLoading = false;
+          emit(SucsessAuthStates(data: data));
+        },
+      );
+    } catch (e) {
+      isLoading = false;
+      emit(ErrorAuthStates(error: e.toString()));
+    }
+  }
+
+  //verify
+  final VerifyUsecase? verifyUsecase;
+  Future<void> verify({required VerifyParams params}) async {
+    isLoading = true;
+    emit(LoadingAuthStates());
+    try {
+      final result = await verifyUsecase!.call(params);
 
       result.fold(
         (failure) {

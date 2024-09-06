@@ -38,4 +38,32 @@ class AuthRepoImp extends AuthRepo {
       return left(ServerFailure(messageFailure: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, AuthEntity>> reSendOtp(String email) async {
+    try {
+      final data = await authRemoteDataSource.reSendOtp(email);
+      return right(data);
+    } catch (e) {
+      print('e : $e');
+      if (e is DioException) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(ServerFailure(messageFailure: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, AuthEntity>> verify(VerifyParams verifyParams) async {
+    try {
+      final data = await authRemoteDataSource.verify(verifyParams);
+      return right(data);
+    } catch (e) {
+      print('e : $e');
+      if (e is DioException) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(ServerFailure(messageFailure: e.toString()));
+    }
+  }
 }

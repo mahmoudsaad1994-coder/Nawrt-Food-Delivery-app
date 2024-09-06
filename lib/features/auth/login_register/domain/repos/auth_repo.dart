@@ -6,6 +6,26 @@ import '../entities/login_entity.dart';
 abstract class AuthRepo {
   Future<Either<Failure, AuthEntity>> login(LoginParams loginParams);
   Future<Either<Failure, AuthEntity>> register(RegisterParams registerParams);
+  Future<Either<Failure, AuthEntity>> verify(VerifyParams verifyParams);
+  Future<Either<Failure, AuthEntity>> reSendOtp(String email);
+}
+
+class VerifyParams {
+  final String email, code;
+  VerifyParams({
+    required this.email,
+    required this.code,
+  });
+
+  factory VerifyParams.fromJson(Map<String, dynamic> json) => VerifyParams(
+        email: json['email'] as String,
+        code: json['code'] as String,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'email': email,
+        'code': code,
+      };
 }
 
 class LoginParams {
