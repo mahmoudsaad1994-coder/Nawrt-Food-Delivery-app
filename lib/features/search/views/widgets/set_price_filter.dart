@@ -21,21 +21,18 @@ class SetPriceFilter extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .025),
-          child: Directionality(
-            textDirection: TextDirection.rtl,
-            child: RangeSlider(
-              values: RangeValues(cubit.startPrice, cubit.endPrice),
-              onChanged: (rangeValues) {
-                cubit.changeRangePrice(rangeValues: rangeValues);
-              },
-              min: 0,
-              max: 700,
-              divisions: 70,
-              labels: RangeLabels(
-                  cubit.startPrice.toString(), cubit.endPrice.toString()),
-              inactiveColor: k0xfff4f3f1Color, // اللي مش مقروء
-              activeColor: kFFC436Color, // المقروء
-            ),
+          child: RangeSlider(
+            values: RangeValues(cubit.startPrice, cubit.endPrice),
+            onChanged: (rangeValues) {
+              cubit.changeRangePrice(rangeValues: rangeValues);
+            },
+            min: 0,
+            max: 700,
+            divisions: 70,
+            labels: RangeLabels(
+                cubit.startPrice.toString(), cubit.endPrice.toString()),
+            inactiveColor: k0xfff4f3f1Color, // اللي مش مقروء
+            activeColor: kFFC436Color, // المقروء
           ),
         ),
         Padding(

@@ -33,6 +33,73 @@ class TodayDishItem extends StatelessWidget {
             return Row(
               children: [
                 Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: constrain.maxWidth * .05,
+                      vertical: constrain.maxHeight * .07,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ResponsiveText(
+                          height: constrain.maxWidth * .06,
+                          text: 'طبق اليوم',
+                          style: Styles.textStyle14(
+                            context,
+                            fontWeight: FontWeight.w400,
+                            color: k96908AColor,
+                          ),
+                        ),
+                        SizedBox(height: constrain.maxHeight * .01),
+                        ResponsiveText(
+                          height: constrain.maxWidth * .08,
+                          text: title,
+                          style: Styles.textStyle16old.copyWith(
+                            color: Colors.white,
+                          ),
+                        ),
+                        const Spacer(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ResponsiveText(
+                              height: constrain.maxWidth * .08,
+                              text: '$price',
+                              style: Styles.textStyleMulish18.copyWith(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            SizedBox(width: constrain.maxWidth * .01),
+                            ResponsiveText(
+                              height: constrain.maxWidth * .04,
+                              text: 'جنية',
+                              style: Styles.textStyleMulish18.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        SizedBox(
+                          width: constrain.maxWidth * .35,
+                          height: constrain.maxHeight * .25,
+                          child: CustomButton(
+                            onPressed: () {},
+                            child: ResponsiveText(
+                              height: constrain.maxWidth * .08,
+                              text: 'اطلب الآن',
+                              style: Styles.textStyle16old,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -55,73 +122,6 @@ class TodayDishItem extends StatelessWidget {
                             : constrain.maxWidth * .14,
                       ),
                     ],
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: constrain.maxWidth * .05,
-                      vertical: constrain.maxHeight * .07,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        ResponsiveText(
-                          height: constrain.maxWidth * .06,
-                          text: 'طبق اليوم',
-                          style: Styles.textStyle14(
-                            context,
-                            fontWeight: FontWeight.w400,
-                            color: k96908AColor,
-                          ),
-                        ),
-                        SizedBox(height: constrain.maxHeight * .01),
-                        ResponsiveText(
-                          height: constrain.maxWidth * .08,
-                          text: title,
-                          style: Styles.textStyle16old.copyWith(
-                            color: Colors.white,
-                          ),
-                        ),
-                        const Spacer(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ResponsiveText(
-                              height: constrain.maxWidth * .04,
-                              text: 'جنية',
-                              style: Styles.textStyleMulish18.copyWith(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            SizedBox(width: constrain.maxWidth * .01),
-                            ResponsiveText(
-                              height: constrain.maxWidth * .08,
-                              text: '$price',
-                              style: Styles.textStyleMulish18.copyWith(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                        SizedBox(
-                          width: constrain.maxWidth * .35,
-                          height: constrain.maxHeight * .25,
-                          child: CustomButton(
-                            onPressed: () {},
-                            child: ResponsiveText(
-                              height: constrain.maxWidth * .08,
-                              text: 'اطلب الآن',
-                              style: Styles.textStyle16old,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                 ),
               ],

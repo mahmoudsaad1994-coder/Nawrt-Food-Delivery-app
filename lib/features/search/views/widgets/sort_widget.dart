@@ -11,31 +11,28 @@ class SortWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Card(
-        shape: const ContinuousRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(100))),
-        child: ExpansionTile(
-          dense: true,
-          childrenPadding: EdgeInsets.all(width * .01),
-          tilePadding: EdgeInsets.symmetric(
-            horizontal: width * .05,
-            vertical: width * .01,
-          ),
-          collapsedShape: const ContinuousRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(100))),
-          shape: const ContinuousRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20))),
-          title: Text(
-            title,
-            style: Styles.textStyle16old.copyWith(
-              color: kBlackColor,
-              fontSize: width * .04,
-            ),
-          ),
-          children: childern,
+    return Card(
+      shape: const ContinuousRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(100))),
+      child: ExpansionTile(
+        dense: true,
+        childrenPadding: EdgeInsets.all(width * .01),
+        tilePadding: EdgeInsets.symmetric(
+          horizontal: width * .05,
+          vertical: width * .01,
         ),
+        collapsedShape: const ContinuousRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(100))),
+        shape: const ContinuousRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        title: Text(
+          title,
+          style: Styles.textStyle16old.copyWith(
+            color: kBlackColor,
+            fontSize: width * .04,
+          ),
+        ),
+        children: childern,
       ),
     );
   }

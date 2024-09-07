@@ -43,7 +43,6 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
         SmoothPageIndicator(
           controller: controller,
           axisDirection: Axis.horizontal,
-          textDirection: TextDirection.rtl,
           count: 5,
           effect: ExpandingDotsEffect(
             dotHeight: MediaQuery.of(context).size.width * .02,

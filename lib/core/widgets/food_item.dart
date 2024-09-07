@@ -23,7 +23,7 @@ class FooditemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constrain) {
       return Stack(
-        alignment: Alignment.topCenter,
+        alignment: AlignmentDirectional.topCenter,
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(top: constrain.maxHeight * .22),
@@ -38,16 +38,9 @@ class FooditemWidget extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.favorite_outline,
-                            size: constrain.maxWidth * .17,
-                          ),
-                        ),
                         Expanded(
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ResponsiveText(
                                 height: constrain.maxHeight * .11,
@@ -68,7 +61,14 @@ class FooditemWidget extends StatelessWidget {
                               ),
                             ],
                           ),
-                        )
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.favorite_outline,
+                            size: constrain.maxWidth * .17,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -76,6 +76,24 @@ class FooditemWidget extends StatelessWidget {
                     padding: EdgeInsets.only(right: constrain.maxWidth * .06),
                     child: Row(
                       children: [
+                        Row(
+                          children: [
+                            ResponsiveText(
+                              height: constrain.maxHeight * .13,
+                              text: 'جنية',
+                              style: Styles.textStyle18
+                                  .copyWith(color: Colors.black),
+                            ),
+                            const SizedBox(width: 3),
+                            ResponsiveText(
+                              height: constrain.maxHeight * .16,
+                              text: '$price',
+                              style: Styles.textStyle18
+                                  .copyWith(color: Colors.black),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
                         SizedBox(
                           width: constrain.maxHeight * .2,
                           height: constrain.maxHeight * .2,
@@ -106,24 +124,6 @@ class FooditemWidget extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Spacer(),
-                        Row(
-                          children: [
-                            ResponsiveText(
-                              height: constrain.maxHeight * .13,
-                              text: 'جنية',
-                              style: Styles.textStyle18
-                                  .copyWith(color: Colors.black),
-                            ),
-                            const SizedBox(width: 3),
-                            ResponsiveText(
-                              height: constrain.maxHeight * .16,
-                              text: '$price',
-                              style: Styles.textStyle18
-                                  .copyWith(color: Colors.black),
-                            ),
-                          ],
-                        )
                       ],
                     ),
                   )

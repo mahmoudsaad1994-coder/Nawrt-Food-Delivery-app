@@ -17,23 +17,15 @@ class HomeViewAppBar extends StatelessWidget {
       child: LayoutBuilder(builder: (context, constrain) {
         return Row(
           children: [
-            IconButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                padding: WidgetStateProperty.all(EdgeInsets.zero),
-              ),
-              icon: Icon(
-                Icons.notifications,
-                applyTextScaling: true,
-                color: Colors.blue,
-                size: constrain.maxWidth * .08,
-              ),
-            ),
-            const Spacer(),
             Row(
               children: [
+                CircleAvatar(
+                  backgroundColor: const Color(0xffD9D9D9),
+                  radius: constrain.maxWidth * .06,
+                ),
+                SizedBox(width: constrain.maxWidth * .02),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
@@ -53,19 +45,12 @@ class HomeViewAppBar extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: constrain.maxWidth * .01),
                     Row(
                       children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: ResponsiveText(
-                            height: constrain.maxWidth * .05,
-                            text: 'تغيير العنوان',
-                            style: Styles.textStyle14(
-                              context,
-                              color: kFFC436Color,
-                            ),
-                          ),
+                        Icon(
+                          Icons.location_on_outlined,
+                          size: constrain.maxWidth * .05,
                         ),
                         const SizedBox(width: 5),
                         ResponsiveText(
@@ -77,21 +62,36 @@ class HomeViewAppBar extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 5),
-                        Icon(
-                          Icons.location_on_outlined,
-                          size: constrain.maxWidth * .05,
+                        GestureDetector(
+                          onTap: () {},
+                          child: ResponsiveText(
+                            height: constrain.maxWidth * .05,
+                            text: 'تغيير العنوان',
+                            style: Styles.textStyle14(
+                              context,
+                              color: kFFC436Color,
+                            ),
+                          ),
                         ),
                       ],
                     )
                   ],
                 ),
-                SizedBox(width: constrain.maxWidth * .02),
-                CircleAvatar(
-                  backgroundColor: const Color(0xffD9D9D9),
-                  radius: constrain.maxWidth * .06,
-                ),
               ],
-            )
+            ),
+            const Spacer(),
+            IconButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                padding: WidgetStateProperty.all(EdgeInsets.zero),
+              ),
+              icon: Icon(
+                Icons.notifications,
+                applyTextScaling: true,
+                color: Colors.blue,
+                size: constrain.maxWidth * .08,
+              ),
+            ),
           ],
         );
       }),

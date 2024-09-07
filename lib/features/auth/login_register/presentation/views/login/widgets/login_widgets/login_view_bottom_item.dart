@@ -133,6 +133,14 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      ResponsiveText(
+                        height: constrain.maxWidth * .06,
+                        text: ' لديك حساب بالفعل؟ ',
+                        style: Styles.textStyle16old.copyWith(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                       TextButton(
                         style: ButtonStyle(
                           padding: WidgetStateProperty.all(EdgeInsets.zero),
@@ -147,14 +155,6 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
                             color: kFFC436Color,
                             fontWeight: FontWeight.w400,
                           ),
-                        ),
-                      ),
-                      ResponsiveText(
-                        height: constrain.maxWidth * .06,
-                        text: ' لديك حساب بالفعل؟ ',
-                        style: Styles.textStyle16old.copyWith(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],

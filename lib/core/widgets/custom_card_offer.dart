@@ -46,13 +46,14 @@ class CustomCardOffer extends StatelessWidget {
             ),
           ),
           child: Stack(
+            alignment: AlignmentDirectional.centerEnd,
             children: [
               Image.asset(
                 image,
                 fit: BoxFit.fill,
               ),
               Container(
-                alignment: Alignment.topRight,
+                alignment: AlignmentDirectional.topStart,
                 width: double.infinity,
                 height: double.infinity,
                 padding: EdgeInsets.only(
@@ -61,7 +62,7 @@ class CustomCardOffer extends StatelessWidget {
                   bottom: constrain.maxHeight * .05,
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ResponsiveText(
                       height: constrain.maxHeight * .12,

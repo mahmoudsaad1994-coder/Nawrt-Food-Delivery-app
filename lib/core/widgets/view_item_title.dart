@@ -23,6 +23,12 @@ class ViewItemTitle extends StatelessWidget {
           horizontal: MediaQuery.of(context).size.width * .06),
       child: Row(
         children: [
+          ResponsiveText(
+            height: MediaQuery.of(context).size.width * .06,
+            text: title,
+            style: Styles.textStyle18.copyWith(color: Colors.black),
+          ),
+          const Spacer(),
           if (!isButtonHidden)
             TextButton(
               onPressed: onPressed,
@@ -35,12 +41,6 @@ class ViewItemTitle extends StatelessWidget {
                 ),
               ),
             ),
-          const Spacer(),
-          ResponsiveText(
-            height: MediaQuery.of(context).size.width * .06,
-            text: title,
-            style: Styles.textStyle18.copyWith(color: Colors.black),
-          )
         ],
       ),
     );

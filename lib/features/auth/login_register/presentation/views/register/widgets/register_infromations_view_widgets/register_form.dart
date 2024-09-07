@@ -185,6 +185,14 @@ class _RegisterFormState extends State<RegisterForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(
+                    ' لديك حساب بالفعل؟ ',
+                    style: Styles.textStyle16old.copyWith(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400,
+                      fontSize: widget.constrain.maxWidth * .04,
+                    ),
+                  ),
                   TextButton(
                     style: ButtonStyle(
                       padding: WidgetStateProperty.all(EdgeInsets.zero),
@@ -199,14 +207,6 @@ class _RegisterFormState extends State<RegisterForm> {
                         fontWeight: FontWeight.w400,
                         fontSize: widget.constrain.maxWidth * .04,
                       ),
-                    ),
-                  ),
-                  Text(
-                    ' لديك حساب بالفعل؟ ',
-                    style: Styles.textStyle16old.copyWith(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: widget.constrain.maxWidth * .04,
                     ),
                   ),
                 ],

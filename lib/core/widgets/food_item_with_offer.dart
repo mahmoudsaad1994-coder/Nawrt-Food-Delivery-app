@@ -30,7 +30,7 @@ class FoodItemWithOffer extends StatelessWidget {
       return Card(
         elevation: 10,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
@@ -44,7 +44,7 @@ class FoodItemWithOffer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Stack(
-                alignment: Alignment.topLeft,
+                alignment: AlignmentDirectional.topEnd,
                 children: [
                   SizedBox(
                     width: double.infinity,
@@ -81,7 +81,7 @@ class FoodItemWithOffer extends StatelessWidget {
               padding:
                   EdgeInsets.symmetric(horizontal: constraints.maxWidth * .052),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ResponsiveText(
                     height: constraints.maxHeight * .14,
@@ -97,18 +97,45 @@ class FoodItemWithOffer extends StatelessWidget {
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    textDirection: TextDirection.rtl,
                   ),
                 ],
               ),
             ),
             const Spacer(),
             Padding(
-              padding: EdgeInsets.only(right: constraints.maxWidth * .052),
+              padding: EdgeInsetsDirectional.only(
+                  start: constraints.maxWidth * .052),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      ResponsiveText(
+                        height: constraints.maxHeight * .15,
+                        text: '$priceAfterOffer',
+                        style: Styles.textStyle18.copyWith(color: Colors.black),
+                      ),
+                      ResponsiveText(
+                        height: constraints.maxHeight * .15,
+                        text: 'جنيه',
+                        style: Styles.textStyle18.copyWith(color: Colors.black),
+                      ),
+                      SizedBox(width: constraints.maxWidth * .02),
+                      ResponsiveText(
+                        height: constraints.maxHeight * .12,
+                        text: '$price',
+                        style: Styles.textStyle13,
+                      ),
+                      ResponsiveText(
+                        height: constraints.maxHeight * .12,
+                        text: 'جنيه',
+                        style: Styles.textStyle13,
+                      ),
+                    ],
+                  ),
+                  Spacer(),
                   SizedBox(
                     width: constraints.maxWidth * .221,
                     height: constraints.maxHeight * .221,
@@ -137,46 +164,6 @@ class FoodItemWithOffer extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          ResponsiveText(
-                            height: constraints.maxHeight * .12,
-                            text: 'جنيه',
-                            style: Styles.textStyle13,
-                          ),
-                          ResponsiveText(
-                            height: constraints.maxHeight * .12,
-                            text: '$price',
-                            style: Styles.textStyle13,
-                          ),
-                        ],
-                      ),
-                      SizedBox(width: constraints.maxWidth * .01),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          ResponsiveText(
-                            height: constraints.maxHeight * .15,
-                            text: 'جنيه',
-                            style: Styles.textStyle18
-                                .copyWith(color: Colors.black),
-                          ),
-                          SizedBox(width: constraints.maxWidth * .01),
-                          ResponsiveText(
-                            height: constraints.maxHeight * .15,
-                            text: '$priceAfterOffer',
-                            style: Styles.textStyle18
-                                .copyWith(color: Colors.black),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )
                 ],
               ),
             )

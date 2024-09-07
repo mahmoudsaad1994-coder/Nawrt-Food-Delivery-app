@@ -19,25 +19,22 @@ class LayoutView extends StatelessWidget {
         builder: (context, state) {
           var cubit = LayoutCubit.get(context);
           return Scaffold(
-            bottomNavigationBar: Directionality(
-              textDirection: TextDirection.rtl,
-              child: CustomLineIndicatorBottomNavbar(
-                selectedColor: kPrimaryColor,
-                unSelectedColor: k96908AColor,
-                backgroundColor: Colors.white,
-                unselectedIconSize: width * .06,
-                selectedIconSize: width * .07,
-                selectedFontSize: width * .035,
-                unselectedFontSize: width * .032,
-                enableLineIndicator: true,
-                lineIndicatorWidth: 3,
-                indicatorType: IndicatorType.top,
-                currentIndex: cubit.currentIndex,
-                onTap: (index) {
-                  cubit.changeBottomNaviIndex(index);
-                },
-                customBottomBarItems: cubit.bottomTabs,
-              ),
+            bottomNavigationBar: CustomLineIndicatorBottomNavbar(
+              selectedColor: kPrimaryColor,
+              unSelectedColor: k96908AColor,
+              backgroundColor: Colors.white,
+              unselectedIconSize: width * .06,
+              selectedIconSize: width * .07,
+              selectedFontSize: width * .035,
+              unselectedFontSize: width * .032,
+              enableLineIndicator: true,
+              lineIndicatorWidth: 3,
+              indicatorType: IndicatorType.top,
+              currentIndex: cubit.currentIndex,
+              onTap: (index) {
+                cubit.changeBottomNaviIndex(index);
+              },
+              customBottomBarItems: cubit.bottomTabs,
             ),
             body: cubit.screens[cubit.currentIndex],
           );
