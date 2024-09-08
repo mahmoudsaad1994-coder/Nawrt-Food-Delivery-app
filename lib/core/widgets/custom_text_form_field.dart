@@ -34,18 +34,19 @@ class CustomTextFormField extends StatelessWidget {
       style: TextStyle(
         fontSize: Responsive.isMobile(context) ? 16 : 30,
       ),
+      showCursor: false,
       decoration: InputDecoration(
-        fillColor: color ?? const Color(0xffEAE7E3).withOpacity(.5),
-        errorStyle: TextStyle(
-          backgroundColor: color ?? const Color(0xffEAE7E3).withOpacity(.5),
-          fontSize: Responsive.isMobile(context) ? 16 : 25,
-        ),
         filled: true,
+        isDense: true,
+        fillColor: color ?? const Color(0xffEAE7E3).withOpacity(.5),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(25.0),
         ),
-        isDense: true,
+        errorStyle: TextStyle(
+          backgroundColor: color ?? const Color(0xffEAE7E3).withOpacity(.5),
+          fontSize: Responsive.isMobile(context) ? 14 : 25,
+        ),
         hintStyle: TextStyle(
           fontSize: Responsive.isMobile(context) ? 16 : 30,
         ),

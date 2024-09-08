@@ -135,7 +135,7 @@ class FoodItemWithOffer extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   SizedBox(
                     width: constraints.maxWidth * .221,
                     height: constraints.maxHeight * .221,

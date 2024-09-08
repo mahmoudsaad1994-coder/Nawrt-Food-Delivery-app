@@ -1,11 +1,11 @@
 import 'package:go_router/go_router.dart';
 
-import '../../features/auth/forget_password/views/forget_password_view.dart';
-import '../../features/auth/login_register/presentation/views/login/login_view.dart';
-import '../../features/auth/login_register/presentation/views/register/activate_code_view.dart';
-import '../../features/auth/login_register/presentation/views/register/register_view.dart';
-import '../../features/auth/registration_page/presentation/view/registration_page_body_view.dart';
-import '../../features/auth/splash/view/splash_view.dart';
+import '../../features/auth/presentation/views/forget_password/forget_password_view.dart';
+import '../../features/auth/presentation/views/login/login_view.dart';
+import '../../features/auth/presentation/views/register/activate_code_view.dart';
+import '../../features/auth/presentation/views/register/register_view.dart';
+import '../../features/auth/presentation/views/registration_page/registration_page_body_view.dart';
+import '../../features/splash/view/splash_view.dart';
 import '../../features/layout/views/layout_view.dart';
 import '../../features/search/views/search_view.dart';
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/build_error_widget.dart';
 import '../../../../../core/widgets/custom_search_bar.dart';
 import '../../../../../core/widgets/today_dish_item.dart';
 import 'food_categorys_list_view_item.dart';

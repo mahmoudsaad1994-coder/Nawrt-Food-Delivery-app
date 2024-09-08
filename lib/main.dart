@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:nawrt/features/auth/login_register/domain/use_cases/re_send_otp_usecase.dart';
-import 'package:nawrt/features/auth/login_register/domain/use_cases/verify_usecase.dart';
+import 'package:nawrt/features/auth/domain/use_cases/re_send_otp_usecase.dart';
+import 'package:nawrt/features/auth/domain/use_cases/verify_usecase.dart';
 
 import 'constants.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/bloc_observer.dart';
 import 'core/utils/get_it.dart';
-import 'features/auth/login_register/data/repos/auth_repo_imp.dart';
-import 'features/auth/login_register/domain/entities/login_entity.dart';
-import 'features/auth/login_register/domain/use_cases/login_usecase.dart';
-import 'features/auth/login_register/domain/use_cases/register_usecase.dart';
-import 'features/auth/login_register/presentation/manager/cubit.dart';
+import 'features/auth/data/repos/auth_repo_imp.dart';
+import 'features/auth/domain/entities/login_entity.dart';
+import 'features/auth/domain/use_cases/login_usecase.dart';
+import 'features/auth/domain/use_cases/register_usecase.dart';
+import 'features/auth/presentation/manager/cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
