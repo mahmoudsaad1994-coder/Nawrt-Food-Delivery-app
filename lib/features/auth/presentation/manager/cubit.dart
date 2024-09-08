@@ -157,4 +157,7 @@ class AuthCubit extends Cubit<AuthStates> {
     totalTimeInSeconds--;
     emit(ChangeTimeStates());
   }
+
+  //forget password
+  bool isForgetPassord = false;
 }

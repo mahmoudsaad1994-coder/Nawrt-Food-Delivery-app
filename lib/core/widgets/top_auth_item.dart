@@ -24,7 +24,7 @@ class TopAuthItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: Alignment.topRight,
+                  alignment: AlignmentDirectional.topStart,
                   child: Padding(
                     padding: EdgeInsets.only(
                       bottom: size.height * .08,

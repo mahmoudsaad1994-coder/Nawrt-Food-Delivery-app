@@ -5,7 +5,7 @@ import '../../constants.dart';
 abstract class Styles {
   static textStyle23(context) => TextStyle(
         fontSize: MediaQuery.of(context).size.width * .06,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w900,
       );
   static textStyle14(context,
           {color = kBlackColor, fontWeight = FontWeight.w500}) =>

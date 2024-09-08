@@ -23,3 +23,5 @@ class ErrorAuthStates extends AuthStates {
 class GetEmailStates extends AuthStates {}
 
 class ChangeTimeStates extends AuthStates {}
+
+class ToogleForgetPasswordStates extends AuthStates {}

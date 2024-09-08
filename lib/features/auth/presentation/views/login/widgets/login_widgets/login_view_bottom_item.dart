@@ -135,7 +135,7 @@ class _LoginViewBottomItemState extends State<LoginViewBottomItem> {
                     children: [
                       ResponsiveText(
                         height: constrain.maxWidth * .06,
-                        text: ' لديك حساب بالفعل؟ ',
+                        text: 'ليـس لديك حسـاب؟ ',
                         style: Styles.textStyle16old.copyWith(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,

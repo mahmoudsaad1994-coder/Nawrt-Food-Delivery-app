@@ -1,8 +1,10 @@
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/views/forget_password/forget_password_view.dart';
+import '../../features/auth/presentation/views/forget_password/reset_new_password.view.dart';
+import '../../features/auth/presentation/views/forget_password/reset_new_password_done.dart';
 import '../../features/auth/presentation/views/login/login_view.dart';
-import '../../features/auth/presentation/views/register/activate_code_view.dart';
+import '../../features/auth/presentation/views/widgets/activate_code_view_widgets/activate_code_view.dart';
 import '../../features/auth/presentation/views/register/register_view.dart';
 import '../../features/auth/presentation/views/registration_page/registration_page_body_view.dart';
 import '../../features/splash/view/splash_view.dart';
@@ -17,6 +19,9 @@ abstract class AppRouter {
   static const String kForgetPasswordScreen = '/forgetPasswordScreen';
   static const String kSearchView = '/SearchView';
   static const String kLayoutView = '/layoutView';
+  static const String kResetNewPasswordScreen = '/resetNewPasswordScreen';
+  static const String kResetNewPasswordDoneScreen =
+      '/resetNewPasswordDoneScreen';
 
   static final router = GoRouter(
     routes: [
@@ -43,6 +48,14 @@ abstract class AppRouter {
       GoRoute(
         path: kForgetPasswordScreen,
         builder: (context, state) => const ForgetPasswordScreen(),
+      ),
+      GoRoute(
+        path: kResetNewPasswordScreen,
+        builder: (context, state) => const ResetNewPasswordScreen(),
+      ),
+      GoRoute(
+        path: kResetNewPasswordDoneScreen,
+        builder: (context, state) => const ResetNewPasswordDoneScreen(),
       ),
       GoRoute(
         path: kSearchView,

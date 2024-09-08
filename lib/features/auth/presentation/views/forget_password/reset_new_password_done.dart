@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/background_image.dart';
@@ -28,10 +30,9 @@ class ResetNewPasswordDoneScreen extends StatelessWidget {
                   width: size.width * .5,
                 ),
               ),
-              const SizedBox(height: 60),
-              ResponsiveText(
-                height: size.height * .05,
-                text: 'تم تغيير كلمة المرور بنجاح',
+              SizedBox(height: size.width * .1),
+              Text(
+                'تم تغيير كلمة المرور بنجاح',
                 style: Styles.textStyle23(context),
               ),
               const SizedBox(height: 50),
@@ -40,14 +41,12 @@ class ResetNewPasswordDoneScreen extends StatelessWidget {
                 height: size.width * .15,
                 width: double.infinity,
                 child: CustomButton(
-                  child: ResponsiveText(
-                    height: size.width * .06,
-                    text: 'تم',
-                    style: Styles.textStyle16old,
+                  child: Text(
+                    'تم',
+                    style: Styles.textStyle16(context),
                   ),
                   onPressed: () {
-                    // GoRouter.of(context)
-                    //     .push(AppRouter.kRegisterInfromationScreen);
+                    GoRouter.of(context).push(AppRouter.kLayoutView);
                   },
                 ),
               ),

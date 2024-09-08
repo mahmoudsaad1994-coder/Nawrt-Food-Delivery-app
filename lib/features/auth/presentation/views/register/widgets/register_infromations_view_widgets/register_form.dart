@@ -23,7 +23,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   TextEditingController userNameControllor = TextEditingController();
   TextEditingController emailControllor = TextEditingController();
-  TextEditingController hponeControllor = TextEditingController();
+  TextEditingController phoneControllor = TextEditingController();
   TextEditingController passwordControllor = TextEditingController();
   TextEditingController confirmPasswordControllor = TextEditingController();
 
@@ -33,7 +33,7 @@ class _RegisterFormState extends State<RegisterForm> {
     userNameControllor.dispose();
     confirmPasswordControllor.dispose();
     passwordControllor.dispose();
-    hponeControllor.dispose();
+    phoneControllor.dispose();
 
     super.dispose();
   }
@@ -92,7 +92,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 child: CustomTextFormField(
                   hintText: 'رقم التلفون',
                   icon: Icons.phone,
-                  controller: hponeControllor,
+                  controller: phoneControllor,
                   validator: (val) {
                     if (val!.isEmpty) {
                       return 'نسيت رقم تلفونك ';
@@ -177,7 +177,7 @@ class _RegisterFormState extends State<RegisterForm> {
                         email: emailControllor.text,
                         password: passwordControllor.text,
                         name: userNameControllor.text,
-                        phone: hponeControllor.text,
+                        phone: phoneControllor.text,
                       ));
                       formKey.currentState!.save();
                     }

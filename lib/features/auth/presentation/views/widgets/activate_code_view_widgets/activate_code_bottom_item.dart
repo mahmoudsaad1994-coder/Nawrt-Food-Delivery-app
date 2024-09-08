@@ -3,17 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
-import '../../../../../../../constants.dart';
-import '../../../../../../../core/utils/app_router.dart';
-import '../../../../../../../core/utils/build_error_widget.dart';
-import '../../../../../../../core/utils/styles.dart';
-import '../../../../../../../core/widgets/custom_button.dart';
-import '../../../../../domain/repos/auth_repo.dart';
-import '../../../../manager/cubit.dart';
-import '../../../../manager/states.dart';
-import 'test_field_widget.dart';
+import '../../../../../../constants.dart';
+import '../../../../../../core/utils/app_router.dart';
+import '../../../../../../core/utils/build_error_widget.dart';
+import '../../../../../../core/utils/styles.dart';
+import '../../../../../../core/widgets/custom_button.dart';
+import '../../../../domain/repos/auth_repo.dart';
+import '../../../manager/cubit.dart';
+import '../../../manager/states.dart';
+import 'text_field_widget.dart';
 
 class ActivateCodeBottomItem extends StatefulWidget {
   const ActivateCodeBottomItem({super.key});
@@ -37,6 +36,7 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
 
   @override
   Widget build(BuildContext context) {
+    print(AuthCubit.get(context).isForgetPassord);
     return Expanded(
       child: LayoutBuilder(builder: (context, constrain) {
         return Padding(
@@ -69,7 +69,7 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: List.generate(6, (index) {
-                        return TestFieldWidget(
+                        return TextFieldWidget(
                           handlePaste: handlePaste,
                           width: constrain.maxWidth,
                           controller: _controllers[index],
@@ -111,19 +111,6 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                       ),
                     ],
                   ),
-                  if (cubit.reSendCode)
-                    TextButton(
-                      onPressed: () {
-                        cubit.toggleReSendCode();
-                        cubit.reSendOtpUsecase!(cubit.email);
-                        startTimer();
-                      },
-                      child: Text(
-                        'إعادة إرسال كود التفعيل',
-                        style: Styles.textStyle14(context,
-                            color: kFFC436Color, fontWeight: FontWeight.w300),
-                      ).animate().fadeIn(),
-                    ),
                   SizedBox(height: constrain.maxHeight * .05),
                   SizedBox(
                     width: double.infinity,
@@ -139,14 +126,50 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                               style: Styles.textStyle16(context),
                             ),
                       onPressed: () {
-                        cubit.verify(
-                            verfyParams: VerifyParams(
-                          email: cubit.email,
-                          code: collectText(),
-                        ));
+                        if (cubit.isForgetPassord) {
+                          GoRouter.of(context)
+                              .push(AppRouter.kResetNewPasswordScreen);
+                        } else {
+                          cubit.verify(
+                              verfyParams: VerifyParams(
+                            email: cubit.email,
+                            code: collectText(),
+                          ));
+                        }
                       },
                     ),
                   ),
+                  SizedBox(height: constrain.maxHeight * .05),
+                  if (cubit.reSendCode)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'لم تتلقي الرمز؟',
+                          style: Styles.textStyle16old.copyWith(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        SizedBox(width: constrain.maxHeight * .02),
+                        TextButton(
+                          style: ButtonStyle(
+                            padding: WidgetStateProperty.all(EdgeInsets.zero),
+                          ),
+                          onPressed: () {
+                            cubit.toggleReSendCode();
+                            cubit.reSendOtpUsecase!(cubit.email);
+                            startTimer();
+                          },
+                          child: Text(
+                            'إعادة الارسـال',
+                            style: Styles.textStyle14(context,
+                                color: kFFC436Color,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ),
+                      ],
+                    ),
                 ],
               );
             },
