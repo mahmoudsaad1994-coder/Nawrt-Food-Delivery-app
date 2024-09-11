@@ -90,7 +90,7 @@ class FoodItemWithOffer extends StatelessWidget {
                   ),
                   Text(
                     description,
-                    style: Styles.textStyle14(
+                    style: Styles.textStyleL(
                       context,
                       fontWeight: FontWeight.w700,
                       color: k96908AColor,
@@ -112,15 +112,13 @@ class FoodItemWithOffer extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      ResponsiveText(
-                        height: constraints.maxHeight * .15,
-                        text: '$priceAfterOffer',
-                        style: Styles.textStyle18.copyWith(color: Colors.black),
+                      Text(
+                        '$priceAfterOffer',
+                        style: Styles.titleLayout(context, color: Colors.black),
                       ),
-                      ResponsiveText(
-                        height: constraints.maxHeight * .15,
-                        text: 'جنيه',
-                        style: Styles.textStyle18.copyWith(color: Colors.black),
+                      Text(
+                        'جنيه',
+                        style: Styles.titleLayout(context, color: Colors.black),
                       ),
                       SizedBox(width: constraints.maxWidth * .02),
                       ResponsiveText(

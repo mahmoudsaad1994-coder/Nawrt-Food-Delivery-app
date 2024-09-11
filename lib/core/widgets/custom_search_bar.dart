@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nawrt/core/utils/responsive.dart';
 
 import '../../constants.dart';
+import '../utils/app_router.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({super.key, this.isHome = false});
@@ -29,6 +31,8 @@ class CustomSearchBar extends StatelessWidget {
         onTap: () {
           if (isHome) {
             //go to search screen
+            print('object');
+            GoRouter.of(context).push(AppRouter.kSearchView);
           }
         },
         leading: Icon(

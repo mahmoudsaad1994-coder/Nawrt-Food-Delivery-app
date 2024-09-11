@@ -20,12 +20,12 @@ class ResetNewPasswordTopItem extends StatelessWidget {
         children: [
           Text(
             'إعادة تعيين كلمة المرور',
-            style: Styles.textStyle23(context),
+            style: Styles.textStyleXXXL(context),
           ),
           SizedBox(height: size.width * .02),
           Text(
             'ادخل كلمة المرور الجديدة',
-            style: Styles.textStyle14(
+            style: Styles.textStyleL(
               context,
               color: k96908AColor,
             ),

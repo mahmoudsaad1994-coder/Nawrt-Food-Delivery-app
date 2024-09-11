@@ -24,7 +24,9 @@ class FoodCategorysView extends StatelessWidget {
               ),
             ),
             const SliverToBoxAdapter(
-              child: CustomSearchBar(),
+              child: CustomSearchBar(
+                isHome: true,
+              ),
             ),
           ];
         },

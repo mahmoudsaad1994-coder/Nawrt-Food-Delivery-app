@@ -44,11 +44,11 @@ class SetPriceFilter extends StatelessWidget {
                 children: [
                   Text(
                     cubit.endPrice.round().toString(),
-                    style: Styles.textStyle23(context),
+                    style: Styles.textStyleXXL(context),
                   ),
                   Text(
                     ' : إلي',
-                    style: Styles.textStyle14(context),
+                    style: Styles.textStyleL(context),
                   ),
                 ],
               ),
@@ -56,11 +56,11 @@ class SetPriceFilter extends StatelessWidget {
                 children: [
                   Text(
                     cubit.startPrice.round().toString(),
-                    style: Styles.textStyle23(context),
+                    style: Styles.textStyleXXL(context),
                   ),
                   Text(
                     ' : من',
-                    style: Styles.textStyle14(context),
+                    style: Styles.textStyleL(context),
                   ),
                 ],
               ),

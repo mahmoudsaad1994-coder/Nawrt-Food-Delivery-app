@@ -97,17 +97,17 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                     children: [
                       Text(
                         'سوف تنتهي صلاحية الكود خلال',
-                        style: Styles.textStyle14(context),
+                        style: Styles.textStyleL(context),
                       ),
                       SizedBox(width: constrain.maxWidth * .01),
                       Text(
                         formatTime(cubit.totalTimeInSeconds),
-                        style: Styles.textStyle14(context, color: kFFC436Color),
+                        style: Styles.textStyleL(context, color: kFFC436Color),
                       ),
                       SizedBox(width: constrain.maxWidth * .01),
                       Text(
                         'دقيقة',
-                        style: Styles.textStyle14(context),
+                        style: Styles.textStyleL(context),
                       ),
                     ],
                   ),
@@ -123,7 +123,7 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                             )
                           : Text(
                               'متابعة',
-                              style: Styles.textStyle16(context),
+                              style: Styles.textStyleXL(context),
                             ),
                       onPressed: () {
                         if (cubit.isForgetPassord) {
@@ -163,7 +163,7 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
                           },
                           child: Text(
                             'إعادة الارسـال',
-                            style: Styles.textStyle14(context,
+                            style: Styles.textStyleL(context,
                                 color: kFFC436Color,
                                 fontWeight: FontWeight.w300),
                           ),

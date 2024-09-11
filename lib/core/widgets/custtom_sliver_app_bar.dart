@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../constants.dart';
 import '../utils/styles.dart';
-import 'respnsive_text.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar(
@@ -27,10 +26,9 @@ class CustomSliverAppBar extends StatelessWidget {
         SizedBox(width: MediaQuery.of(context).size.width * .06)
       ],
       toolbarHeight: MediaQuery.of(context).size.width * .1,
-      title: ResponsiveText(
-        height: MediaQuery.of(context).size.width * .07,
-        text: title,
-        style: Styles.textStyle18.copyWith(color: kBlackColor),
+      title: Text(
+        title,
+        style: Styles.titleLayout(context, color: kBlackColor),
       ),
     );
   }

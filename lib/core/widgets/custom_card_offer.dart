@@ -67,7 +67,7 @@ class CustomCardOffer extends StatelessWidget {
                     ResponsiveText(
                       height: constrain.maxHeight * .12,
                       text: 'عرض خاص',
-                      style: Styles.textStyle14(
+                      style: Styles.textStyleL(
                         context,
                         fontWeight: FontWeight.w400,
                         color: k96908AColor,

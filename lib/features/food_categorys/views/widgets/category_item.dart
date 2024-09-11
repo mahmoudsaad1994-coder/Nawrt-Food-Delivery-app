@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/styles.dart';
-import '../../../../core/widgets/respnsive_text.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem(
@@ -22,10 +21,9 @@ class CategoryItem extends StatelessWidget {
               image,
               fit: BoxFit.fill,
             ),
-            ResponsiveText(
-              height: constrain.maxHeight * .23,
-              text: categoryName,
-              style: Styles.textStyle18,
+            Text(
+              categoryName,
+              style: Styles.titleLayout(context),
             ),
           ],
         ),

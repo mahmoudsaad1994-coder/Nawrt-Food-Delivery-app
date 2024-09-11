@@ -33,7 +33,7 @@ class ResetNewPasswordDoneScreen extends StatelessWidget {
               SizedBox(height: size.width * .1),
               Text(
                 'تم تغيير كلمة المرور بنجاح',
-                style: Styles.textStyle23(context),
+                style: Styles.textStyleXXXL(context),
               ),
               const SizedBox(height: 50),
               Container(
@@ -43,7 +43,7 @@ class ResetNewPasswordDoneScreen extends StatelessWidget {
                 child: CustomButton(
                   child: Text(
                     'تم',
-                    style: Styles.textStyle16(context),
+                    style: Styles.textStyleXL(context),
                   ),
                   onPressed: () {
                     GoRouter.of(context).push(AppRouter.kLayoutView);

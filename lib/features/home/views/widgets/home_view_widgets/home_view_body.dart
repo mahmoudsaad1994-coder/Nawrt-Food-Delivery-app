@@ -4,7 +4,7 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_search_bar.dart';
 import '../../../../../core/widgets/today_dish_item.dart';
 import 'food_categorys_list_view_item.dart';
-import 'home_view_app_bar.dart';
+import '../../../../../core/widgets/app_bar_info.dart';
 import '../../../../../core/widgets/view_item_title.dart';
 import 'most_sale_grid_view.dart';
 import 'spicial_offer_slider.dart';
@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              const HomeViewAppBar(name: 'سلمي'),
+              const AppBarInfo(name: 'سلمي'),
               const CustomSearchBar(isHome: true),
               SizedBox(height: width * .05),
               const SpicialOfferSlider(),

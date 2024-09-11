@@ -23,4 +23,35 @@ class AssetsData {
   static const cat_1Image = 'assets/images/cat_1.png';
   static const cat_2Image = 'assets/images/cat_2.png';
   static const cat_3Image = 'assets/images/cat_3.png';
+  static const imgInfo = 'assets/images/info.png';
+  static const undrawEmptyCart = 'assets/images/undraw_empty_cart.png';
+}
+
+class IconAssetsManager {
+  static const String _baseURL = "assets/icons";
+  static const String searchIcon = "$_baseURL/search_icon.png";
+  static const String aboutUsIcon = "$_baseURL/about.png";
+  static const String userIcon = "$_baseURL/user_icon.png";
+  static const String talabatIcon = "$_baseURL/talabat_icon.png";
+  static const String homeIcon = "$_baseURL/home_icon.png";
+  static const String discountIcon = "$_baseURL/discount_icon.png";
+  static const String givebackIcon = "$_baseURL/giveback_icon.png";
+  static const String orderIcon = "$_baseURL/order_icon.png";
+  static const String starIcon = "$_baseURL/star_icon.png";
+  static const String helpIcon = "$_baseURL/help_icon.png";
+  static const String offerIcon = "$_baseURL/offer_icon.png";
+  static const String walletIcon = "$_baseURL/wallet_icon.png";
+  static const String orderListIcon = "$_baseURL/orderlist_icon.png";
+  static const String notificationIcon = "$_baseURL/notification_icon.png";
+  static const String emailIcon = "$_baseURL/email_icon.png";
+  static const String googleIcon = "$_baseURL/google_icon.png";
+  static const String facebookIcon = "$_baseURL/facebook_icon.png";
+  static const String appleIcon = "$_baseURL/apple_icon.png";
+  static const String locationIcon = "$_baseURL/location_icon.png";
+  static const String creditCardIcon = "$_baseURL/creditcard_icon.png";
+  static const String cashIcon = "$_baseURL/cash_icon.png";
+  static const String deliveryIcon = "$_baseURL/delivery_icon.png";
+  static const String reorderIcon = "$_baseURL/reorder_icon.png";
+  static const String happyIcon = "$_baseURL/happy_icon.png";
+  static const String settingIcon = "$_baseURL/settings.png";
 }

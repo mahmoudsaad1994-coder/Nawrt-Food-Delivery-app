@@ -23,12 +23,12 @@ class ActivateCodeTopItem extends StatelessWidget {
         children: [
           Text(
             'كود التفعيل',
-            style: Styles.textStyle23(context),
+            style: Styles.textStyleXXXL(context),
           ),
           SizedBox(height: size.width * .03),
           Text(
             'تم ارسال كود التفعيل على البريد الألكتروني',
-            style: Styles.textStyle14(
+            style: Styles.textStyleL(
               context,
               color: k96908AColor,
             ),
@@ -40,7 +40,7 @@ class ActivateCodeTopItem extends StatelessWidget {
               Flexible(
                 child: Text(
                   BlocProvider.of<AuthCubit>(context).email,
-                  style: Styles.textStyle14(context),
+                  style: Styles.textStyleL(context),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -54,7 +54,7 @@ class ActivateCodeTopItem extends StatelessWidget {
                 },
                 child: Text(
                   'تعديل البريد',
-                  style: Styles.textStyle14(
+                  style: Styles.textStyleL(
                     context,
                     color: kFFC436Color,
                   ),

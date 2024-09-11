@@ -1,27 +1,34 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../constants.dart';
-import '../../../../../core/utils/styles.dart';
-import '../../../../../core/widgets/respnsive_text.dart';
+import '../../constants.dart';
+import '../utils/styles.dart';
 
-class HomeViewAppBar extends StatelessWidget {
-  const HomeViewAppBar({
+class AppBarInfo extends StatelessWidget {
+  const AppBarInfo({
     super.key,
     required this.name,
   });
   final String name;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.all(MediaQuery.of(context).size.width * .06),
+      padding: EdgeInsets.all(size.width * .06),
       child: LayoutBuilder(builder: (context, constrain) {
         return Row(
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  backgroundColor: const Color(0xffD9D9D9),
-                  radius: constrain.maxWidth * .06,
+                Container(
+                  width: size.width * .11,
+                  height: size.width * .11,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: k96908AColor,
+                      )),
+                  child: const Icon(Icons.person_outlined),
                 ),
                 SizedBox(width: constrain.maxWidth * .02),
                 Column(
@@ -29,19 +36,14 @@ class HomeViewAppBar extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        ResponsiveText(
-                          height: constrain.maxWidth * .07,
-                          text: '$name ,',
-                          style: Styles.textStyle16old.copyWith(
-                            color: Colors.black,
-                          ),
+                        Text(
+                          name,
+                          style:
+                              Styles.textStyleXL(context, color: Colors.black),
                         ),
-                        ResponsiveText(
-                          height: constrain.maxWidth * .06,
-                          text: 'أهلا بعودتك',
-                          style: Styles.textStyle16old.copyWith(
-                            color: Colors.black,
-                          ),
+                        Text(
+                          ' أهلا بعودتك',
+                          style: Styles.textStyleL(context),
                         ),
                       ],
                     ),
@@ -53,24 +55,17 @@ class HomeViewAppBar extends StatelessWidget {
                           size: constrain.maxWidth * .05,
                         ),
                         const SizedBox(width: 5),
-                        ResponsiveText(
-                          height: constrain.maxWidth * .05,
-                          text: 'العنوان الحالي',
-                          style: Styles.textStyle14(
-                            context,
-                            color: k96908AColor,
-                          ),
+                        Text(
+                          'العنوان الحالي',
+                          style: Styles.textStyleSL(context),
                         ),
                         const SizedBox(width: 5),
                         GestureDetector(
                           onTap: () {},
-                          child: ResponsiveText(
-                            height: constrain.maxWidth * .05,
-                            text: 'تغيير العنوان',
-                            style: Styles.textStyle14(
-                              context,
-                              color: kFFC436Color,
-                            ),
+                          child: Text(
+                            'تغيير العنوان',
+                            style: Styles.textStyleSL(context,
+                                color: kFFC436Color),
                           ),
                         ),
                       ],
@@ -88,7 +83,7 @@ class HomeViewAppBar extends StatelessWidget {
               icon: Icon(
                 Icons.notifications,
                 applyTextScaling: true,
-                color: Colors.blue,
+                color: kPrimaryColor,
                 size: constrain.maxWidth * .08,
               ),
             ),

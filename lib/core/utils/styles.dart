@@ -3,24 +3,40 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 abstract class Styles {
-  static textStyle23(context) => TextStyle(
+  // 24
+  static textStyleXXXL(context) => TextStyle(
         fontSize: MediaQuery.of(context).size.width * .06,
-        fontWeight: FontWeight.w900,
+        fontWeight: FontWeight.w700,
       );
-  static textStyle14(context,
-          {color = kBlackColor, fontWeight = FontWeight.w500}) =>
-      TextStyle(
-        fontSize: MediaQuery.of(context).size.width * .04,
+  // 20
+  static textStyleXXL(context, {fontWeight = FontWeight.w500}) => TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .05,
         fontWeight: fontWeight,
-        color: color,
       );
-  static textStyle16(context,
+  // 18
+  static textStyleXL(context,
           {color = Colors.white, fontWeight = FontWeight.w700}) =>
       TextStyle(
         fontSize: MediaQuery.of(context).size.width * .04,
         fontWeight: fontWeight,
         color: color,
       );
+  // 16
+  static textStyleL(context,
+          {color = kBlackColor, fontWeight = FontWeight.w700}) =>
+      TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .04,
+        fontWeight: fontWeight,
+        color: color,
+      );
+  static textStyleSL(context,
+          {color = k96908AColor, fontWeight = FontWeight.w400}) =>
+      TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .03,
+        fontWeight: fontWeight,
+        color: color,
+      );
+  //////
 
   static const textStyle16old = TextStyle(
     fontSize: 16,
@@ -34,11 +50,11 @@ abstract class Styles {
     decoration: TextDecoration.lineThrough,
     decorationColor: k96908AColor,
   );
-  static const textStyle18 = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w700,
-    color: Colors.white,
-  );
+  static titleLayout(context, {color = Colors.white}) => TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .05,
+        fontWeight: FontWeight.w700,
+        color: color,
+      );
   static const textStyle20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w700,

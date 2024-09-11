@@ -45,12 +45,12 @@ class FooditemWidget extends StatelessWidget {
                               ResponsiveText(
                                 height: constrain.maxHeight * .11,
                                 text: foodName,
-                                style: Styles.textStyle14(context,
+                                style: Styles.textStyleL(context,
                                     fontWeight: FontWeight.w700),
                               ),
                               Text(
                                 description,
-                                style: Styles.textStyle14(
+                                style: Styles.textStyleL(
                                   context,
                                   fontWeight: FontWeight.w700,
                                   color: k96908AColor,
@@ -78,18 +78,16 @@ class FooditemWidget extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            ResponsiveText(
-                              height: constrain.maxHeight * .13,
-                              text: 'جنية',
-                              style: Styles.textStyle18
-                                  .copyWith(color: Colors.black),
+                            Text(
+                              'جنية',
+                              style: Styles.titleLayout(context,
+                                  color: Colors.black),
                             ),
                             const SizedBox(width: 3),
-                            ResponsiveText(
-                              height: constrain.maxHeight * .16,
-                              text: '$price',
-                              style: Styles.textStyle18
-                                  .copyWith(color: Colors.black),
+                            Text(
+                              '$price',
+                              style: Styles.titleLayout(context,
+                                  color: Colors.black),
                             ),
                           ],
                         ),

@@ -18,12 +18,12 @@ class ForgetPasswordTopItem extends StatelessWidget {
         children: [
           Text(
             'إعادة تعيين كلمة المرور',
-            style: Styles.textStyle23(context),
+            style: Styles.textStyleXXXL(context),
           ),
           const SizedBox(height: 16),
           Text(
             'ادخل بريدك الالكتروني لارسال كود التفعيل',
-            style: Styles.textStyle14(
+            style: Styles.textStyleL(
               context,
               color: k96908AColor,
             ),

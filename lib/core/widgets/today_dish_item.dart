@@ -44,7 +44,7 @@ class TodayDishItem extends StatelessWidget {
                         ResponsiveText(
                           height: constrain.maxWidth * .06,
                           text: 'طبق اليوم',
-                          style: Styles.textStyle14(
+                          style: Styles.textStyleL(
                             context,
                             fontWeight: FontWeight.w400,
                             color: k96908AColor,
