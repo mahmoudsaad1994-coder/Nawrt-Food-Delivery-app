@@ -2,6 +2,8 @@ Nawrt Food Delivery App
 
 
 ![image](https://github.com/user-attachments/assets/6f5108a7-e871-40dd-89ee-1bb9e45e0e97)
+![image](https://github.com/user-attachments/assets/e100f15e-47ec-4a96-8703-bd80aa806767)
+![image](https://github.com/user-attachments/assets/76d4c5f9-aac8-48cc-a39f-595ed42e6bba)
 ![image](https://github.com/user-attachments/assets/91138c7f-0356-4afa-8492-50cf69244ee6)
 ![image](https://github.com/user-attachments/assets/f328525f-a4ee-424d-85ff-65edcac46698)
 ![image](https://github.com/user-attachments/assets/f825c15a-029e-4661-bc54-e325cb5a3b1b)
