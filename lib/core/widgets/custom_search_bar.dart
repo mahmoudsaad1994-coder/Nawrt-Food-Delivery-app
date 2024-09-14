@@ -31,7 +31,7 @@ class CustomSearchBar extends StatelessWidget {
         onTap: () {
           if (isHome) {
             //go to search screen
-            print('object');
+
             GoRouter.of(context).push(AppRouter.kSearchView);
           }
         },

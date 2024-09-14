@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../core/utils/app_router.dart';
 import '../../../core/widgets/custom_search_bar.dart';
 import '../../../core/widgets/custtom_sliver_app_bar.dart';
 import '../../../data.dart';
@@ -41,7 +43,13 @@ class FoodCategorysView extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 ...List.generate(
-                    categorysList.length, (index) => categorysList[index])
+                    categorysList.length,
+                    (index) => GestureDetector(
+                        onTap: () {
+                          GoRouter.of(context).push(AppRouter.kFoodsView,
+                              extra: categorysList[index]);
+                        },
+                        child: categorysList[index]))
               ]),
         ),
       ),

@@ -25,6 +25,8 @@ class AssetsData {
   static const cat_3Image = 'assets/images/cat_3.png';
   static const imgInfo = 'assets/images/info.png';
   static const undrawEmptyCart = 'assets/images/undraw_empty_cart.png';
+  static const offFood = 'assets/images/offer_food.PNG';
+  static const offFood2 = 'assets/images/offer_food_2.PNG';
 }
 
 class IconAssetsManager {

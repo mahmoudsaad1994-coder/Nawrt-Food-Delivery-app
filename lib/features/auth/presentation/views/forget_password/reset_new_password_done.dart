@@ -6,7 +6,6 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/background_image.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../core/widgets/respnsive_text.dart';
 
 class ResetNewPasswordDoneScreen extends StatelessWidget {
   const ResetNewPasswordDoneScreen({super.key});

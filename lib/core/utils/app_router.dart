@@ -7,6 +7,9 @@ import '../../features/auth/presentation/views/login/login_view.dart';
 import '../../features/auth/presentation/views/widgets/activate_code_view_widgets/activate_code_view.dart';
 import '../../features/auth/presentation/views/register/register_view.dart';
 import '../../features/auth/presentation/views/registration_page/registration_page_body_view.dart';
+import '../../features/food_categorys/food_details_view.dart';
+import '../../features/food_categorys/views/foods_view.dart';
+import '../../features/food_categorys/views/widgets/category_item.dart';
 import '../../features/splash/view/splash_view.dart';
 import '../../features/layout/views/layout_view.dart';
 import '../../features/search/views/search_view.dart';
@@ -20,6 +23,8 @@ abstract class AppRouter {
   static const String kSearchView = '/SearchView';
   static const String kLayoutView = '/layoutView';
   static const String kResetNewPasswordScreen = '/resetNewPasswordScreen';
+  static const String kFoodsView = '/foodsView';
+  static const String kFoodDetailsView = '/foodDetailsView';
   static const String kResetNewPasswordDoneScreen =
       '/resetNewPasswordDoneScreen';
 
@@ -32,6 +37,15 @@ abstract class AppRouter {
       GoRoute(
         path: kRegistrationPage,
         builder: (context, state) => const RegistrationPage(),
+      ),
+      GoRoute(
+        path: kFoodsView,
+        builder: (context, state) =>
+            FoodsView(categoryItem: state.extra as CategoryItem),
+      ),
+      GoRoute(
+        path: kFoodDetailsView,
+        builder: (context, state) => const FoodDetailsView(),
       ),
       GoRoute(
         path: kRegisterScreen,

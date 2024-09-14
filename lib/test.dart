@@ -39,7 +39,7 @@ class _ChooseAddressManuallyScreenState
           centerTitle: true,
           title: const Text(
             'Select your location',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 22,
               color: Colors.black,
               fontWeight: FontWeight.w500,
@@ -138,3 +138,75 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
+/* import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geocoding/geocoding.dart';
+
+class MapScreen extends StatefulWidget {
+  @override
+  _MapScreenState createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<MapScreen> {
+  GoogleMapController? _controller;
+  LatLng _selectedLocation = LatLng(37.4219999, -122.0840575);
+  String _address = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Google Map')),
+      body: Column(
+        children: [
+          Expanded(
+            child: GoogleMap(
+              initialCameraPosition: CameraPosition(
+                target: _selectedLocation,
+                zoom: 14,
+              ),
+              onMapCreated: (GoogleMapController controller) {
+                _controller = controller;
+              },
+              markers: {
+                Marker(
+                  markerId: MarkerId('selected-location'),
+                  position: _selectedLocation,
+                  draggable: true,
+                  onDragEnd: (newPosition) {
+                    setState(() {
+                      _selectedLocation = newPosition;
+                    });
+                    _getAddressFromLatLng(_selectedLocation);
+                  },
+                ),
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Address: $_address'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _getAddressFromLatLng(LatLng position) async {
+    try {
+      List<Placemark> placemarks = await placemarkFromCoordinates(
+        position.latitude,
+        position.longitude,
+      );
+
+      if (placemarks.isNotEmpty) {
+        Placemark place = placemarks[0];
+        setState(() {
+          _address = '${place.street}, ${place.locality}, ${place.country}';
+        });
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+}
+ */

@@ -9,10 +9,12 @@ abstract class Styles {
         fontWeight: FontWeight.w700,
       );
   // 20
-  static textStyleXXL(context, {fontWeight = FontWeight.w500}) => TextStyle(
-        fontSize: MediaQuery.of(context).size.width * .05,
-        fontWeight: fontWeight,
-      );
+  static textStyleXXL(context,
+          {fontWeight = FontWeight.w500, color = Colors.black}) =>
+      TextStyle(
+          fontSize: MediaQuery.of(context).size.width * .05,
+          fontWeight: fontWeight,
+          color: color);
   // 18
   static textStyleXL(context,
           {color = Colors.white, fontWeight = FontWeight.w700}) =>

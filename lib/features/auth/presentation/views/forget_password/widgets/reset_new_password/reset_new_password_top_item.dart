@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nawrt/core/widgets/respnsive_text.dart';
 
 import '../../../../../../../constants.dart';
 import '../../../../../../../core/utils/assets.dart';

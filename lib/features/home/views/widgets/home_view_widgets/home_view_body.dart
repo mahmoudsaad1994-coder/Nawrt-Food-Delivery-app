@@ -26,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
               const CustomSearchBar(isHome: true),
               SizedBox(height: width * .05),
               const SpicialOfferSlider(),
-              SizedBox(height: width * .05),
+              SizedBox(height: width * .01),
               const FoodCategorysListViewItem(),
               SizedBox(height: width * .05),
               ViewItemTitle(

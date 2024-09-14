@@ -36,7 +36,6 @@ class _ActivateCodeBottomItemState extends State<ActivateCodeBottomItem> {
 
   @override
   Widget build(BuildContext context) {
-    print(AuthCubit.get(context).isForgetPassord);
     return Expanded(
       child: LayoutBuilder(builder: (context, constrain) {
         return Padding(

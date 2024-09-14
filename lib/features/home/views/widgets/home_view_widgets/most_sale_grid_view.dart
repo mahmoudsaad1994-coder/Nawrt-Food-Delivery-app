@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../data.dart';
 
 class MostSaleGridView extends StatelessWidget {
@@ -21,7 +23,11 @@ class MostSaleGridView extends StatelessWidget {
         ),
         physics: const NeverScrollableScrollPhysics(),
         childrenDelegate: SliverChildBuilderDelegate(
-          (context, index) => fooditemWidgetList[index],
+          (context, index) => GestureDetector(
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kFoodDetailsView);
+              },
+              child: fooditemWidgetList[index]),
           childCount: fooditemWidgetList.length,
         ),
       ),

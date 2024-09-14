@@ -28,7 +28,8 @@ class AppBarInfo extends StatelessWidget {
                       border: Border.all(
                         color: k96908AColor,
                       )),
-                  child: const Icon(Icons.person_outlined),
+                  child: Icon(Icons.person_outlined,
+                      size: constrain.maxWidth * .07),
                 ),
                 SizedBox(width: constrain.maxWidth * .02),
                 Column(

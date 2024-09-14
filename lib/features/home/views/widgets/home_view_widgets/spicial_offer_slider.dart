@@ -1,9 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../core/utils/assets.dart';
-import '../../../../../core/widgets/custom_card_offer.dart';
 
 class SpicialOfferSlider extends StatefulWidget {
   const SpicialOfferSlider({super.key});
@@ -13,42 +11,84 @@ class SpicialOfferSlider extends StatefulWidget {
 }
 
 class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
-  final controller = PageController(viewportFraction: 0.8, keepPage: true);
+  PageController controller = PageController();
+  int selectedPageIndex = 0;
+
+  List<String> bannersData = [
+    'assets/images/offer_food.PNG',
+    'assets/images/offer_food.PNG',
+    'assets/images/offer_food.PNG',
+    'assets/images/offer_food.PNG',
+  ];
 
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Column(
       children: [
+        CarouselSlider(
+          options: CarouselOptions(
+            onPageChanged: (index, reason) {
+              setState(() {
+                selectedPageIndex = index;
+              });
+            },
+            autoPlay: true,
+            height: screenSize.height * .22,
+            viewportFraction: 1,
+          ),
+          items: bannersData.map((image) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: screenSize.width * .04,
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      image,
+                      width: screenSize.width,
+                      fit: BoxFit.fill,
+                      height: screenSize.height * .22,
+                    ),
+                  ),
+                );
+              },
+            );
+          }).toList(),
+        ),
         SizedBox(
-          height: MediaQuery.of(context).size.height * .24,
-          width: double.infinity,
-          child: PageView.builder(
-            controller: controller,
-            scrollDirection: Axis.horizontal,
-            reverse: true,
-            allowImplicitScrolling: true,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * .02),
-              child: const CustomCardOffer(
-                image: AssetsData.testbrgrImage1,
-                title: 'احصل على شحن مجاني عند طلب برجر اليوم',
-                price: 200,
+          height: screenSize.height * .01,
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ...List.generate(
+              bannersData.length,
+              (i) => AnimatedContainer(
+                duration: const Duration(
+                  milliseconds: 350,
+                ),
+                margin: EdgeInsets.symmetric(
+                  horizontal: screenSize.width * .01,
+                ),
+                width: selectedPageIndex == i
+                    ? screenSize.width * .05
+                    : screenSize.width * .025,
+                height: screenSize.width * .02,
+                decoration: BoxDecoration(
+                  color: selectedPageIndex == i
+                      ? kFFC436Color
+                      : Colors.grey.withOpacity(.3),
+                  borderRadius: BorderRadius.circular(
+                    180,
+                  ),
+                ),
               ),
             ),
-            itemCount: 5,
-          ),
-        ),
-        SizedBox(height: MediaQuery.of(context).size.width * .02),
-        SmoothPageIndicator(
-          controller: controller,
-          axisDirection: Axis.horizontal,
-          count: 5,
-          effect: ExpandingDotsEffect(
-            dotHeight: MediaQuery.of(context).size.width * .02,
-            dotWidth: MediaQuery.of(context).size.width * .02,
-            activeDotColor: kFFC436Color,
-          ),
+          ],
         ),
       ],
     );

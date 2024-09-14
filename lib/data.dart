@@ -1,4 +1,5 @@
 import 'core/utils/assets.dart';
+import 'core/widgets/custom_card_offer.dart';
 import 'core/widgets/food_item.dart';
 import 'core/widgets/food_item_with_offer.dart';
 import 'features/food_categorys/views/widgets/category_item.dart';
@@ -38,7 +39,33 @@ List<CategoryItem> categorysList = [
   const CategoryItem(categoryName: 'مشويات', image: AssetsData.cat_1Image),
   const CategoryItem(categoryName: 'مشويات', image: AssetsData.cat_1Image),
 ];
-
+List<CustomCardOffer> customCardOffer = [
+  const CustomCardOffer(
+    image: AssetsData.testbrgrImage1,
+    title: 'احصل على شحن مجاني عند طلب برجر اليوم',
+    price: 200,
+  ),
+  const CustomCardOffer(
+    image: AssetsData.testbrgrImage1,
+    title: 'احصل على شحن مجاني عند طلب برجر اليوم',
+    price: 200,
+  ),
+  const CustomCardOffer(
+    image: AssetsData.testbrgrImage1,
+    title: 'احصل على شحن مجاني عند طلب برجر اليوم',
+    price: 200,
+  ),
+  const CustomCardOffer(
+    image: AssetsData.testbrgrImage1,
+    title: 'احصل على شحن مجاني عند طلب برجر اليوم',
+    price: 200,
+  ),
+  const CustomCardOffer(
+    image: AssetsData.testbrgrImage1,
+    title: 'احصل على شحن مجاني عند طلب برجر اليوم',
+    price: 200,
+  ),
+];
 List<FooditemWidget> fooditemWidgetList = [
   const FooditemWidget(
     foodName: 'بيتزا ايطالية',
