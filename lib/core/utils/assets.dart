@@ -1,32 +1,47 @@
 class AssetsData {
-  static const splashLogo = 'assets/images/logo_splash.png';
-  static const noResultImg = 'assets/images/no_result.png';
-  static const splashImg = 'assets/images/splash_img.png';
-  static const backgroundImage = 'assets/images/splash_background.png';
-  static const activateCodeImage = 'assets/images/activate_code.png';
-  static const registerImage = 'assets/images/register_image.png';
-  static const changePasswordImage = 'assets/images/change_password.png';
-  static const forgetPasswordImage = 'assets/images/forgot_password.png';
-  static const registerInfromationsImage =
-      'assets/images/infromation_register.png';
-  static const loginImage = 'assets/images/login.png';
-  static const resetPasswordImage = 'assets/images/reset_password.png';
-  static const noSearchResultImage = 'assets/images/no_search_result.png';
-  static const testMapImage = 'assets/images/map.png';
-  static const testbrgrImage1 = 'assets/images/test_food_offer_brgr.png';
-  static const testbrgrImage3 = 'assets/images/test_offer3.png';
-  static const testPastaImage = 'assets/images/pasta.png';
-  static const testtest1Image = 'assets/images/test1.png';
-  static const testtest2Image = 'assets/images/test2.png';
-  static const testtest3Image = 'assets/images/test3.png';
-  static const testtest4Image = 'assets/images/food_offer_test.png';
-  static const cat_1Image = 'assets/images/cat_1.png';
-  static const cat_2Image = 'assets/images/cat_2.png';
-  static const cat_3Image = 'assets/images/cat_3.png';
-  static const imgInfo = 'assets/images/info.png';
-  static const undrawEmptyCart = 'assets/images/undraw_empty_cart.png';
-  static const offFood = 'assets/images/offer_food.PNG';
-  static const offFood2 = 'assets/images/offer_food_2.PNG';
+  static const String _baseURL = "assets/images";
+
+  //splash
+  static const splashImg = '$_baseURL/splash_img.png';
+  //auth
+  static const activateCodeImage = '$_baseURL/auth/activate_code.png';
+  static const changePasswordImage = '$_baseURL/auth/change_password.png';
+  static const forgetPasswordImage = '$_baseURL/auth/forgot_password.png';
+  static const registerInfoImage = '$_baseURL/auth/infromation_register.png';
+  static const loginImage = '$_baseURL/auth/login.png';
+  static const registerImage = '$_baseURL/auth/register_image.png';
+  static const resetPasswordImage = '$_baseURL/auth/reset_password.png';
+  static const authBackgroundImage = '$_baseURL/auth/auth_background.png';
+  //banners
+  static const banner1Image = "$_baseURL/banners/banner1.jpg";
+  static const banner2Image = "$_baseURL/banners/banner2.jpg";
+  static const banner3Image = "$_baseURL/banners/banner3.jpg";
+  static const banner4Image = "$_baseURL/banners/banner4.jpg";
+  static const banner5Image = "$_baseURL/banners/banner5.jpg";
+  static const banner6Image = '$_baseURL/banners/banners6.PNG';
+  static const banner7Image = '$_baseURL/banners/banners7.PNG';
+  //logo
+  static const splashLogo = '$_baseURL/logo.png';
+  //search
+  static const noResultImg = '$_baseURL/no_result.png';
+  //cart
+  static const undrawEmptyCart = '$_baseURL/undraw_empty_cart.png';
+  //home
+  static const testbrgrImage1 = '$_baseURL/test_food_offer_brgr.png';
+  static const testbrgrImage3 = '$_baseURL/test_offer3.png';
+  static const testPastaImage = '$_baseURL/pasta.png';
+  static const testtest1Image = '$_baseURL/test1.png';
+  static const testtest2Image = '$_baseURL/test2.png';
+  static const testtest3Image = '$_baseURL/test3.png';
+  static const testtest4Image = '$_baseURL/food_offer_test.png';
+  static const cat_1Image = '$_baseURL/cat_1.png';
+  static const cat_2Image = '$_baseURL/cat_2.png';
+  static const cat_3Image = '$_baseURL/cat_3.png';
+  static const imgInfo = '$_baseURL/info.png';
+  //search
+  static const noSearchResultImage = '$_baseURL/no_search_result.png';
+
+  static const testMapImage = '$_baseURL/map.png';
 }
 
 class IconAssetsManager {

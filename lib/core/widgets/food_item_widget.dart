@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../../features/home/domain/entities/food_entity.dart';
+import '../../features/home/presentation/manager/cubit.dart';
 import '../utils/styles.dart';
 import 'respnsive_text.dart';
 
 class FooditemWidget extends StatelessWidget {
   final double circleRadius = 100.0;
   final double circleBorderWidth = 8.0;
+  final FoodEntity food;
 
-  const FooditemWidget(
-      {super.key,
-      required this.foodName,
-      required this.description,
-      required this.price,
-      required this.image});
-  final String foodName;
-  final String description;
-  final String image;
-  final num price;
+  final MainCubit cubit;
+
+  const FooditemWidget({
+    super.key,
+    required this.food,
+    required this.cubit,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +44,12 @@ class FooditemWidget extends StatelessWidget {
                             children: [
                               ResponsiveText(
                                 height: constrain.maxHeight * .11,
-                                text: foodName,
+                                text: food.foodName,
                                 style: Styles.textStyleL(context,
                                     fontWeight: FontWeight.w700),
                               ),
                               Text(
-                                description,
+                                food.foodDescreption,
                                 style: Styles.textStyleL(
                                   context,
                                   fontWeight: FontWeight.w700,
@@ -63,10 +63,15 @@ class FooditemWidget extends StatelessWidget {
                           ),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            cubit.toggleFoodFav(food.foodID);
+                          },
                           icon: Icon(
-                            Icons.favorite_outline,
+                            cubit.isMealFavorite(food.foodID)
+                                ? Icons.favorite
+                                : Icons.favorite_outline,
                             size: constrain.maxWidth * .17,
+                            color: kFFC436Color,
                           ),
                         ),
                       ],
@@ -79,13 +84,13 @@ class FooditemWidget extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              'جنية',
+                              '${food.foodPrice}',
                               style: Styles.titleLayout(context,
                                   color: Colors.black),
                             ),
                             const SizedBox(width: 3),
                             Text(
-                              '$price',
+                              'جنية',
                               style: Styles.titleLayout(context,
                                   color: Colors.black),
                             ),
@@ -138,7 +143,7 @@ class FooditemWidget extends StatelessWidget {
               decoration: ShapeDecoration(
                   shape: const CircleBorder(),
                   image: DecorationImage(
-                      fit: BoxFit.cover, image: AssetImage(image))),
+                      fit: BoxFit.cover, image: AssetImage(food.foodImage))),
             ),
           )
         ],

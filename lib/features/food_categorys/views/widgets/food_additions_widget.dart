@@ -4,12 +4,13 @@ import '../../../../constants.dart';
 import '../../../../core/utils/styles.dart';
 
 class FoodAdditionsWidget extends StatelessWidget {
+  final String nameFoodAdditions;
+  final int priceFoodAdditions;
+
   const FoodAdditionsWidget(
       {super.key,
       required this.nameFoodAdditions,
       required this.priceFoodAdditions});
-  final String nameFoodAdditions;
-  final int priceFoodAdditions;
   @override
   Widget build(BuildContext context) {
     return Padding(

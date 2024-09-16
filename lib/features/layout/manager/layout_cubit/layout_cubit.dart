@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../food_categorys/views/food_categorys_view.dart';
-import '../../../home/views/home_view.dart';
+import '../../../home/presentation/views/home_view.dart';
 import '../../../account/presentation/views/account_view.dart';
 import '../../../shopping_cart/views/shopping_cart_view.dart';
 import 'layout_states.dart';

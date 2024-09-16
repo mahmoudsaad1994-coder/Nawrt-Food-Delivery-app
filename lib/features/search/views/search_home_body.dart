@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_search_bar.dart';
 import '../../../core/widgets/custtom_sliver_app_bar.dart';
 import '../../../core/widgets/view_item_title.dart';
-import '../../home/views/widgets/home_view_widgets/most_sale_grid_view.dart';
+import '../../home/presentation/views/widgets/home_view_widgets/most_sale_grid_view.dart';
 import '../manager/search_cubit.dart';
 import 'widgets/recent_searches.dart';
 
@@ -45,8 +45,8 @@ class SearchHomeBody extends StatelessWidget {
           ),
         ),
         const SliverToBoxAdapter(
-          child: MostSaleGridView(),
-        ),
+            // child: MostSaleGridView(),
+            ),
       ],
     );
   }

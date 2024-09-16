@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../../features/home/domain/entities/food_entity.dart';
 import '../utils/styles.dart';
 import 'respnsive_text.dart';
 
@@ -10,19 +11,9 @@ class FoodItemWithOffer extends StatelessWidget {
 
   const FoodItemWithOffer({
     super.key,
-    required this.foodName,
-    required this.description,
-    required this.price,
-    required this.image,
-    required this.offer,
-    required this.priceAfterOffer,
+    required this.food,
   });
-  final String foodName;
-  final String description;
-  final String image;
-  final String offer;
-  final num price;
-  final num priceAfterOffer;
+  final FoodEntity food;
 
   @override
   Widget build(BuildContext context) {
@@ -33,47 +24,40 @@ class FoodItemWithOffer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
+            Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: constraints.maxWidth * .03,
-                vertical: constraints.maxHeight * .04,
               ),
-              width: double.infinity,
-              height: constraints.maxWidth * .45,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Stack(
-                alignment: AlignmentDirectional.topEnd,
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: Image.asset(
-                      image,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Container(
-                    width: constraints.maxWidth * .42,
-                    height: constraints.maxHeight * .1,
-                    decoration: const BoxDecoration(
-                        color: kFFC436Color,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                        )),
-                    child: Center(
-                        child: ResponsiveText(
-                      height: constraints.maxHeight * .1,
-                      text: offer,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12,
-                        color: Colors.white,
+              child: Container(
+                width: double.infinity,
+                height: constraints.maxWidth * .47,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Stack(
+                  alignment: AlignmentDirectional.topEnd,
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Image.asset(
+                        food.foodImage,
+                        fit: BoxFit.fill,
                       ),
-                    )),
-                  ),
-                ],
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: constraints.maxHeight * .1,
+                      alignment: Alignment.center,
+                      color: kFFC436Color.withOpacity(.7),
+                      child: Text(
+                        food.foodofferdescrption!,
+                        style: Styles.textStyleSL(context, color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             const Spacer(),
@@ -85,11 +69,11 @@ class FoodItemWithOffer extends StatelessWidget {
                 children: [
                   ResponsiveText(
                     height: constraints.maxHeight * .14,
-                    text: foodName,
+                    text: food.foodName,
                     style: Styles.textStyle16old.copyWith(color: kBlackColor),
                   ),
                   Text(
-                    description,
+                    food.foodDescreption,
                     style: Styles.textStyleL(
                       context,
                       fontWeight: FontWeight.w700,
@@ -106,30 +90,29 @@ class FoodItemWithOffer extends StatelessWidget {
               padding: EdgeInsetsDirectional.only(
                   start: constraints.maxWidth * .052),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '$priceAfterOffer',
-                        style: Styles.titleLayout(context, color: Colors.black),
+                        '${food.foodofferPrice}',
+                        style: Styles.textStyleXL(context, color: Colors.black),
                       ),
                       Text(
-                        'جنيه',
-                        style: Styles.titleLayout(context, color: Colors.black),
+                        'ج.م',
+                        style: Styles.textStyleXL(context, color: Colors.black),
                       ),
-                      SizedBox(width: constraints.maxWidth * .02),
-                      ResponsiveText(
-                        height: constraints.maxHeight * .12,
-                        text: '$price',
-                        style: Styles.textStyle13,
+                      SizedBox(width: constraints.maxWidth * .05),
+                      Text(
+                        '${food.foodPrice}',
+                        style: Styles.textStyleOldPrice(context),
                       ),
-                      ResponsiveText(
-                        height: constraints.maxHeight * .12,
-                        text: 'جنيه',
-                        style: Styles.textStyle13,
+                      Text(
+                        'ج.م',
+                        style: Styles.textStyleOldPrice(context),
                       ),
                     ],
                   ),

@@ -19,7 +19,7 @@ class RegisterViewTopItem extends StatelessWidget {
       image: AspectRatio(
         aspectRatio: Responsive.isMobile(context) ? 1 / .4 : 1 / .25,
         child: Image.asset(
-          AssetsData.registerInfromationsImage,
+          AssetsData.registerInfoImage,
         ),
       ),
     );

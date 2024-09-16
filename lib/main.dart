@@ -15,6 +15,7 @@ import 'features/auth/domain/entities/login_entity.dart';
 import 'features/auth/domain/use_cases/login_usecase.dart';
 import 'features/auth/domain/use_cases/register_usecase.dart';
 import 'features/auth/presentation/manager/cubit.dart';
+import 'features/home/presentation/manager/cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +55,8 @@ class Nawrt extends StatelessWidget {
               getIt.get<AuthRepoImp>(),
             ),
           ),
-        )
+        ),
+        BlocProvider(create: (context) => MainCubit()),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

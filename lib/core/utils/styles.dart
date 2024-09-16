@@ -27,7 +27,7 @@ abstract class Styles {
   static textStyleL(context,
           {color = kBlackColor, fontWeight = FontWeight.w700}) =>
       TextStyle(
-        fontSize: MediaQuery.of(context).size.width * .04,
+        fontSize: MediaQuery.of(context).size.width * .035,
         fontWeight: fontWeight,
         color: color,
       );
@@ -38,19 +38,20 @@ abstract class Styles {
         fontWeight: fontWeight,
         color: color,
       );
+  //offer
+  static textStyleOldPrice(context) => TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .035,
+        fontWeight: FontWeight.w500,
+        // color: k96908AColor,
+        decoration: TextDecoration.lineThrough,
+        decorationColor: k96908AColor,
+      );
   //////
 
   static const textStyle16old = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w700,
     color: Colors.white,
-  );
-  static const textStyle13 = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeight.w400,
-    color: k96908AColor,
-    decoration: TextDecoration.lineThrough,
-    decorationColor: k96908AColor,
   );
   static titleLayout(context, {color = Colors.white}) => TextStyle(
         fontSize: MediaQuery.of(context).size.width * .05,
