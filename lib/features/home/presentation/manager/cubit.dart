@@ -11,14 +11,14 @@ class MainCubit extends Cubit<MainStates> {
   static MainCubit get(context) => BlocProvider.of(context);
 
   List<CategoriesEntity> categoriesList = [
-    CategoriesEntity(id: 1, name: 'باستا', image: AssetsData.testPastaImage),
+    CategoriesEntity(id: 1, name: 'باستا', image: AssetsData.cat_1Image),
     CategoriesEntity(id: 1, name: 'برجر', image: AssetsData.cat_1Image),
     CategoriesEntity(id: 1, name: 'بيتزا', image: AssetsData.cat_3Image),
     CategoriesEntity(id: 1, name: 'معكرونه', image: AssetsData.cat_2Image),
-    CategoriesEntity(id: 1, name: 'باستا', image: AssetsData.testtest1Image),
-    CategoriesEntity(id: 1, name: 'برجر', image: AssetsData.testtest2Image),
-    CategoriesEntity(id: 1, name: 'بيتزا', image: AssetsData.testtest3Image),
-    CategoriesEntity(id: 1, name: 'معكرونه', image: AssetsData.testPastaImage),
+    CategoriesEntity(id: 1, name: 'باستا', image: AssetsData.cat_2Image),
+    CategoriesEntity(id: 1, name: 'برجر', image: AssetsData.cat_3Image),
+    CategoriesEntity(id: 1, name: 'بيتزا', image: AssetsData.cat_1Image),
+    CategoriesEntity(id: 1, name: 'معكرونه', image: AssetsData.cat_1Image),
   ];
 
   List<FoodEntity> foodListWithOffers = [

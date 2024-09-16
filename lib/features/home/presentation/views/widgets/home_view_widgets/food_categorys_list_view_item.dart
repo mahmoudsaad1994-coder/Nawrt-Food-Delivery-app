@@ -5,6 +5,7 @@ import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/styles.dart';
 import '../../../../../../core/widgets/respnsive_text.dart';
 import '../../../../../../core/widgets/view_item_title.dart';
+import '../../../../../layout/manager/layout_cubit/layout_cubit.dart';
 import '../../../../domain/entities/categoray.dart';
 
 class FoodCategorysListViewItem extends StatelessWidget {
@@ -18,7 +19,9 @@ class FoodCategorysListViewItem extends StatelessWidget {
         ViewItemTitle(
           title: 'التصنيفات',
           onPressTitle: 'عرض الكل',
-          onPressed: () {},
+          onPressed: () {
+            LayoutCubit.get(context).changeBottomNaviIndex(1);
+          },
         ),
         SizedBox(height: width * .02),
         SizedBox(
