@@ -62,7 +62,14 @@ class Nawrt extends StatelessWidget {
         routerConfig: AppRouter.router,
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
+        builder: (context, child) {
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaler: const TextScaler.linear(1.0),
+            ),
+            child: child!,
+          );
+        },
         theme: ThemeData(
           fontFamily: kDINNextLTArabic,
         ),

@@ -29,7 +29,6 @@ class FoodCategorysListViewItem extends StatelessWidget {
           child: ListView.separated(
             itemCount: categories.length,
             padding: EdgeInsets.symmetric(horizontal: width * .06),
-            reverse: true,
             separatorBuilder: (context, index) => SizedBox(width: width * .05),
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) => GestureDetector(

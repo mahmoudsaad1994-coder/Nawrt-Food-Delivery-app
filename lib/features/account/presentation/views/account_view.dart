@@ -13,7 +13,7 @@ class AccountView extends StatelessWidget {
           body: SingleChildScrollView(
         child: Column(
           children: [
-            AppBarInfo(name: 'سلمي'),
+            AppBarInfo(name: 'رانيــا'),
             ButtonsListTile(),
           ],
         ),

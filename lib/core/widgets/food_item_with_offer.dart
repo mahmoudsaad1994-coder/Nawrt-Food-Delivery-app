@@ -98,7 +98,7 @@ class FoodItemWithOffer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${food.foodofferPrice}',
+                        '${food.sizesAndPriceafterOffer!.values.first}',
                         style: Styles.textStyleXL(context, color: Colors.black),
                       ),
                       Text(
@@ -107,7 +107,7 @@ class FoodItemWithOffer extends StatelessWidget {
                       ),
                       SizedBox(width: constraints.maxWidth * .05),
                       Text(
-                        '${food.foodPrice}',
+                        '${food.sizesAndPrice.values.first}',
                         style: Styles.textStyleOldPrice(context),
                       ),
                       Text(

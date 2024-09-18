@@ -31,7 +31,7 @@ class HomeViewBody extends StatelessWidget {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  const AppBarInfo(name: 'سلمي'),
+                  const AppBarInfo(name: 'رانيــا'),
                   const CustomSearchBar(isHome: true),
                   SizedBox(height: width * .05),
                   const SpicialOfferSlider(),

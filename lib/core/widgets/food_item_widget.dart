@@ -84,7 +84,7 @@ class FooditemWidget extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              '${food.foodPrice}',
+                              '${food.sizesAndPrice.values.first}',
                               style: Styles.titleLayout(context,
                                   color: Colors.black),
                             ),

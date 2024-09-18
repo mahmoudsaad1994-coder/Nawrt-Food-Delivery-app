@@ -3,16 +3,17 @@ class FoodEntity {
   String foodName;
   String foodDescreption;
   String foodImage;
-  int foodPrice;
-  int? foodofferPrice;
   String? foodofferdescrption;
+  Map<String, int> sizesAndPrice;
+  Map<String, int>? sizesAndPriceafterOffer;
+
   FoodEntity({
     required this.foodID,
     required this.foodName,
     required this.foodDescreption,
     required this.foodImage,
-    required this.foodPrice,
-    this.foodofferPrice,
+    required this.sizesAndPrice,
+    this.sizesAndPriceafterOffer,
     this.foodofferdescrption,
   });
 }

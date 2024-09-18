@@ -28,8 +28,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 150,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
     FoodEntity(
@@ -38,8 +42,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 200,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
     FoodEntity(
@@ -48,8 +56,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 250,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
     FoodEntity(
@@ -58,8 +70,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 150,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
     FoodEntity(
@@ -68,8 +84,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 200,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
     FoodEntity(
@@ -78,8 +98,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 250,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
     FoodEntity(
@@ -88,8 +112,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 150,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
     FoodEntity(
@@ -98,8 +126,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 200,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
     FoodEntity(
@@ -108,8 +140,12 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
-      foodPrice: 250,
-      foodofferPrice: 100,
+      sizesAndPrice: {
+        '150': 150,
+      },
+      sizesAndPriceafterOffer: {
+        '150': 100,
+      },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
   ];
@@ -121,7 +157,10 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 150,
+      sizesAndPrice: {
+        '150': 150,
+        '200': 190,
+      },
     ),
     FoodEntity(
       foodID: 2,
@@ -129,7 +168,11 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 200,
+      sizesAndPrice: {
+        '150': 150,
+        '200': 190,
+        '250': 220,
+      },
     ),
     FoodEntity(
       foodID: 3,
@@ -137,7 +180,7 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 250,
+      sizesAndPrice: {'150': 150},
     ),
     FoodEntity(
       foodID: 4,
@@ -145,7 +188,7 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 150,
+      sizesAndPrice: {'150': 150},
     ),
     FoodEntity(
       foodID: 5,
@@ -153,7 +196,7 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 200,
+      sizesAndPrice: {'150': 150},
     ),
     FoodEntity(
       foodID: 6,
@@ -161,7 +204,10 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 250,
+      sizesAndPrice: {
+        '150': 150,
+        '200': 190,
+      },
     ),
     FoodEntity(
       foodID: 7,
@@ -169,7 +215,7 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 150,
+      sizesAndPrice: {'150': 150},
     ),
     FoodEntity(
       foodID: 8,
@@ -177,7 +223,7 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 200,
+      sizesAndPrice: {'150': 150},
     ),
     FoodEntity(
       foodID: 9,
@@ -185,12 +231,37 @@ class MainCubit extends Cubit<MainStates> {
       foodDescreption:
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.testPastaImage,
-      foodPrice: 250,
+      sizesAndPrice: {
+        '150': 150,
+        '200': 190,
+      },
     ),
   ];
 
-  List<FoodEntity> favoriteFoods = [];
+  List<Map<String, int>> foodAdditionsWidgetList = [
+    {'إضافة خس': 20},
+    {'إضافة جزر': 10},
+    {'إضافة كاتشب': 5},
+  ];
+  //checkBox additions
+  List<bool> isAdditionChecked = List.generate(3, (index) => false);
+  selectAdition(index, value) {
+    isAdditionChecked[index] = value ?? false;
+    emit(AdditionCheckState());
+  }
 
+  //get price and sizes
+  String? selectedSize;
+  int? selectedPrice;
+  changePriceAndSize(
+      {required String foodSize, required int newselectedPrice}) {
+    selectedSize = foodSize;
+    selectedPrice = newselectedPrice;
+    emit(ChangeSizeAndPriceState());
+  }
+
+  //favorite food
+  List<FoodEntity> favoriteFoods = [];
   toggleFoodFav(int foodID) {
     final existingIndex =
         favoriteFoods.indexWhere((food) => food.foodID == foodID);

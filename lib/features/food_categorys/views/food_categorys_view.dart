@@ -15,59 +15,45 @@ class FoodCategorysView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: BlocConsumer<MainCubit, MainStates>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          var cubit = MainCubit.get(context);
-          return NestedScrollView(
-            headerSliverBuilder:
-                (BuildContext context, bool innerBoxIsScrolled) {
-              return <Widget>[
-                const CustomSliverAppBar(
-                  inLayout: true,
-                  title: 'قائمة الطعام',
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: width * .04,
-                  ),
-                ),
-                const SliverToBoxAdapter(
-                  child: CustomSearchBar(
-                    isHome: true,
-                  ),
-                ),
-              ];
-            },
-            body: Padding(
-              padding: EdgeInsets.all(width * .06),
-              child: GridView.count(
-                  crossAxisCount: 2,
-                  childAspectRatio: (160 / 120),
-                  crossAxisSpacing: width * .05,
-                  mainAxisSpacing: width * .03,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    ...List.generate(
-                      cubit.categoriesList.length,
-                      (index) => GestureDetector(
-                        onTap: () {
-                          GoRouter.of(context).push(AppRouter.kFoodsView,
-                              extra: cubit.categoriesList[index]);
-                        },
-                        child: CategoryItem(
-                          categoryName: cubit.categoriesList[index].name,
-                          image: cubit.categoriesList[index].image,
-                        ),
+    return BlocConsumer<MainCubit, MainStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        var cubit = MainCubit.get(context);
+        return NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              const CustomSliverAppBar(
+                inLayout: true,
+                title: 'قائمة الطعام',
+              ),
+            ];
+          },
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * .06),
+            child: GridView.count(
+                crossAxisCount: 2,
+                childAspectRatio: (160 / 120),
+                crossAxisSpacing: width * .05,
+                mainAxisSpacing: width * .03,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  ...List.generate(
+                    cubit.categoriesList.length,
+                    (index) => GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kFoodsView,
+                            extra: cubit.categoriesList[index]);
+                      },
+                      child: CategoryItem(
+                        categoryName: cubit.categoriesList[index].name,
+                        image: cubit.categoriesList[index].image,
                       ),
-                    )
-                  ]),
-            ),
-          );
-        },
-      ),
+                    ),
+                  )
+                ]),
+          ),
+        );
+      },
     );
   }
 }

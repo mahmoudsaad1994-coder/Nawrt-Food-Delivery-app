@@ -26,12 +26,10 @@ class CustomSearchBar extends StatelessWidget {
         hintStyle: WidgetStatePropertyAll(TextStyle(
           fontSize: size * .04,
         )),
+        autoFocus: false,
         onChanged: (value) {},
-        onSubmitted: (searchText) {},
         onTap: () {
           if (isHome) {
-            //go to search screen
-
             GoRouter.of(context).push(AppRouter.kSearchView);
           }
         },

@@ -38,7 +38,7 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
                   },
                   autoPlay: true,
                   height: screenSize.height * .22,
-                  viewportFraction: 1,
+                  viewportFraction: .9,
                 ),
                 items: bannersData.map((image) {
                   return Builder(
@@ -49,11 +49,11 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
+                          clipBehavior: Clip.hardEdge,
                           child: Image.asset(
                             image,
                             width: screenSize.width,
                             fit: BoxFit.fill,
-                            height: screenSize.height * .22,
                           ),
                         ),
                       );

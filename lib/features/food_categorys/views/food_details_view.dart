@@ -9,7 +9,6 @@ import '../../home/presentation/manager/cubit.dart';
 import '../../home/presentation/manager/states.dart';
 import 'widgets/count_and_add_food_cart_widget.dart';
 import 'widgets/food_additions_widget.dart';
-import 'widgets/food_weight_widget.dart';
 
 class FoodDetailsView extends StatelessWidget {
   const FoodDetailsView({super.key, required this.food});
@@ -18,12 +17,15 @@ class FoodDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    print(MediaQuery.of(context).viewPadding.top);
     return Scaffold(
       body: BlocConsumer<MainCubit, MainStates>(
           listener: (context, state) {},
           builder: (context, state) {
             var cubit = MainCubit.get(context);
+            var selectedPrice =
+                cubit.selectedPrice ?? food.sizesAndPrice.values.first;
+            var selectedSize =
+                cubit.selectedSize ?? food.sizesAndPrice.keys.first;
             return Stack(
               children: [
                 Padding(
@@ -50,14 +52,19 @@ class FoodDetailsView extends StatelessWidget {
                             },
                             icon: const Icon(Icons.arrow_back)),
                         const Spacer(),
-                        InkWell(
-                          onTap: () {
-                            cubit.toggleFoodFav(food.foodID);
-                          },
-                          child: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            maxRadius: size.width * .07,
-                            child: Icon(
+                        Container(
+                          width: size.width * .14,
+                          height: size.width * .14,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          clipBehavior: Clip.hardEdge,
+                          child: IconButton(
+                            onPressed: () {
+                              cubit.toggleFoodFav(food.foodID);
+                            },
+                            icon: Icon(
                               cubit.isMealFavorite(food.foodID)
                                   ? Icons.favorite
                                   : Icons.favorite_outline,
@@ -94,7 +101,7 @@ class FoodDetailsView extends StatelessWidget {
                                   fontWeight: FontWeight.w700),
                             ),
                             Text(
-                              '${food.foodPrice} جنيه',
+                              '$selectedPrice جنيه',
                               style: Styles.textStyleXXL(context,
                                   fontWeight: FontWeight.w700,
                                   color: kFFC436Color),
@@ -121,14 +128,49 @@ class FoodDetailsView extends StatelessWidget {
                               top: size.height * .005),
                           child: SizedBox(
                             height: size.height * .06,
-                            child: ListView.builder(
+                            child: ListView(
                               scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) => Padding(
-                                padding: EdgeInsetsDirectional.only(
-                                    end: size.width * .06),
-                                child: foodWeightList[index],
-                              ),
-                              itemCount: foodWeightList.length,
+                              children: food.sizesAndPrice.keys.map(
+                                (foodSize) {
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.only(
+                                        end: size.width * .02),
+                                    child: InkWell(
+                                      onTap: () {
+                                        cubit.changePriceAndSize(
+                                            foodSize: foodSize,
+                                            newselectedPrice:
+                                                food.sizesAndPrice[foodSize]!);
+                                      },
+                                      child: Card(
+                                        shape: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: selectedSize == foodSize
+                                                ? Colors.yellow
+                                                : Colors.transparent,
+                                            width: 2.0,
+                                          ),
+                                        ),
+                                        child: Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .26,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            '$foodSize جرام',
+                                            style: Styles.textStyleL(
+                                              context,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).toList(),
                             ),
                           ),
                         ),
@@ -137,7 +179,10 @@ class FoodDetailsView extends StatelessWidget {
                           style: Styles.textStyleXXL(context,
                               fontWeight: FontWeight.w700),
                         ),
-                        ...foodAdditionsWidgetList,
+                        ...List.generate(cubit.foodAdditionsWidgetList.length,
+                            (index) {
+                          return FoodAdditionsWidget(index: index);
+                        }),
                         SizedBox(height: size.height * .02),
                         const CountAndAddFoodCartWidget(),
                       ],
@@ -150,19 +195,3 @@ class FoodDetailsView extends StatelessWidget {
     );
   }
 }
-
-List<FoodWeightButton> foodWeightList = [
-  const FoodWeightButton(foodWeight: '150 جرام'),
-  const FoodWeightButton(foodWeight: '200 جرام'),
-  const FoodWeightButton(foodWeight: '250 جرام'),
-  const FoodWeightButton(foodWeight: '300 جرام'),
-];
-
-List<FoodAdditionsWidget> foodAdditionsWidgetList = [
-  const FoodAdditionsWidget(
-      nameFoodAdditions: 'إضافة خس', priceFoodAdditions: 20),
-  const FoodAdditionsWidget(
-      nameFoodAdditions: 'إضافة جزر', priceFoodAdditions: 10),
-  const FoodAdditionsWidget(
-      nameFoodAdditions: 'إضافة خيار', priceFoodAdditions: 15),
-];
