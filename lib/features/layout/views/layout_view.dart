@@ -2,7 +2,7 @@ import 'package:bottom_navbar_with_indicator/bottom_navbar_with_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../constants.dart';
+import '../../../core/constants.dart';
 import '../manager/layout_cubit/layout_cubit.dart';
 import '../manager/layout_cubit/layout_states.dart';
 

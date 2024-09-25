@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../constants.dart';
+import '../../../../core/constants.dart';
 import '../../../../core/utils/styles.dart';
 import '../../../home/presentation/manager/cubit.dart';
 import '../../../home/presentation/manager/states.dart';
@@ -54,34 +54,3 @@ class FoodAdditionsWidget extends StatelessWidget {
     );
   }
 }
-/*  Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: cubit.isAdditionChecked[index],
-                        onChanged: (bool? val) {
-                          cubit.selectAdition(index, val);
-                        },
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        activeColor: kFFC436Color,
-                      ),
-                      Text(
-                        cubit.foodAdditionsWidgetList[index].keys.first,
-                        style: Styles.textStyleL(
-                          context,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    '${cubit.foodAdditionsWidgetList[index].values.first} جنيه',
-                    style: Styles.textStyleL(context,
-                        fontWeight: FontWeight.w500, color: kFFC436Color),
-                  ),
-                ],
-              ), */

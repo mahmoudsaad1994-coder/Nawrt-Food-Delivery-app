@@ -241,7 +241,7 @@ class MainCubit extends Cubit<MainStates> {
   List<Map<String, int>> foodAdditionsWidgetList = [
     {'إضافة خس': 20},
     {'إضافة جزر': 10},
-    {'إضافة كاتشب': 5},
+    {'إضافة جزر': 10},
   ];
   //checkBox additions
   List<bool> isAdditionChecked = List.generate(3, (index) => false);
@@ -262,7 +262,7 @@ class MainCubit extends Cubit<MainStates> {
 
   //favorite food
   List<FoodEntity> favoriteFoods = [];
-  toggleFoodFav(int foodID) {
+  void toggleFoodFav(int foodID) {
     final existingIndex =
         favoriteFoods.indexWhere((food) => food.foodID == foodID);
     if (existingIndex >= 0) {
@@ -276,6 +276,17 @@ class MainCubit extends Cubit<MainStates> {
 
   bool isMealFavorite(int id) {
     return favoriteFoods.any((meal) => meal.foodID == id);
+  }
+
+  int counter = 1;
+  changeCounter(bool add) {
+    add
+        ? counter++
+        : counter == 0
+            ? counter == 1
+            : counter--;
+
+    emit(ChangeCounterStates());
   }
 
   //home offer slider

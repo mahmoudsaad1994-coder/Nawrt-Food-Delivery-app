@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../constants.dart';
+import '../constants.dart';
 import '../utils/styles.dart';
 
 class CustomSliverAppBar extends StatelessWidget {

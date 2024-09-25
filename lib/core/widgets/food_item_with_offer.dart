@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../constants.dart';
 import '../../features/home/domain/entities/food_entity.dart';
 import '../utils/styles.dart';
 import 'respnsive_text.dart';

@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../constants.dart';
+import '../../../../../../core/constants.dart';
 import '../../../../../../core/utils/assets.dart';
 import '../../../manager/cubit.dart';
 import '../../../manager/states.dart';
@@ -38,26 +38,17 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
                   },
                   autoPlay: true,
                   height: screenSize.height * .22,
-                  viewportFraction: .9,
+                  viewportFraction: 1,
                 ),
                 items: bannersData.map((image) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: screenSize.width * .04,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          clipBehavior: Clip.hardEdge,
-                          child: Image.asset(
-                            image,
-                            width: screenSize.width,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      );
-                    },
+                  return ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    clipBehavior: Clip.hardEdge,
+                    child: Image.asset(
+                      image,
+                      width: screenSize.width * .9,
+                      fit: BoxFit.fill,
+                    ),
                   );
                 }).toList(),
               ),
@@ -78,8 +69,8 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
                         horizontal: screenSize.width * .01,
                       ),
                       width: cubit.selectedPageIndex == i
-                          ? screenSize.width * .05
-                          : screenSize.width * .025,
+                          ? screenSize.width * .04
+                          : screenSize.width * .02,
                       height: screenSize.width * .02,
                       decoration: BoxDecoration(
                         color: cubit.selectedPageIndex == i
@@ -100,10 +91,10 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
 }
 
 List<String> bannersData = [
-  AssetsData.banner1Image,
   AssetsData.banner2Image,
   AssetsData.banner3Image,
   AssetsData.banner4Image,
+  AssetsData.banner1Image,
   AssetsData.banner5Image,
   AssetsData.banner6Image,
   AssetsData.banner7Image,

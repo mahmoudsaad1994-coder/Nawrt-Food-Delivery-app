@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nawrt/constants.dart';
+import 'package:nawrt/core/constants.dart';
 
 import '../../../../core/utils/styles.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -11,12 +11,15 @@ class CountAndAddFoodCartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: size.height * .03),
+      height: double.infinity,
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(
+        horizontal: size.width * .05,
+      ),
       decoration: const BoxDecoration(
         border: Border(
-            top: BorderSide(
-          color: k0xff867e7eColor,
-        )),
+          top: BorderSide(color: k96908AColor, width: 1),
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,18 +54,22 @@ class CountAndAddFoodCartWidget extends StatelessWidget {
           ),
           CustomButton(
             onPressed: () {},
-            child: Row(
-              children: [
-                Text(
-                  'إضافة إلى عربة التسوق',
-                  style: Styles.textStyleXL(context, color: Colors.white),
-                ),
-                SizedBox(width: size.width * .03),
-                Text(
-                  '150 جنيه',
-                  style: Styles.textStyleXXL(context, color: kFFC436Color),
-                ),
-              ],
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
+              child: Row(
+                children: [
+                  Text(
+                    'إضافة إلى عربة التسوق',
+                    style: Styles.textStyleXL(context, color: Colors.white),
+                  ),
+                  SizedBox(width: size.width * .03),
+                  Text(
+                    '150 جنيه',
+                    style: Styles.textStyleXXL(context, color: kFFC436Color),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

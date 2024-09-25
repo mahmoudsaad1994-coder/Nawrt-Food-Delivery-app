@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants.dart';
+import '../../../../core/constants.dart';
 import '../../../../core/utils/styles.dart';
 import '../../manager/search_cubit.dart';
 import 'sort_widget.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nawrt/core/utils/responsive.dart';
 
-import '../../constants.dart';
+import '../constants.dart';
 import '../utils/app_router.dart';
 
 class CustomSearchBar extends StatelessWidget {

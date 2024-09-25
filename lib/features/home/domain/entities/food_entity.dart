@@ -6,6 +6,8 @@ class FoodEntity {
   String? foodofferdescrption;
   Map<String, int> sizesAndPrice;
   Map<String, int>? sizesAndPriceafterOffer;
+  bool isSaladChecked;
+  double additionalPrice;
 
   FoodEntity({
     required this.foodID,
@@ -15,5 +17,7 @@ class FoodEntity {
     required this.sizesAndPrice,
     this.sizesAndPriceafterOffer,
     this.foodofferdescrption,
+    this.isSaladChecked = false,
+    this.additionalPrice = 0.0,
   });
 }

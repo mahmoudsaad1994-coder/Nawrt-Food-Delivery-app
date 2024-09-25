@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../constants.dart';
 import '../utils/styles.dart';
 import 'custom_button.dart';
 import 'respnsive_text.dart';

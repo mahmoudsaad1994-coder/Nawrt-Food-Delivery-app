@@ -46,6 +46,7 @@ class AssetsData {
 
 class IconAssetsManager {
   static const String _baseURL = "assets/icons";
+
   static const String searchIcon = "$_baseURL/search_icon.png";
   static const String aboutUsIcon = "$_baseURL/about.png";
   static const String userIcon = "$_baseURL/user_icon.png";
