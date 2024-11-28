@@ -67,6 +67,7 @@ class HomeViewBody extends StatelessWidget {
                       GoRouter.of(context).push(AppRouter.kSpicialOffersView);
                     },
                   ),
+                  SizedBox(height: width * .02),
                 ],
               ),
             ),

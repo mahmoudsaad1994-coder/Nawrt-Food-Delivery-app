@@ -24,7 +24,7 @@ class FoodsView extends StatelessWidget {
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 CustomSliverAppBar(
-                  inLayout: true,
+                  inLayout: false,
                   title: categoryItem.name,
                 ),
                 SliverToBoxAdapter(

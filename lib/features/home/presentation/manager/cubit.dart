@@ -243,6 +243,35 @@ class MainCubit extends Cubit<MainStates> {
     {'إضافة جزر': 10},
     {'إضافة جزر': 10},
   ];
+//shopping cart items
+  List<Map<String, dynamic>> cartItems = [
+    {"name": "بيتزا إيطالية", "price": 150, "quantity": 1},
+    {"name": "بيتزا مصريه", "price": 120, "quantity": 1},
+    {"name": "بيتزا فرنسيه", "price": 250, "quantity": 1},
+  ];
+  double discount = 0;
+
+  void applyDiscount() {
+    discount = 30; // مثال: خصم ثابت بقيمة 30 جنيه.
+    emit(ApplyDiscountStates());
+  }
+
+  void addFoodItem(int quantity) {
+    quantity++;
+    emit(AddFoodItemCountStates());
+  }
+
+  void oddFoodItem(int quantity) {
+    if (quantity > 1) {
+      quantity--;
+    }
+    emit(OddFoodItemCountStates());
+  }
+
+  double get totalPrice => cartItems.fold(
+      0, (total, item) => total + item["price"] * item["quantity"]);
+
+  double get finalPrice => totalPrice - discount;
   //checkBox additions
   List<bool> isAdditionChecked = List.generate(3, (index) => false);
   selectAdition(index, value) {

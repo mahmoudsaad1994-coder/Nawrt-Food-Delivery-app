@@ -36,5 +36,3 @@ final List recentSearchs = [
   'باستا',
   'بيتزا تشيكن رانش',
 ];
-
-final List cartList = [];

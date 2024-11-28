@@ -138,10 +138,15 @@ class FooditemWidget extends StatelessWidget {
             width: constrain.maxHeight * .45,
             height: constrain.maxHeight * .45,
             decoration: const ShapeDecoration(
-                shape: CircleBorder(), color: Colors.white),
+                shape: CircleBorder(), color: Colors.transparent),
             child: DecoratedBox(
               decoration: ShapeDecoration(
                   shape: const CircleBorder(),
+                  shadows: const [
+                    BoxShadow(
+                      blurRadius: 1,
+                    )
+                  ],
                   image: DecorationImage(
                       fit: BoxFit.cover, image: AssetImage(food.foodImage))),
             ),

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nawrt/core/utils/extensions.dart';
 
+import '../../../core/constants.dart';
+import '../../../core/utils/styles.dart';
+import '../../../core/widgets/custom_button.dart';
+import '../../../core/widgets/dialog.dart';
 import '../../home/domain/entities/food_entity.dart';
 import '../../home/presentation/manager/cubit.dart';
 import '../../home/presentation/manager/states.dart';
-import 'widgets/count_and_add_food_cart_widget.dart';
 import 'widgets/food_details_widgets/food_details_description.dart';
 import 'widgets/food_details_widgets/food_details_AppBar_widget.dart';
 
@@ -35,10 +39,35 @@ class FoodDetailsView extends StatelessWidget {
         },
       ),
       bottomNavigationBar: BottomAppBar(
-        padding: EdgeInsets.zero,
+        padding: EdgeInsetsDirectional.only(
+          end: context.width * .06,
+          start: context.width * .06,
+          bottom: 2,
+        ),
         color: Colors.white,
-        height: MediaQuery.of(context).size.height * .09,
-        child: const CountAndAddFoodCartWidget(),
+        height: context.height * .07,
+        child: CustomButton(
+          onPressed: () {
+            showOrderConfirmationDialog(context);
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'إضافة إلى عربة التسوق',
+                  style: Styles.textStyleXL(context, color: Colors.white),
+                ),
+                SizedBox(width: context.width * .03),
+                Text(
+                  '150 جنيه',
+                  style: Styles.textStyleXXL(context, color: kFFC436Color),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

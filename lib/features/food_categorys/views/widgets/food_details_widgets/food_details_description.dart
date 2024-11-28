@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nawrt/core/utils/extensions.dart';
 
 import '../../../../../core/constants.dart';
 import '../../../../../core/utils/styles.dart';
@@ -14,7 +15,8 @@ class FoodDetailsDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    var width = context.width;
+    var height = context.height;
     var selectedPrice = cubit.selectedPrice ?? food.sizesAndPrice.values.first;
     var selectedSize = cubit.selectedSize ?? food.sizesAndPrice.keys.first;
     return SliverToBoxAdapter(
@@ -22,11 +24,11 @@ class FoodDetailsDescription extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(size.width * .07),
-              topRight: Radius.circular(size.width * .07),
+              topLeft: Radius.circular(width * .07),
+              topRight: Radius.circular(width * .07),
             )),
         padding: EdgeInsets.symmetric(
-            horizontal: size.width * .06, vertical: size.width * .02),
+            horizontal: width * .06, vertical: width * .02),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -46,7 +48,7 @@ class FoodDetailsDescription extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: size.width * .02),
+              padding: EdgeInsets.symmetric(vertical: width * .02),
               child: Text(
                 food.foodDescreption,
                 style: Styles.textStyleL(context, fontWeight: FontWeight.w400),
@@ -57,17 +59,16 @@ class FoodDetailsDescription extends StatelessWidget {
               style: Styles.textStyleXXL(context, fontWeight: FontWeight.w700),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  bottom: size.height * .013, top: size.height * .005),
+              padding:
+                  EdgeInsets.only(bottom: height * .013, top: height * .005),
               child: SizedBox(
-                height: size.height * .06,
+                height: height * .06,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: food.sizesAndPrice.keys.map(
                     (foodSize) {
                       return Padding(
-                        padding:
-                            EdgeInsetsDirectional.only(end: size.width * .02),
+                        padding: EdgeInsetsDirectional.only(end: width * .02),
                         child: InkWell(
                           onTap: () {
                             cubit.changePriceAndSize(
@@ -85,7 +86,7 @@ class FoodDetailsDescription extends StatelessWidget {
                               ),
                             ),
                             child: Container(
-                              width: MediaQuery.of(context).size.width * .26,
+                              width: width * .26,
                               alignment: Alignment.center,
                               child: Text(
                                 '$foodSize جرام',
@@ -111,7 +112,7 @@ class FoodDetailsDescription extends StatelessWidget {
             ...List.generate(cubit.foodAdditionsWidgetList.length, (index) {
               return FoodAdditionsWidget(index: index);
             }),
-            SizedBox(height: size.height * .02),
+            SizedBox(height: height * .02),
           ],
         ),
       ),

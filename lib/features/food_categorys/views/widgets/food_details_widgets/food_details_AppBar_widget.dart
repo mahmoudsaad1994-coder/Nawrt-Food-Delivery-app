@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nawrt/core/utils/extensions.dart';
 
 import '../../../../../core/constants.dart';
 import '../../../../home/domain/entities/food_entity.dart';
@@ -15,13 +16,14 @@ class FoodDetailsAppBarWidget extends StatelessWidget {
   final MainCubit cubit;
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    var height = context.height;
+    var width = context.width;
 
     return SliverAppBar(
       systemOverlayStyle:
           const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
-      expandedHeight: size.height * .4,
-      backgroundColor: Colors.white,
+      expandedHeight: height * .4,
+      backgroundColor: Colors.transparent,
       elevation: 0.0,
       stretch: true,
       flexibleSpace: FlexibleSpaceBar(
@@ -37,7 +39,7 @@ class FoodDetailsAppBarWidget extends StatelessWidget {
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(0.0),
         child: Container(
-          height: size.height * .03,
+          height: height * .03,
           alignment: Alignment.center,
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -47,7 +49,7 @@ class FoodDetailsAppBarWidget extends StatelessWidget {
             ),
           ),
           child: Container(
-            width: size.width * .25,
+            width: width * .25,
             height: 5.0,
             decoration: BoxDecoration(
               color: kFFC436Color,
@@ -56,29 +58,26 @@ class FoodDetailsAppBarWidget extends StatelessWidget {
           ),
         ),
       ),
-      leadingWidth: size.width * .2,
-      leading: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-        child: Container(
-          alignment: Alignment.center,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            onPressed: () {
-              GoRouter.of(context).pop();
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              size: size.width * .07,
-            ),
+      leadingWidth: width * .2,
+      leading: Container(
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+        ),
+        child: IconButton(
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: width * .07,
           ),
         ),
       ),
       actions: [
         Container(
-          width: size.width * .14,
-          height: size.width * .14,
+          width: width * .14,
+          height: width * .14,
           decoration: const BoxDecoration(
             color: Colors.white,
             shape: BoxShape.circle,
@@ -92,12 +91,12 @@ class FoodDetailsAppBarWidget extends StatelessWidget {
               cubit.isMealFavorite(food.foodID)
                   ? Icons.favorite
                   : Icons.favorite_outline,
-              size: size.width * .07,
+              size: width * .07,
               color: kFFC436Color,
             ),
           ),
         ),
-        SizedBox(width: size.width * .05),
+        SizedBox(width: width * .05),
       ],
     );
   }
