@@ -52,8 +52,11 @@ class Nawrt extends StatelessWidget {
           );
         },
         theme: ThemeData(
-          fontFamily: kDINNextLTArabic,
-        ),
+            fontFamily: kDINNextLTArabic,
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.white,
+            )),
         localizationsDelegates: const [
           GlobalCupertinoLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,

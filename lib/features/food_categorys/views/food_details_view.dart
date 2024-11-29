@@ -48,7 +48,7 @@ class FoodDetailsView extends StatelessWidget {
         height: context.height * .07,
         child: CustomButton(
           onPressed: () {
-            showOrderConfirmationDialog(context);
+            confirmationItemsShowDialog(context: context);
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),

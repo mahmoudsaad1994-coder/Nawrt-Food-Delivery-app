@@ -324,4 +324,17 @@ class MainCubit extends Cubit<MainStates> {
     selectedPageIndex = index;
     emit(ChangeIndexSliderState());
   }
+
+  //payment
+  bool isCashOnDeliverySelected = false;
+  changeDeliverySelected(bool value) {
+    isCashOnDeliverySelected = value;
+    emit(ChangeDeliveryState());
+  }
+
+  bool saveWalletInfo = false;
+  toggleSaveWalletInfo(bool value) {
+    saveWalletInfo = !saveWalletInfo;
+    emit(ChangeSaveWalletInfoState());
+  }
 }

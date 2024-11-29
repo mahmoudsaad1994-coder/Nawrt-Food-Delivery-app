@@ -9,8 +9,8 @@ import '../../home/presentation/manager/states.dart';
 import 'shopping_cart_body.dart';
 
 class ShoppingCartView extends StatelessWidget {
-  const ShoppingCartView({super.key});
-
+  const ShoppingCartView({super.key, this.inlayout = true});
+  final bool inlayout;
   @override
   Widget build(BuildContext context) {
     var width = context.width;
@@ -20,8 +20,8 @@ class ShoppingCartView extends StatelessWidget {
           builder: (context, state) {
             return CustomScrollView(
               slivers: [
-                const CustomSliverAppBar(
-                  inLayout: true,
+                CustomSliverAppBar(
+                  inLayout: inlayout,
                   title: 'عربة التسوق',
                 ),
                 SliverFillRemaining(

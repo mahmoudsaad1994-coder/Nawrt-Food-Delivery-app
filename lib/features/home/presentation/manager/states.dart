@@ -17,3 +17,7 @@ class ApplyDiscountStates extends MainStates {}
 class AddFoodItemCountStates extends MainStates {}
 
 class OddFoodItemCountStates extends MainStates {}
+
+class ChangeDeliveryState extends MainStates {}
+
+class ChangeSaveWalletInfoState extends MainStates {}
