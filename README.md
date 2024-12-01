@@ -2,16 +2,16 @@
 
 ## This is a Flutter-based food delivery application that provides a seamless experience for browsing meals, dishes, and special offers. The app allows users to:
 
-# 1- Explore Menus & Offers: Browse available meals, dishes, and special discounts.
-# 2- User Registration: Create and manage user accounts.
-# 3- Place Orders: Easily order meals from the menu.
-# 4- Flexible Payment Options: Pay using credit/debit cards (Visa) or choose cash on delivery.
-# 5- Order Pickup Reservations: Reserve your order at a specific restaurant branch for pickup.
-# 6- Track Order Status: Check the current status of your order (e.g., in preparation, ready for pickup).
-# 7- Live Delivery Tracking: Track the delivery agent in real-time as they head to your location.
-# 8- Communicate with the Delivery Agent: Directly contact the agent via call or message for assistance.
-# 9- This app is designed to ensure a smooth and efficient user experience for food ordering and delivery services.
-# 10- Customizable Experience: Add or modify features based on the customer's preferences and requirements.
+### 1- Explore Menus & Offers: Browse available meals, dishes, and special discounts.
+### 2- User Registration: Create and manage user accounts.
+### 3- Place Orders: Easily order meals from the menu.
+### 4- Flexible Payment Options: Pay using credit/debit cards (Visa) or choose cash on delivery.
+### 5- Order Pickup Reservations: Reserve your order at a specific restaurant branch for pickup.
+### 6- Track Order Status: Check the current status of your order (e.g., in preparation, ready for pickup).
+### 7- Live Delivery Tracking: Track the delivery agent in real-time as they head to your location.
+### 8- Communicate with the Delivery Agent: Directly contact the agent via call or message for assistance.
+### 9- This app is designed to ensure a smooth and efficient user experience for food ordering and delivery services.
+### 10- Customizable Experience: Add or modify features based on the customer's preferences and requirements.
 
 ![Splash](https://github.com/user-attachments/assets/cb98d46f-92d1-47fd-8ade-069b91451468)
 ![استكمال البيانات](https://github.com/user-attachments/assets/b30575e7-a4b6-4109-9231-bd8dba7daf51)
