@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nawrt/core/utils/extensions.dart';
 
 import '../../../core/utils/styles.dart';
 import '../../../core/widgets/custom_button.dart';
@@ -14,63 +15,60 @@ class SearchFilterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    return BlocProvider(
-      create: (context) => SearchCubit(),
-      child: BlocConsumer<SearchCubit, SearchStates>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          SearchCubit cubit = SearchCubit.get(context);
-          return Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: SafeArea(
-                child: CustomScrollView(
-              physics: const BouncingScrollPhysics(),
-              slivers: [
-                const CustomSliverAppBar(
-                  inLayout: false,
-                  title: 'الفلتر',
+    var width = context.width;
+    return BlocConsumer<SearchCubit, SearchStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        SearchCubit cubit = SearchCubit.get(context);
+        return Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: SafeArea(
+              child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              const CustomSliverAppBar(
+                inLayout: false,
+                title: 'الفلتر',
+              ),
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    SizedBox(height: width * .1),
+                    ShowAs(cubit: cubit),
+                    SetPriceFilter(
+                      cubit: cubit,
+                    ),
+                  ],
                 ),
-                SliverToBoxAdapter(
-                  child: Column(
-                    children: [
-                      SizedBox(height: width * .1),
-                      ShowAs(cubit: cubit),
-                      SetPriceFilter(
-                        cubit: cubit,
-                      ),
-                    ],
-                  ),
-                ),
-                SliverFillRemaining(
-                  child: Column(
-                    children: [
-                      const Spacer(),
-                      Container(
-                        width: double.infinity,
-                        padding: EdgeInsets.symmetric(horizontal: width * .06),
-                        height: width * .15,
-                        child: CustomButton(
-                          onPressed: () {},
-                          child: Text(
-                            'تطبيق الفلتر',
-                            style: Styles.textStyle16old.copyWith(
-                              fontSize: width * .05,
-                            ),
+              ),
+              SliverFillRemaining(
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: width * .06),
+                      height: width * .15,
+                      child: CustomButton(
+                        onPressed: () {},
+                        child: Text(
+                          'تطبيق الفلتر',
+                          style: Styles.textStyle16old.copyWith(
+                            fontSize: width * .05,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: width * .1,
-                      )
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: width * .1,
+                    )
+                  ],
                 ),
-              ],
-            )),
-          );
-        },
-      ),
+              ),
+            ],
+          )),
+        );
+      },
     );
   }
 }

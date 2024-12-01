@@ -21,6 +21,7 @@ class CustomSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       centerTitle: true,
       pinned: isPinned,
+      backgroundColor: Colors.white,
       leadingWidth: context.width * .2,
       leading: !inLayout
           ? IconButton(

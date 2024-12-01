@@ -17,6 +17,7 @@ import '../../features/map/order_tracking.dart';
 import '../../features/order_info/order_branch_info_view.dart';
 import '../../features/order_info/order_delivery_info_view.dart';
 import '../../features/payment/confirm_order.dart';
+import '../../features/search/views/search_filter_view.dart';
 import '../../features/shopping_cart/views/shopping_cart_view_outside.dart';
 import '../../features/splash/view/splash_view.dart';
 import '../../features/layout/views/layout_view.dart';
@@ -30,6 +31,7 @@ abstract class AppRouter {
   static const String kForgetPasswordScreen = '/forgetPasswordScreen';
   static const String kSearchView = '/SearchView';
   static const String kLayoutView = '/layoutView';
+  static const String kSearchFilterView = '/SearchFilterView';
   static const String kResetNewPasswordScreen = '/resetNewPasswordScreen';
   static const String kFoodsView = '/foodsView';
   static const String kBestSellerView = '/bestSellerView';
@@ -52,6 +54,10 @@ abstract class AppRouter {
       GoRoute(
         path: kRegistrationPage,
         builder: (context, state) => const RegistrationPage(),
+      ),
+      GoRoute(
+        path: kSearchFilterView,
+        builder: (context, state) => const SearchFilterView(),
       ),
       GoRoute(
         path: kOrderTracking,

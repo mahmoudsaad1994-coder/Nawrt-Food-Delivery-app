@@ -13,6 +13,7 @@ import 'features/auth/domain/use_cases/login_usecase.dart';
 import 'features/auth/domain/use_cases/register_usecase.dart';
 import 'features/auth/presentation/manager/cubit.dart';
 import 'features/home/presentation/manager/cubit.dart';
+import 'features/search/manager/search_cubit.dart';
 
 class Nawrt extends StatelessWidget {
   const Nawrt({super.key});
@@ -38,6 +39,7 @@ class Nawrt extends StatelessWidget {
           ),
         ),
         BlocProvider(create: (context) => MainCubit()),
+        BlocProvider(create: (context) => SearchCubit()),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
@@ -56,6 +58,7 @@ class Nawrt extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(
               backgroundColor: Colors.white,
+              surfaceTintColor: Colors.white,
             )),
         localizationsDelegates: const [
           GlobalCupertinoLocalizations.delegate,

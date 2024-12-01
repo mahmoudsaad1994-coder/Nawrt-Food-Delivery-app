@@ -26,6 +26,8 @@ class MainCubit extends Cubit<MainStates> {
     CategoriesEntity(id: 1, name: 'برجر', image: AssetsData.cat_3Image),
     CategoriesEntity(id: 1, name: 'بيتزا', image: AssetsData.cat_1Image),
     CategoriesEntity(id: 1, name: 'معكرونه', image: AssetsData.cat_1Image),
+    CategoriesEntity(id: 1, name: 'بيتزا', image: AssetsData.cat_1Image),
+    CategoriesEntity(id: 1, name: 'معكرونه', image: AssetsData.cat_1Image),
   ];
 
   List<FoodEntity> foodListWithOffers = [

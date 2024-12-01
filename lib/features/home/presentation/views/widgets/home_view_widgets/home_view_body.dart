@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/assets.dart';
-import '../../../../../../core/widgets/custom_search_bar.dart';
+import '../../../../../../core/widgets/custom_search_widget.dart';
 import '../../../../../../core/widgets/today_dish_item.dart';
 import '../../../manager/cubit.dart';
 import '../../../manager/states.dart';
@@ -32,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
               child: Column(
                 children: [
                   const AppBarInfo(name: 'رانيــا'),
-                  const CustomSearchBar(isHome: true),
+                  const CustomSearchWidget(),
                   SizedBox(height: width * .05),
                   const SpicialOfferSlider(),
                   SizedBox(height: width * .01),
@@ -48,9 +48,8 @@ class HomeViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            SliverToBoxAdapter(
-              child: MostSaleGridView(
-                  foodList: cubit.foodsList, cubit: cubit, isHome: true),
+            const SliverToBoxAdapter(
+              child: MostSaleGridView(isHome: true),
             ),
             SliverToBoxAdapter(
               child: Column(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/utils/assets.dart';
-import '../../../core/widgets/custom_search_bar.dart';
+import '../../../core/widgets/custom_search_widget.dart';
 import '../../../core/widgets/custtom_sliver_app_bar.dart';
 import '../../home/domain/entities/categoray.dart';
 import '../../home/presentation/manager/cubit.dart';
@@ -19,44 +19,37 @@ class FoodsView extends StatelessWidget {
       body: SafeArea(
         child: BlocConsumer<MainCubit, MainStates>(
           listener: (context, state) {},
-          builder: (context, state) => NestedScrollView(
-            headerSliverBuilder:
-                (BuildContext context, bool innerBoxIsScrolled) {
-              return <Widget>[
-                CustomSliverAppBar(
-                  inLayout: false,
-                  title: categoryItem.name,
+          builder: (context, state) => CustomScrollView(
+            slivers: [
+              CustomSliverAppBar(
+                inLayout: false,
+                title: categoryItem.name,
+                isPinned: true,
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: size.width * .04,
                 ),
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: size.width * .04,
-                  ),
-                ),
-                const SliverToBoxAdapter(
-                  child: CustomSearchBar(
-                    isHome: true,
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: EdgeInsets.all(size.width * .06),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(size.width * .05),
-                      child: Image.asset(
-                        AssetsData.banner6Image,
-                        height: size.height * .23,
-                        width: double.infinity,
-                        fit: BoxFit.fill,
-                      ),
+              ),
+              const SliverToBoxAdapter(child: CustomSearchWidget()),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.all(size.width * .06),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(size.width * .05),
+                    child: Image.asset(
+                      AssetsData.banner6Image,
+                      height: size.height * .23,
+                      width: double.infinity,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ),
-              ];
-            },
-            body: MostSaleGridView(
-              foodList: MainCubit.get(context).foodsList,
-              cubit: MainCubit.get(context),
-            ),
+              ),
+              const SliverFillRemaining(
+                child: MostSaleGridView(),
+              )
+            ],
           ),
         ),
       ),

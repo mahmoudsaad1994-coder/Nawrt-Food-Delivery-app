@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/utils/assets.dart';
-import '../../../../../../core/widgets/custom_search_bar.dart';
+import '../../../../../../core/widgets/custom_search_widget.dart';
 import '../../../../../../core/widgets/custtom_sliver_app_bar.dart';
 import '../../../manager/cubit.dart';
 import '../../../manager/states.dart';
@@ -23,7 +23,7 @@ class BestSellerView extends StatelessWidget {
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 const CustomSliverAppBar(
-                  inLayout: true,
+                  inLayout: false,
                   title: 'الأكثر مبيــعا',
                 ),
                 SliverToBoxAdapter(
@@ -31,11 +31,7 @@ class BestSellerView extends StatelessWidget {
                     height: size.width * .04,
                   ),
                 ),
-                const SliverToBoxAdapter(
-                  child: CustomSearchBar(
-                    isHome: true,
-                  ),
-                ),
+                const SliverToBoxAdapter(child: CustomSearchWidget()),
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: EdgeInsets.all(size.width * .06),
@@ -52,10 +48,7 @@ class BestSellerView extends StatelessWidget {
                 ),
               ];
             },
-            body: MostSaleGridView(
-              foodList: MainCubit.get(context).foodsList,
-              cubit: MainCubit.get(context),
-            ),
+            body: const MostSaleGridView(),
           ),
         ),
       ),

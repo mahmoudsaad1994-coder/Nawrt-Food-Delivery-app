@@ -28,11 +28,3 @@ List<CustomCardOffer> customCardOffer = [
     price: 200,
   ),
 ];
-
-final List recentSearchs = [
-  'كفتة مشوية',
-  'تشيز برجر لحم',
-  'كفتة مشوية',
-  'باستا',
-  'بيتزا تشيكن رانش',
-];

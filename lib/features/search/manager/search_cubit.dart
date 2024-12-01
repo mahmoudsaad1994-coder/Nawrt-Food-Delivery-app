@@ -36,4 +36,14 @@ class SearchCubit extends Cubit<SearchStates> {
     showSearchHome = !showSearchHome;
     emit(ChangeSearchScreenSearchStates());
   }
+
+  final List recentSearchs = [
+    'كفتة مشوية',
+    'تشيز برجر لحم',
+    'كفتة مشوية',
+    'باستا',
+    'بيتزا تشيكن رانش',
+  ];
+
+  TextEditingController searchController = TextEditingController();
 }
