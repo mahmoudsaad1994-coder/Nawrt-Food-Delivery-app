@@ -3,9 +3,10 @@ import 'package:nawrt/core/utils/extensions.dart';
 
 import '../../core/constants.dart';
 import '../../core/utils/styles.dart';
+import '../../core/widgets/custom_payment_button.dart';
 import '../../core/widgets/payment_info_widget.dart';
 import '../home/presentation/manager/cubit.dart';
-import 'wallet_form_info.dart';
+import 'widgets/wallet_form_info.dart';
 
 class OrderDelivery extends StatelessWidget {
   const OrderDelivery({super.key, required this.cubit});
@@ -26,65 +27,12 @@ class OrderDelivery extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 12.0, horizontal: 16.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(25.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 1,
-                        blurRadius: 5,
-                        offset: const Offset(0, 2), // لتحديد اتجاه الظل
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.location_on_outlined,
-                              color: Colors.grey[600],
-                              size: 20.0,
-                            ),
-                            const SizedBox(width: 8.0),
-                            Expanded(
-                              child: Text(
-                                "طلخا بجوار مطعم هجرس طلخا بجوار مطعم هجرس طلخا بجوار مطعم هجرس",
-                                style: TextStyle(
-                                  color: Colors.grey[800],
-                                  fontSize: context.width * .04,
-                                ),
-                                maxLines: 1,
-                                softWrap: true,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 8.0),
-                      GestureDetector(
-                        onTap: () {
-                          // أضف منطق تغيير العنوان هنا
-                        },
-                        child: const Text(
-                          "تغيير العنوان",
-                          style: TextStyle(
-                            color: Colors.orange,
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                CustomPaymentButton(
+                  icon: Icons.location_on_outlined,
+                  label:
+                      "طلخا بجوار مطعم هجرس طلخا بجوار مطعم هجرس طلخا بجوار مطعم هجرس",
+                  isAddress: true,
+                  onTap: () {},
                 ),
                 Text(
                   'طريقة الدفع',
@@ -149,7 +97,10 @@ class OrderDelivery extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                PaymentInfoWidget(cubit: cubit, isPaymentConfirm: true),
+                const PaymentInfoWidget(
+                  isPaymentConfirm: true,
+                  orderIsDelivery: true,
+                ),
               ],
             ),
           ),

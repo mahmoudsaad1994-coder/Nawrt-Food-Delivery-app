@@ -19,6 +19,7 @@ class ShoppingCartView extends StatelessWidget {
           listener: (context, state) {},
           builder: (context, state) {
             return CustomScrollView(
+              physics: const NeverScrollableScrollPhysics(),
               slivers: [
                 CustomSliverAppBar(
                   inLayout: inlayout,
@@ -34,7 +35,7 @@ class ShoppingCartView extends StatelessWidget {
                               child: Image.asset(AssetsData.undrawEmptyCart),
                             ),
                           )
-                        : ShoppingCartBody(cubit: MainCubit()),
+                        : const ShoppingCartBody(),
                   ),
                 ),
               ],

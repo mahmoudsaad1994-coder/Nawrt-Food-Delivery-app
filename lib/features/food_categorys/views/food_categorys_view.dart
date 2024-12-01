@@ -20,11 +20,13 @@ class FoodCategorysView extends StatelessWidget {
       builder: (context, state) {
         var cubit = MainCubit.get(context);
         return NestedScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               const CustomSliverAppBar(
                 inLayout: true,
                 title: 'قائمة الطعام',
+                isPinned: true,
               ),
             ];
           },
@@ -35,7 +37,6 @@ class FoodCategorysView extends StatelessWidget {
                 childAspectRatio: (160 / 120),
                 crossAxisSpacing: width * .05,
                 mainAxisSpacing: width * .03,
-                physics: const NeverScrollableScrollPhysics(),
                 children: [
                   ...List.generate(
                     cubit.categoriesList.length,

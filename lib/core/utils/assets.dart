@@ -1,6 +1,9 @@
 class AssetsData {
   static const String _baseURL = "assets/images";
 
+  //delivery
+  static const String deliveryPic = "$_baseURL/delivery_pic.png";
+
   //splash
   static const splashImg = '$_baseURL/splash_img.png';
   //auth

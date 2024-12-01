@@ -13,7 +13,8 @@ import '../../features/home/domain/entities/categoray.dart';
 import '../../features/home/domain/entities/food_entity.dart';
 import '../../features/home/presentation/views/widgets/home_view_widgets/best_seller_view.dart';
 import '../../features/home/presentation/views/widgets/home_view_widgets/spicial_offers_view.dart';
-import '../../features/order_info/order_info_view.dart';
+import '../../features/order_info/order_branch_info_view.dart';
+import '../../features/order_info/order_delivery_info_view.dart';
 import '../../features/payment/confirm_order.dart';
 import '../../features/shopping_cart/views/shopping_cart_view_outside.dart';
 import '../../features/splash/view/splash_view.dart';
@@ -33,7 +34,8 @@ abstract class AppRouter {
   static const String kBestSellerView = '/bestSellerView';
   static const String kFoodDetailsView = '/foodDetailsView';
   static const String kSpicialOffersView = '/SpicialOffersView';
-  static const String kOrderInfoView = '/OrderInfoView';
+  static const String kOrderDeliveryInfoView = '/OrderInfoView';
+  static const String kOrderBranchInfoView = '/OrderBranchInfoView';
   static const String kShoppingCartViewOutside = '/ShoppingCartViewOutside';
   static const String kConfirmOrder = '/ConfirmOrder';
   static const String kResetNewPasswordDoneScreen =
@@ -50,8 +52,12 @@ abstract class AppRouter {
         builder: (context, state) => const RegistrationPage(),
       ),
       GoRoute(
-        path: kOrderInfoView,
-        builder: (context, state) => const OrderInfoView(),
+        path: kOrderBranchInfoView,
+        builder: (context, state) => const OrderBranchInfoView(),
+      ),
+      GoRoute(
+        path: kOrderDeliveryInfoView,
+        builder: (context, state) => const OrderDeliveryInfoView(),
       ),
       GoRoute(
         path: kConfirmOrder,

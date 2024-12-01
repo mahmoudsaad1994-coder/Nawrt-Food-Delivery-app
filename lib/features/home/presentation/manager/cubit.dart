@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+import 'package:omni_datetime_picker/omni_datetime_picker.dart';
 
 import '../../../../core/utils/assets.dart';
 import '../../domain/entities/categoray.dart';
@@ -15,6 +18,10 @@ class MainCubit extends Cubit<MainStates> {
     CategoriesEntity(id: 1, name: 'برجر', image: AssetsData.cat_1Image),
     CategoriesEntity(id: 1, name: 'بيتزا', image: AssetsData.cat_3Image),
     CategoriesEntity(id: 1, name: 'معكرونه', image: AssetsData.cat_2Image),
+    CategoriesEntity(id: 1, name: 'باستا', image: AssetsData.cat_2Image),
+    CategoriesEntity(id: 1, name: 'برجر', image: AssetsData.cat_3Image),
+    CategoriesEntity(id: 1, name: 'بيتزا', image: AssetsData.cat_1Image),
+    CategoriesEntity(id: 1, name: 'معكرونه', image: AssetsData.cat_1Image),
     CategoriesEntity(id: 1, name: 'باستا', image: AssetsData.cat_2Image),
     CategoriesEntity(id: 1, name: 'برجر', image: AssetsData.cat_3Image),
     CategoriesEntity(id: 1, name: 'بيتزا', image: AssetsData.cat_1Image),
@@ -248,6 +255,9 @@ class MainCubit extends Cubit<MainStates> {
     {"name": "بيتزا إيطالية", "price": 150, "quantity": 1},
     {"name": "بيتزا مصريه", "price": 120, "quantity": 1},
     {"name": "بيتزا فرنسيه", "price": 250, "quantity": 1},
+    {"name": "بيتزا إيطالية", "price": 150, "quantity": 1},
+    {"name": "بيتزا مصريه", "price": 120, "quantity": 1},
+    {"name": "بيتزا فرنسيه", "price": 250, "quantity": 1},
   ];
   double discount = 0;
 
@@ -337,4 +347,102 @@ class MainCubit extends Cubit<MainStates> {
     saveWalletInfo = !saveWalletInfo;
     emit(ChangeSaveWalletInfoState());
   }
+
+  //pickup branch
+  List<String> branchs = [
+    'فرع الرحاب',
+    'فرع الشرقيه',
+    'فرع المنصورة',
+    'فرع طلخا',
+  ];
+  String branchSelected = "اختر الفرع المراد الاستلام منه";
+  changebranchSelected(String value) {
+    branchSelected = value;
+    emit(ChangeBranchSelectedState());
+  }
+
+  //pickup date
+  String? pickupTimeAndDate;
+  String pickupTime = 'وقت الاستلام';
+  changePickupTime(String value) {
+    pickupTime = value;
+    if (value == 'استلام سريع') {
+      pickupTimeAndDate = 'استلام سريع';
+    }
+    emit(ChangePickupTimeState());
+  }
+
+  String formattedDate = DateFormat('EEEE, yyyy-MM-dd hh:mm a', 'ar')
+      .format(DateTime.now().add(const Duration(hours: 1)));
+
+  Future<void> selectPickupTimeDate(BuildContext context) async {
+    DateTime dateTime = await showOmniDateTimePicker(context: context) ??
+        DateTime.now().add(const Duration(hours: 1));
+    formattedDate =
+        DateFormat('EEEE, yyyy-MM-dd hh:mm a', 'ar').format(dateTime);
+    pickupTimeAndDate = 'الاستلام يوم $formattedDate';
+    emit(ChangePickupTimeState());
+  }
+
+  //order info
+
+  final List<Map<String, dynamic>> orderDeliverySteps = [
+    {
+      "title": "تأكيد الطلب",
+      "description": "تم تأكيد استلام طلبك من المطعم",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.done,
+    },
+    {
+      "title": "تحضير الطلب",
+      "description": "طلبك في مرحلة التحضير",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.done,
+    },
+    {
+      "title": "الطلب جاهز للتسليم",
+      "description": "تم تحضير الطلب وفي انتظار الاستلام",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.inProcess,
+    },
+    {
+      "title": "تسليم الطلب",
+      "description": "تم تسليم الطلب للمندوب",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.pending,
+    },
+    {
+      "title": "توصيل الطلب",
+      "description": "الطلب في طريقه إليك بواسطة:",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.pending,
+    },
+  ];
+
+  final List<Map<String, dynamic>> orderBranchSteps = [
+    {
+      "title": "تأكيد الطلب",
+      "description": "تم تأكيد استلام طلبك من المطعم",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.done,
+    },
+    {
+      "title": "تحضير الطلب",
+      "description": "طلبك في مرحلة التحضير",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.inProcess,
+    },
+    {
+      "title": "الطلب جاهز للتسليم",
+      "description": "تم تحضير الطلب وفي انتظار الاستلام",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.pending,
+    },
+  ];
+}
+
+enum OrderStatus {
+  done, // مكتملة
+  inProcess, // تحت التحضير
+  pending, // لم تبدأ بعد
 }

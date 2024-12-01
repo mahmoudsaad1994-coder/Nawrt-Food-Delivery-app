@@ -7,6 +7,7 @@ import '../../core/constants.dart';
 import '../../core/utils/styles.dart';
 import '../home/presentation/manager/cubit.dart';
 import '../home/presentation/manager/states.dart';
+import 'branch_pickup.dart';
 import 'order_delivery.dart';
 
 class ConfirmOrder extends StatelessWidget {
@@ -56,9 +57,7 @@ class ConfirmOrder extends StatelessWidget {
           body: TabBarView(
             children: [
               OrderDelivery(cubit: MainCubit.get(context)),
-              const Center(
-                child: Text("محتوى استلام من الفرع"),
-              ),
+              BranchPickup(cubit: MainCubit.get(context)),
             ],
           ),
         ),

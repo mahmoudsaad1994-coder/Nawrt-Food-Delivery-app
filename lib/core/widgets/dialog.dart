@@ -28,6 +28,7 @@ void confirmationPaymentMethodShowDialog({
   required BuildContext context,
   required bool done,
   int ordernumber = 1,
+  required bool isDelivery,
 }) {
   dialogWidget(
     context: context,
@@ -37,8 +38,13 @@ void confirmationPaymentMethodShowDialog({
     firstTextButton: done ? 'عرض معلومات الطلب' : 'إعادة الطلب',
     secondTextButton: 'العودة للرئيسية',
     onPressedFirstButton: () {
+      //هيتحول ع معلومات الطلب ديليفري او استلام او هيتحول ع اعاده الطلب
       done
-          ? GoRouter.of(context).pushReplacement(AppRouter.kOrderInfoView)
+          ? isDelivery
+              ? GoRouter.of(context)
+                  .pushReplacement(AppRouter.kOrderDeliveryInfoView)
+              : GoRouter.of(context)
+                  .pushReplacement(AppRouter.kOrderBranchInfoView)
           : GoRouter.of(context).pop();
     },
     onPressedSecondButton: () {

@@ -21,3 +21,9 @@ class OddFoodItemCountStates extends MainStates {}
 class ChangeDeliveryState extends MainStates {}
 
 class ChangeSaveWalletInfoState extends MainStates {}
+
+class ChangeBranchSelectedState extends MainStates {}
+
+class ChangePickupTimeState extends MainStates {}
+
+class ToggleIsLastState extends MainStates {}
