@@ -55,34 +55,37 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
               SizedBox(
                 height: screenSize.height * .01,
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ...List.generate(
-                    bannersData.length,
-                    (i) => AnimatedContainer(
-                      duration: const Duration(
-                        milliseconds: 350,
-                      ),
-                      margin: EdgeInsets.symmetric(
-                        horizontal: screenSize.width * .01,
-                      ),
-                      width: cubit.selectedPageIndex == i
-                          ? screenSize.width * .04
-                          : screenSize.width * .02,
-                      height: screenSize.width * .02,
-                      decoration: BoxDecoration(
-                        color: cubit.selectedPageIndex == i
-                            ? kFFC436Color
-                            : Colors.grey.withOpacity(.3),
-                        borderRadius: BorderRadius.circular(
-                          180,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ...List.generate(
+                      bannersData.length,
+                      (i) => AnimatedContainer(
+                        duration: const Duration(
+                          milliseconds: 350,
+                        ),
+                        margin: EdgeInsets.symmetric(
+                          horizontal: screenSize.width * .01,
+                        ),
+                        width: cubit.selectedPageIndex == i
+                            ? screenSize.width * .04
+                            : screenSize.width * .02,
+                        height: screenSize.width * .02,
+                        decoration: BoxDecoration(
+                          color: cubit.selectedPageIndex == i
+                              ? kFFC436Color
+                              : Colors.grey.withOpacity(.3),
+                          borderRadius: BorderRadius.circular(
+                            180,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           );

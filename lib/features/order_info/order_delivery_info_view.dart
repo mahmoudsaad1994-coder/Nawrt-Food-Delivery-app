@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nawrt/core/utils/extensions.dart';
 
 import '../../core/constants.dart';
+import '../../core/utils/app_router.dart';
 import '../../core/utils/styles.dart';
 import '../../core/widgets/custom_button.dart';
 import '../../core/widgets/custtom_sliver_app_bar.dart';
@@ -162,13 +164,16 @@ class OrderDeliveryInfoView extends StatelessWidget {
                             imageUrl: '',
                           ),
                         const SizedBox(height: 20),
-                        if (cubit.orderDeliverySteps.last['orderStatus'] ==
+                        if (cubit.orderDeliverySteps.last['orderStatus'] !=
                             OrderStatus.done)
                           SizedBox(
                             width: double.infinity,
                             height: context.width * .12,
                             child: CustomButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                GoRouter.of(context)
+                                    .push(AppRouter.kOrderTracking);
+                              },
                               child: Text(
                                 'تتبع الطلب',
                                 style: Styles.textStyleXL(context,

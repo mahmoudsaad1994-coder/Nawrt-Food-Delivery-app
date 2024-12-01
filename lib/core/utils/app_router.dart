@@ -13,6 +13,7 @@ import '../../features/home/domain/entities/categoray.dart';
 import '../../features/home/domain/entities/food_entity.dart';
 import '../../features/home/presentation/views/widgets/home_view_widgets/best_seller_view.dart';
 import '../../features/home/presentation/views/widgets/home_view_widgets/spicial_offers_view.dart';
+import '../../features/map/order_tracking.dart';
 import '../../features/order_info/order_branch_info_view.dart';
 import '../../features/order_info/order_delivery_info_view.dart';
 import '../../features/payment/confirm_order.dart';
@@ -36,6 +37,7 @@ abstract class AppRouter {
   static const String kSpicialOffersView = '/SpicialOffersView';
   static const String kOrderDeliveryInfoView = '/OrderInfoView';
   static const String kOrderBranchInfoView = '/OrderBranchInfoView';
+  static const String kOrderTracking = '/OrderTracking';
   static const String kShoppingCartViewOutside = '/ShoppingCartViewOutside';
   static const String kConfirmOrder = '/ConfirmOrder';
   static const String kResetNewPasswordDoneScreen =
@@ -50,6 +52,10 @@ abstract class AppRouter {
       GoRoute(
         path: kRegistrationPage,
         builder: (context, state) => const RegistrationPage(),
+      ),
+      GoRoute(
+        path: kOrderTracking,
+        builder: (context, state) => const OrderTracking(),
       ),
       GoRoute(
         path: kOrderBranchInfoView,
