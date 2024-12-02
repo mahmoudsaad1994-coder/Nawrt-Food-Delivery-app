@@ -1,4 +1,4 @@
-# Nawrt Food Delivery App 🍔
+# Nawrt Food Delivery App 🍔🏍
 
 ## This is a Flutter-based food delivery application that provides a seamless experience for browsing meals, dishes, and special offers. The app allows users to:
 
