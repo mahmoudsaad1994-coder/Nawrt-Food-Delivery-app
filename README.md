@@ -13,7 +13,11 @@
 ### 9- This app is designed to ensure a smooth and efficient user experience for food ordering and delivery services.
 ### 10- Customizable Experience: Add or modify features based on the customer's preferences and requirements.
 ### 11- Multilingual Support: The app is available in Arabic by default, with the flexibility to provide any language the customer requests.
+### 12- Supports both iOS and Android platforms with a single codebase.
 
+# Contact Information:
+## For inquiries, please contact: +201015041186 or https://www.linkedin.com/in/mahmoud-saad-a3472523a/ .🤝❤
+##########################################################################
 
 ![Splash](https://github.com/user-attachments/assets/cb98d46f-92d1-47fd-8ade-069b91451468)
 ![استكمال البيانات](https://github.com/user-attachments/assets/b30575e7-a4b6-4109-9231-bd8dba7daf51)
