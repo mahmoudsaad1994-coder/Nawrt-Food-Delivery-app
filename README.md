@@ -15,9 +15,17 @@
 ### 11- Multilingual Support: The app is available in Arabic by default, with the flexibility to provide any language the customer requests.
 ### 12- Supports both iOS and Android platforms with a single codebase.
 
+## Its advantages
+- Responsive UI
+- Clean Code
+- Can add any new features easily
+- Easy to adjust colors and fonts
+- Ready to integrate with API
+  
 # Contact Information:
 ## For inquiries, please contact: +201015041186 or https://www.linkedin.com/in/mahmoud-saad-a3472523a/ .🤝❤
 ##########################################################################
+<img src="Splash.png" alt="drawing" style="width:200px;"/>
 
 ![Splash](https://github.com/user-attachments/assets/cb98d46f-92d1-47fd-8ade-069b91451468)
 ![استكمال البيانات](https://github.com/user-attachments/assets/b30575e7-a4b6-4109-9231-bd8dba7daf51)
@@ -60,3 +68,6 @@
 ![كود التفعيل](https://github.com/user-attachments/assets/78cd4d43-9908-42a2-b69e-881de1039748)
 ![نتائج البحث](https://github.com/user-attachments/assets/1d211957-e1f6-42cf-93c1-e14500f1ad9d)
 ![نتائج البحث-1](https://github.com/user-attachments/assets/9d90edeb-04c2-43e6-bd73-d96caa4ad7ae)
+# Contact Information:
+## For inquiries, please contact: +201015041186 or https://www.linkedin.com/in/mahmoud-saad-a3472523a/ .🤝❤
+##########################################################################
