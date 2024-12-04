@@ -24,7 +24,8 @@
   
 # Contact Information:
 ## For inquiries, please contact: +201015041186 or https://www.linkedin.com/in/mahmoud-saad-a3472523a/ .🤝❤
-##########################################################################
+
+
 <img src="Splash.png" alt="drawing" style="width:200px;"/>
 <img src="استكمال البيانات.png" alt="drawing" style="width:200px;"/>
 <img src="اصناف الطعام.png" alt="drawing" style="width:200px;"/>
@@ -70,4 +71,5 @@
 
 # Contact Information:
 ## For inquiries, please contact: +201015041186 or https://www.linkedin.com/in/mahmoud-saad-a3472523a/ .🤝❤
-##########################################################################
+
+
