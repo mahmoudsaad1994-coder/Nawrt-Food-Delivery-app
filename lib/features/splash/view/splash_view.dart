@@ -18,7 +18,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    navigateToSplashHome(context);
+    // navigateToSplashHome(context);
   }
 
   void navigateToSplashHome(context) {
