@@ -23,19 +23,19 @@ class _SplashViewState extends State<SplashView> {
 
   void navigateToSplashHome(context) {
     Future.delayed(const Duration(seconds: 4), () {
-      GoRouter.of(context).push(AppRouter.kRegistrationPage);
+      GoRouter.of(context).push(AppRouter.kLayoutView);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBlackColor,
+      backgroundColor: Colors.white,
       body: SafeArea(
           child: Center(
         child: AspectRatio(
-          aspectRatio: .2,
-          child: Image.asset(AssetsData.splashImg),
+          aspectRatio: .4,
+          child: Image.asset(AssetsData.splashLogo),
         ),
       )),
     );
