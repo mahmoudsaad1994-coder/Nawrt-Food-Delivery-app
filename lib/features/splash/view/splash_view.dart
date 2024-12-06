@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/constants.dart';
 import '../../../core/utils/app_router.dart';
 import '../../../core/utils/assets.dart';
 
@@ -18,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    // navigateToSplashHome(context);
+    navigateToSplashHome(context);
   }
 
   void navigateToSplashHome(context) {

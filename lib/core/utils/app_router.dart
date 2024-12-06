@@ -1,5 +1,11 @@
 import 'package:go_router/go_router.dart';
 
+import '../../features/account/presentation/views/about_us.dart';
+import '../../features/account/presentation/views/help_view.dart';
+import '../../features/account/presentation/views/offers_view.dart';
+import '../../features/account/presentation/views/orders_view.dart';
+import '../../features/account/presentation/views/payments.dart';
+import '../../features/account/presentation/views/settings_dart.dart';
 import '../../features/auth/presentation/views/forget_password/forget_password_view.dart';
 import '../../features/auth/presentation/views/forget_password/reset_new_password.view.dart';
 import '../../features/auth/presentation/views/forget_password/reset_new_password_done.dart';
@@ -42,6 +48,12 @@ abstract class AppRouter {
   static const String kOrderTracking = '/OrderTracking';
   static const String kShoppingCartViewOutside = '/ShoppingCartViewOutside';
   static const String kConfirmOrder = '/ConfirmOrder';
+  static const String kOfferScreen = '/OfferScreen';
+  static const String kOrdersScreen = '/OrdersScreen';
+  static const String kSettingsView = '/SettingsView';
+  static const String kPaymentsView = '/PaymentsView';
+  static const String kHelpView = '/HelpView';
+  static const String kAboutUs = '/AboutUs';
   static const String kResetNewPasswordDoneScreen =
       '/resetNewPasswordDoneScreen';
 
@@ -54,6 +66,30 @@ abstract class AppRouter {
       GoRoute(
         path: kRegistrationPage,
         builder: (context, state) => const RegistrationPage(),
+      ),
+      GoRoute(
+        path: kSettingsView,
+        builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: kPaymentsView,
+        builder: (context, state) => const PaymentsView(),
+      ),
+      GoRoute(
+        path: kHelpView,
+        builder: (context, state) => const HelpView(),
+      ),
+      GoRoute(
+        path: kAboutUs,
+        builder: (context, state) => const AboutUs(),
+      ),
+      GoRoute(
+        path: kOfferScreen,
+        builder: (context, state) => const OfferScreen(),
+      ),
+      GoRoute(
+        path: kOrdersScreen,
+        builder: (context, state) => const OrdersScreen(),
       ),
       GoRoute(
         path: kSearchFilterView,

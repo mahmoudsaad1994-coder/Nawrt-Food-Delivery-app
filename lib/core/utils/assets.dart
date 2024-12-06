@@ -41,6 +41,7 @@ class AssetsData {
   static const cat_2Image = '$_baseURL/cat_2.png';
   static const cat_3Image = '$_baseURL/cat_3.png';
   static const imgInfo = '$_baseURL/info.png';
+  static const chickenPlat = "assets/images/chicken_plat.jpg";
   //search
   static const noSearchResultImage = '$_baseURL/no_search_result.png';
 
