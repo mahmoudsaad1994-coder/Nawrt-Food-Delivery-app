@@ -7,8 +7,8 @@ import '../../../../home/domain/entities/food_entity.dart';
 import '../../../../home/presentation/manager/cubit.dart';
 import '../food_additions_widget.dart';
 
-class FoodDetailsDescription extends StatelessWidget {
-  const FoodDetailsDescription(
+class FoodDetailsDescriptionWithOffer extends StatelessWidget {
+  const FoodDetailsDescriptionWithOffer(
       {super.key, required this.food, required this.cubit});
   final FoodEntity food;
   final MainCubit cubit;
@@ -39,10 +39,25 @@ class FoodDetailsDescription extends StatelessWidget {
                   style:
                       Styles.textStyleXXL(context, fontWeight: FontWeight.w700),
                 ),
-                Text(
-                  '${cubit.selectedPrice} جنيه',
-                  style: Styles.textStyleXXL(context,
-                      fontWeight: FontWeight.w700, color: kFFC436Color),
+                Row(
+                  children: [
+                    Text(
+                      '${cubit.selectedPriceWithOffer}ج',
+                      style: Styles.textStyleXXL(context,
+                          fontWeight: FontWeight.w700, color: kFFC436Color),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        'بدلا من',
+                        style: Styles.textStyleL(context),
+                      ),
+                    ),
+                    Text(
+                      '${cubit.selectedPrice}ج',
+                      style: Styles.textStyleOldPrice(context),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -70,7 +85,9 @@ class FoodDetailsDescription extends StatelessWidget {
                         padding: EdgeInsetsDirectional.only(end: width * .02),
                         child: InkWell(
                           onTap: () {
-                            cubit.changePriceAndSize(food,
+                            cubit.changePriceAndSizeWithOffer(
+                                newselectedPriceWithOffer:
+                                    food.sizesAndPriceafterOffer![foodSize]!,
                                 foodSize: foodSize,
                                 newselectedPrice:
                                     food.sizesAndPrice[foodSize]!);

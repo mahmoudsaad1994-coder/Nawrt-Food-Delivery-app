@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/widgets/food_item_with_offer.dart';
 import '../../../manager/cubit.dart';
 import '../../../manager/states.dart';
@@ -27,8 +29,16 @@ class SpicialOffersRastt extends StatelessWidget {
               mainAxisSpacing: width * .03,
             ),
             childrenDelegate: SliverChildBuilderDelegate(
-              (context, index) =>
-                  FoodItemWithOffer(food: cubit.foodListWithOffers[index]),
+              (context, index) => GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context)
+                        .push(AppRouter.kFoodDetailsView, extra: {
+                      'food': cubit.foodListWithOffers[index],
+                      'isOffer': true,
+                    });
+                  },
+                  child:
+                      FoodItemWithOffer(food: cubit.foodListWithOffers[index])),
               childCount: isHome == null || isHome == true
                   ? 4
                   : cubit.foodListWithOffers.length,

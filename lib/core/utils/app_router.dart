@@ -16,7 +16,6 @@ import '../../features/auth/presentation/views/registration_page/registration_pa
 import '../../features/food_categorys/views/food_details_view.dart';
 import '../../features/food_categorys/views/foods_items_view.dart';
 import '../../features/home/domain/entities/categoray.dart';
-import '../../features/home/domain/entities/food_entity.dart';
 import '../../features/home/presentation/views/widgets/home_view_widgets/best_seller_view.dart';
 import '../../features/home/presentation/views/widgets/home_view_widgets/spicial_offers_view.dart';
 import '../../features/map/order_tracking.dart';
@@ -130,8 +129,15 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kFoodDetailsView,
-        builder: (context, state) =>
-            FoodDetailsView(food: state.extra as FoodEntity),
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final food = extra['food'];
+          final isOffer = extra['isOffer'];
+          return FoodDetailsView(
+            food: food,
+            isOffer: isOffer,
+          );
+        },
       ),
       GoRoute(
         path: kRegisterScreen,

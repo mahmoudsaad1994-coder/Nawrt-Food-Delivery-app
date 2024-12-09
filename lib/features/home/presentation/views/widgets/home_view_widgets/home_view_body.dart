@@ -70,11 +70,11 @@ class HomeViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            const SliverToBoxAdapter(
-              child: SpicialOffersRastt(isHome: true),
-            ),
             SliverToBoxAdapter(
-              child: SizedBox(height: width * .05),
+              child: Padding(
+                padding: EdgeInsets.only(bottom: width * .05),
+                child: const SpicialOffersRastt(isHome: true),
+              ),
             ),
           ],
         );

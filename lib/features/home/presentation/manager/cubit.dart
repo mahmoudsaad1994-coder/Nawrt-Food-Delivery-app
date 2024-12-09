@@ -52,10 +52,12 @@ class MainCubit extends Cubit<MainStates> {
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
       sizesAndPrice: {
-        '150': 150,
+        '150': 200,
+        '200': 400,
       },
       sizesAndPriceafterOffer: {
-        '150': 100,
+        '150': 150,
+        '200': 350,
       },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
@@ -66,10 +68,12 @@ class MainCubit extends Cubit<MainStates> {
           'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى',
       foodImage: AssetsData.cat_1Image,
       sizesAndPrice: {
-        '150': 150,
+        '150': 300,
+        '200': 350,
       },
       sizesAndPriceafterOffer: {
-        '150': 100,
+        '150': 250,
+        '200': 300,
       },
       foodofferdescrption: 'عرض القطعة ب100جنية',
     ),
@@ -247,7 +251,7 @@ class MainCubit extends Cubit<MainStates> {
     ),
   ];
 
-  List<Map<String, int>> foodAdditionsWidgetList = [
+  List<Map<String, int>> foodAdditionsList = [
     {'إضافة خس': 20},
     {'إضافة جزر': 10},
     {'إضافة جزر': 10},
@@ -276,29 +280,92 @@ class MainCubit extends Cubit<MainStates> {
   void oddFoodItem(int quantity) {
     if (quantity > 1) {
       quantity--;
+      emit(OddFoodItemCountStates());
     }
-    emit(OddFoodItemCountStates());
   }
 
-  double get totalPrice => cartItems.fold(
-      0, (total, item) => total + item["price"] * item["quantity"]);
-
-  double get finalPrice => totalPrice - discount;
   //checkBox additions
-  List<bool> isAdditionChecked = List.generate(3, (index) => false);
+  int additionChecked = 0;
+  late List<bool> isAdditionChecked =
+      List.generate(foodAdditionsList.length, (index) => false);
   selectAdition(index, value) {
     isAdditionChecked[index] = value ?? false;
+    if (value) {
+      additionChecked = additionChecked + foodAdditionsList[index].values.first;
+    } else {
+      additionChecked = additionChecked - foodAdditionsList[index].values.first;
+    }
+    gettotalPrice(
+      foodSize: selectedSize ?? '',
+      newselectedPrice: selectedPrice ?? 0,
+      newselectedPriceOffer: selectedPriceWithOffer,
+      isOffer: selectedPriceWithOffer != null,
+    );
     emit(AdditionCheckState());
   }
 
-  //get price and sizes
+  // price and sizes price for meal
   String? selectedSize;
   int? selectedPrice;
-  changePriceAndSize(
+  int? selectedPriceWithOffer;
+
+  changePriceAndSize(food,
       {required String foodSize, required int newselectedPrice}) {
     selectedSize = foodSize;
     selectedPrice = newselectedPrice;
+    gettotalPrice(
+      foodSize: foodSize,
+      isOffer: false,
+      newselectedPrice: newselectedPrice,
+    );
     emit(ChangeSizeAndPriceState());
+  }
+
+  changePriceAndSizeWithOffer({
+    required String foodSize,
+    required int newselectedPrice,
+    required int newselectedPriceWithOffer,
+  }) {
+    selectedSize = foodSize;
+    selectedPrice = newselectedPrice;
+    selectedPriceWithOffer = newselectedPriceWithOffer;
+    gettotalPrice(
+      foodSize: foodSize,
+      isOffer: true,
+      newselectedPrice: newselectedPrice,
+      newselectedPriceOffer: newselectedPriceWithOffer,
+    );
+    emit(ChangeSizeAndPriceState());
+  }
+
+//total price
+  int totalPriceForMeal = 0;
+  gettotalPrice(
+      {required String foodSize,
+      required int newselectedPrice,
+      int? newselectedPriceOffer,
+      required bool isOffer}) {
+    selectedSize = foodSize;
+    selectedPrice = newselectedPrice;
+    if (isOffer) {
+      selectedPriceWithOffer = newselectedPriceOffer;
+      totalPriceForMeal = additionChecked + selectedPriceWithOffer!.toInt();
+    } else {
+      totalPriceForMeal = additionChecked + selectedPrice!.toInt();
+    }
+    emit(GetTotalPriceState());
+  }
+
+  //reset prices and sizes
+  resetPriceAndSize() {
+    selectedSize = null;
+    selectedPriceWithOffer = null;
+    selectedPrice = null;
+    isAdditionChecked =
+        List.generate(foodAdditionsList.length, (index) => false);
+    totalPriceForMeal = 0;
+    additionChecked = 0;
+    emit(ResetSizeAndPriceState());
   }
 
   //favorite food
@@ -317,17 +384,6 @@ class MainCubit extends Cubit<MainStates> {
 
   bool isMealFavorite(int id) {
     return favoriteFoods.any((meal) => meal.foodID == id);
-  }
-
-  int counter = 1;
-  changeCounter(bool add) {
-    add
-        ? counter++
-        : counter == 0
-            ? counter == 1
-            : counter--;
-
-    emit(ChangeCounterStates());
   }
 
   //home offer slider
@@ -441,6 +497,11 @@ class MainCubit extends Cubit<MainStates> {
       "orderStatus": OrderStatus.pending,
     },
   ];
+
+  double get totalPrice => cartItems.fold(
+      0, (total, item) => total + item["price"] * item["quantity"]);
+
+  double get finalPrice => totalPrice - discount;
 }
 
 enum OrderStatus {

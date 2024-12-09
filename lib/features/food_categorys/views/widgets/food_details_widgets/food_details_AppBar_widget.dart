@@ -25,6 +25,7 @@ class FoodDetailsAppBarWidget extends StatelessWidget {
       elevation: 0.0,
       stretch: true,
       flexibleSpace: FlexibleSpaceBar(
+        collapseMode: CollapseMode.pin,
         background: Image.asset(
           food.foodImage,
           fit: BoxFit.fill,
@@ -64,6 +65,7 @@ class FoodDetailsAppBarWidget extends StatelessWidget {
         ),
         child: IconButton(
           onPressed: () {
+            cubit.resetPriceAndSize();
             GoRouter.of(context).pop();
           },
           icon: Icon(

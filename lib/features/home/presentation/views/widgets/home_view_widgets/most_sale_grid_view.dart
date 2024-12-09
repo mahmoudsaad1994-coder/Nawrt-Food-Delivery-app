@@ -37,8 +37,11 @@ class MostSaleGridView extends StatelessWidget {
               childrenDelegate: SliverChildBuilderDelegate(
                 (context, index) => GestureDetector(
                     onTap: () {
-                      GoRouter.of(context).push(AppRouter.kFoodDetailsView,
-                          extra: cubit.foodsList[index]);
+                      GoRouter.of(context)
+                          .push(AppRouter.kFoodDetailsView, extra: {
+                        'food': cubit.foodListWithOffers[index],
+                        'isOffer': false,
+                      });
                     },
                     child: FooditemWidget(
                       food: cubit.foodsList[index],

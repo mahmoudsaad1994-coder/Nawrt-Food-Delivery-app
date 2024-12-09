@@ -8,9 +8,11 @@ class ChangeIndexSliderState extends MainStates {}
 
 class ChangeSizeAndPriceState extends MainStates {}
 
-class AdditionCheckState extends MainStates {}
+class GetTotalPriceState extends MainStates {}
 
-class ChangeCounterStates extends MainStates {}
+class ResetSizeAndPriceState extends MainStates {}
+
+class AdditionCheckState extends MainStates {}
 
 class ApplyDiscountStates extends MainStates {}
 

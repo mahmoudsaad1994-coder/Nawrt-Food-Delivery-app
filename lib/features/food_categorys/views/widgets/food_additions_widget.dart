@@ -7,8 +7,8 @@ import '../../../home/presentation/manager/cubit.dart';
 import '../../../home/presentation/manager/states.dart';
 
 class FoodAdditionsWidget extends StatelessWidget {
-  final int index;
   const FoodAdditionsWidget({super.key, required this.index});
+  final int index;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<MainCubit, MainStates>(
@@ -34,7 +34,7 @@ class FoodAdditionsWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5)),
               activeColor: kFFC436Color,
               title: Text(
-                cubit.foodAdditionsWidgetList[index].keys.first,
+                cubit.foodAdditionsList[index].keys.first,
                 style: Styles.textStyleL(
                   context,
                   color: Colors.black,
@@ -42,7 +42,7 @@ class FoodAdditionsWidget extends StatelessWidget {
                 ),
               ),
               secondary: Text(
-                '${cubit.foodAdditionsWidgetList[index].values.first} جنيه',
+                '${cubit.foodAdditionsList[index].values.first} جنيه',
                 style: Styles.textStyleL(context,
                     fontWeight: FontWeight.w500, color: kFFC436Color),
               ),

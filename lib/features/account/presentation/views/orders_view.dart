@@ -32,37 +32,37 @@ class _OrdersScreenState extends State<OrdersScreen> {
         statusBarIconBrightness: Brightness.dark,
       ),
     );
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          bottom: const PreferredSize(
-            preferredSize: Size(1, 10),
-            child: Divider(),
-          ),
-          elevation: 0,
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.white,
-          foregroundColor: Colors.white,
-          leading: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            ),
-          ),
-          title: Text(
-            'Your orders',
-            style: Styles.textStyleXXL(
-              context,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          centerTitle: true,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        bottom: const PreferredSize(
+          preferredSize: Size(1, 10),
+          child: Divider(),
         ),
-        body: Column(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
+        foregroundColor: Colors.white,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+        title: Text(
+          'Your orders',
+          style: Styles.textStyleXXL(
+            context,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        child: Column(
           children: [
             Expanded(
               child: ListView.separated(

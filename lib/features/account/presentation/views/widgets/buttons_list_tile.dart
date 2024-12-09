@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/button_tile.dart';
 
@@ -21,7 +23,9 @@ class ButtonsListTile extends StatelessWidget {
             child: ButtonTile(
               name: 'أوردراتك',
               icon: IconAssetsManager.orderListIcon,
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kOrdersScreen);
+              },
             ),
           ),
           SizedBox(
