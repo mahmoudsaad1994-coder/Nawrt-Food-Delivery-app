@@ -18,23 +18,25 @@ class CustomSliverAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(
-      centerTitle: true,
-      pinned: isPinned,
-      backgroundColor: Colors.white,
-      leadingWidth: context.width * .2,
-      leading: !inLayout
-          ? IconButton(
-              icon: const Icon(Icons.arrow_back_ios),
-              onPressed: () {
-                GoRouter.of(context).pop();
-              },
-            )
-          : Container(),
-      toolbarHeight: context.width * .1,
-      title: Text(
-        title,
-        style: Styles.titleLayout(context, color: kBlackColor),
+    return SliverResizingHeader(
+      child: SliverAppBar(
+        centerTitle: true,
+        pinned: isPinned,
+        backgroundColor: Colors.white,
+        leadingWidth: context.width * .2,
+        leading: !inLayout
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  GoRouter.of(context).pop();
+                },
+              )
+            : Container(),
+        toolbarHeight: context.width * .1,
+        title: Text(
+          title,
+          style: Styles.titleLayout(context, color: kBlackColor),
+        ),
       ),
     );
   }
