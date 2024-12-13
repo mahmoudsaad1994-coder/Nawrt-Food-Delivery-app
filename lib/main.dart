@@ -17,5 +17,5 @@ void main() async {
 
   setupServiceLocator();
 
-  runApp(const Nawrt());
+  runApp(Nawrt());
 }
