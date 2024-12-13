@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/account/presentation/views/about_us.dart';
@@ -18,6 +19,7 @@ import '../../features/food_categorys/views/foods_items_view.dart';
 import '../../features/home/domain/entities/categoray.dart';
 import '../../features/home/presentation/views/widgets/home_view_widgets/best_seller_view.dart';
 import '../../features/home/presentation/views/widgets/home_view_widgets/spicial_offers_view.dart';
+import '../../features/map/my_address.dart';
 import '../../features/map/order_tracking.dart';
 import '../../features/order_info/order_branch_info_view.dart';
 import '../../features/order_info/order_delivery_info_view.dart';
@@ -27,6 +29,7 @@ import '../../features/shopping_cart/views/shopping_cart_view_outside.dart';
 import '../../features/splash/view/splash_view.dart';
 import '../../features/layout/views/layout_view.dart';
 import '../../features/search/views/search_view.dart';
+import '../widgets/exit_app_dialog.dart';
 
 abstract class AppRouter {
   static const String kRegistrationPage = '/registrationPage';
@@ -53,6 +56,7 @@ abstract class AppRouter {
   static const String kPaymentsView = '/PaymentsView';
   static const String kHelpView = '/HelpView';
   static const String kAboutUs = '/AboutUs';
+  static const String kMyLocationWithMap = '/MyLocationWithMap';
   static const String kResetNewPasswordDoneScreen =
       '/resetNewPasswordDoneScreen';
 
@@ -69,6 +73,10 @@ abstract class AppRouter {
       GoRoute(
         path: kSettingsView,
         builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: kMyLocationWithMap,
+        builder: (context, state) => const MyLocationWithMap(),
       ),
       GoRoute(
         path: kPaymentsView,
@@ -169,6 +177,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kLayoutView,
+        onExit: onExit,
         builder: (context, state) => const LayoutView(),
       ),
     ],

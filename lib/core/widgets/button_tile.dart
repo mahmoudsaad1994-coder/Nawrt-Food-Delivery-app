@@ -24,9 +24,8 @@ class ButtonTile extends StatelessWidget {
           ),
           Text(
             name,
-            style: Styles.textStyleXXL(
-              context,
-            ),
+            style: Styles.textStyleXL(context,
+                color: Colors.black, fontWeight: FontWeight.w500),
           ),
         ],
       ),

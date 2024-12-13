@@ -6,7 +6,6 @@ import '../../features/home/presentation/manager/states.dart';
 import '../constants.dart';
 import '../../features/home/domain/entities/food_entity.dart';
 import '../utils/styles.dart';
-import 'respnsive_text.dart';
 
 class FooditemWidget extends StatelessWidget {
   final double circleRadius = 100.0;
@@ -46,17 +45,16 @@ class FooditemWidget extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    ResponsiveText(
-                                      height: constrain.maxHeight * .11,
-                                      text: food.foodName,
+                                    Text(
+                                      food.foodName,
                                       style: Styles.textStyleL(context,
-                                          fontWeight: FontWeight.w700),
+                                          fontWeight: FontWeight.w900),
                                     ),
                                     Text(
                                       food.foodDescreption,
                                       style: Styles.textStyleL(
                                         context,
-                                        fontWeight: FontWeight.w700,
+                                        fontWeight: FontWeight.w500,
                                         color: k96908AColor,
                                       ),
                                       maxLines: 1,

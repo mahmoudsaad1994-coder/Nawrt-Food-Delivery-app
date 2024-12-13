@@ -5,8 +5,13 @@ class AboutUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('AboutUs'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AboutUs'),
+      ),
+      body: const Center(
+        child: Text('AboutUs'),
+      ),
     );
   }
 }

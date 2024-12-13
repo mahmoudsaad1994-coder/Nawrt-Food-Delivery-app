@@ -25,7 +25,7 @@ class ShoppingCartBody extends StatelessWidget {
                   itemCount: cubit.cartItems.length,
                   itemBuilder: (context, index) {
                     final item = cubit.cartItems[index];
-                    return ShoppingItemWidget(item: item, cubit: MainCubit());
+                    return ShoppingItemWidget(item: item);
                   },
                   separatorBuilder: (context, index) =>
                       const SizedBox(height: 10),

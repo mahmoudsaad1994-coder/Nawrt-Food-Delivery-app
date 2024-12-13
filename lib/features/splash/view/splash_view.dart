@@ -33,7 +33,7 @@ class _SplashViewState extends State<SplashView> {
       body: SafeArea(
           child: Center(
         child: AspectRatio(
-          aspectRatio: .4,
+          aspectRatio: .3,
           child: Image.asset(AssetsData.splashLogo),
         ),
       )),

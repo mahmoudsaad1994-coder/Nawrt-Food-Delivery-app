@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:intl/intl.dart';
-import 'package:omni_datetime_picker/omni_datetime_picker.dart';
 
 import '../../../../core/utils/assets.dart';
 import '../../domain/entities/categoray.dart';
@@ -12,7 +12,7 @@ class MainCubit extends Cubit<MainStates> {
   MainCubit() : super(InitialMainStates());
 
   static MainCubit get(context) => BlocProvider.of(context);
-
+  //local data
   List<CategoriesEntity> categoriesList = [
     CategoriesEntity(id: 1, name: 'باستا', image: AssetsData.cat_1Image),
     CategoriesEntity(id: 1, name: 'برجر', image: AssetsData.cat_1Image),
@@ -256,33 +256,70 @@ class MainCubit extends Cubit<MainStates> {
     {'إضافة جزر': 10},
     {'إضافة جزر': 10},
   ];
-//shopping cart items
+
   List<Map<String, dynamic>> cartItems = [
     {"name": "بيتزا إيطالية", "price": 150, "quantity": 1},
     {"name": "بيتزا مصريه", "price": 120, "quantity": 1},
     {"name": "بيتزا فرنسيه", "price": 250, "quantity": 1},
-    {"name": "بيتزا إيطالية", "price": 150, "quantity": 1},
+    {"name": "بيتزا فرنسيه", "price": 250, "quantity": 1},
+    {"name": "بيتزا فرنسيه", "price": 250, "quantity": 1},
     {"name": "بيتزا مصريه", "price": 120, "quantity": 1},
     {"name": "بيتزا فرنسيه", "price": 250, "quantity": 1},
   ];
-  double discount = 0;
 
-  void applyDiscount() {
-    discount = 30; // مثال: خصم ثابت بقيمة 30 جنيه.
-    emit(ApplyDiscountStates());
-  }
+  final List<Map<String, dynamic>> orderDeliverySteps = [
+    {
+      "title": "تأكيد الطلب",
+      "description": "تم تأكيد استلام طلبك من المطعم",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.done,
+    },
+    {
+      "title": "تحضير الطلب",
+      "description": "طلبك في مرحلة التحضير",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.done,
+    },
+    {
+      "title": "الطلب جاهز للتسليم",
+      "description": "تم تحضير الطلب وفي انتظار الاستلام",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.inProcess,
+    },
+    {
+      "title": "تسليم الطلب",
+      "description": "تم تسليم الطلب للمندوب",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.pending,
+    },
+    {
+      "title": "توصيل الطلب",
+      "description": "الطلب في طريقه إليك بواسطة:",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.pending,
+    },
+  ];
 
-  void addFoodItem(int quantity) {
-    quantity++;
-    emit(AddFoodItemCountStates());
-  }
-
-  void oddFoodItem(int quantity) {
-    if (quantity > 1) {
-      quantity--;
-      emit(OddFoodItemCountStates());
-    }
-  }
+  final List<Map<String, dynamic>> orderBranchSteps = [
+    {
+      "title": "تأكيد الطلب",
+      "description": "تم تأكيد استلام طلبك من المطعم",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.done,
+    },
+    {
+      "title": "تحضير الطلب",
+      "description": "طلبك في مرحلة التحضير",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.inProcess,
+    },
+    {
+      "title": "الطلب جاهز للتسليم",
+      "description": "تم تحضير الطلب وفي انتظار الاستلام",
+      "time": "9:25 صباحًا",
+      "orderStatus": OrderStatus.pending,
+    },
+  ];
 
   //checkBox additions
   int additionChecked = 0;
@@ -394,6 +431,38 @@ class MainCubit extends Cubit<MainStates> {
   }
 
   //payment
+  //payment discount
+  String errorMessage = '';
+  double discount = 0;
+  void applyDiscount(String discountValue) {
+    if (discountValue == 'hooka25') {
+      discount = 30;
+      errorMessage = 'تم تفعيل الكود ';
+    } else if (discountValue.isEmpty) {
+      errorMessage = 'ادخل كود الخصم أولا';
+      discount = 0;
+    } else if (discountValue.length > 10) {
+      errorMessage = 'ادخل كود الخصم بشكل صحيح';
+      discount = 0;
+    } else {
+      errorMessage = 'الكود غير صحيح';
+      discount = 0;
+    }
+    emit(ApplyDiscountStates());
+  }
+
+  void addFoodItem(int index) {
+    cartItems[index]["quantity"]++;
+    emit(AddFoodItemCountStates());
+  }
+
+  void oddFoodItem(int index) {
+    if (cartItems[index]["quantity"] > 1) {
+      cartItems[index]["quantity"]--;
+      emit(OddFoodItemCountStates());
+    }
+  }
+
   bool isCashOnDeliverySelected = false;
   changeDeliverySelected(bool value) {
     isCashOnDeliverySelected = value;
@@ -434,70 +503,22 @@ class MainCubit extends Cubit<MainStates> {
       .format(DateTime.now().add(const Duration(hours: 1)));
 
   Future<void> selectPickupTimeDate(BuildContext context) async {
-    DateTime dateTime = await showOmniDateTimePicker(context: context) ??
-        DateTime.now().add(const Duration(hours: 1));
+    DateTime dateTime = DateTime.now().add(const Duration(hours: 1));
+    await DatePicker.showDateTimePicker(context,
+        showTitleActions: true,
+        minTime: DateTime.now().add(const Duration(hours: 1)),
+        maxTime: DateTime.now().add(const Duration(days: 7)),
+        onChanged: (date) {}, onConfirm: (date) {
+      dateTime = date;
+    }, locale: LocaleType.ar);
+
     formattedDate =
-        DateFormat('EEEE, yyyy-MM-dd hh:mm a', 'ar').format(dateTime);
+        DateFormat('EEEE, dd-MM-yyyy hh:mm a', 'ar').format(dateTime);
     pickupTimeAndDate = 'الاستلام يوم $formattedDate';
     emit(ChangePickupTimeState());
   }
 
   //order info
-
-  final List<Map<String, dynamic>> orderDeliverySteps = [
-    {
-      "title": "تأكيد الطلب",
-      "description": "تم تأكيد استلام طلبك من المطعم",
-      "time": "9:25 صباحًا",
-      "orderStatus": OrderStatus.done,
-    },
-    {
-      "title": "تحضير الطلب",
-      "description": "طلبك في مرحلة التحضير",
-      "time": "9:25 صباحًا",
-      "orderStatus": OrderStatus.done,
-    },
-    {
-      "title": "الطلب جاهز للتسليم",
-      "description": "تم تحضير الطلب وفي انتظار الاستلام",
-      "time": "9:25 صباحًا",
-      "orderStatus": OrderStatus.inProcess,
-    },
-    {
-      "title": "تسليم الطلب",
-      "description": "تم تسليم الطلب للمندوب",
-      "time": "9:25 صباحًا",
-      "orderStatus": OrderStatus.pending,
-    },
-    {
-      "title": "توصيل الطلب",
-      "description": "الطلب في طريقه إليك بواسطة:",
-      "time": "9:25 صباحًا",
-      "orderStatus": OrderStatus.pending,
-    },
-  ];
-
-  final List<Map<String, dynamic>> orderBranchSteps = [
-    {
-      "title": "تأكيد الطلب",
-      "description": "تم تأكيد استلام طلبك من المطعم",
-      "time": "9:25 صباحًا",
-      "orderStatus": OrderStatus.done,
-    },
-    {
-      "title": "تحضير الطلب",
-      "description": "طلبك في مرحلة التحضير",
-      "time": "9:25 صباحًا",
-      "orderStatus": OrderStatus.inProcess,
-    },
-    {
-      "title": "الطلب جاهز للتسليم",
-      "description": "تم تحضير الطلب وفي انتظار الاستلام",
-      "time": "9:25 صباحًا",
-      "orderStatus": OrderStatus.pending,
-    },
-  ];
-
   double get totalPrice => cartItems.fold(
       0, (total, item) => total + item["price"] * item["quantity"]);
 

@@ -53,9 +53,11 @@ abstract class Styles {
     fontWeight: FontWeight.w700,
     color: Colors.white,
   );
-  static titleLayout(context, {color = Colors.white}) => TextStyle(
-        fontSize: MediaQuery.of(context).size.width * .05,
-        fontWeight: FontWeight.w700,
+  static titleLayout(context,
+          {color = Colors.white, fontWeight = FontWeight.w700}) =>
+      TextStyle(
+        fontSize: MediaQuery.of(context).size.width * .04,
+        fontWeight: fontWeight,
         color: color,
       );
   static const textStyle20 = TextStyle(

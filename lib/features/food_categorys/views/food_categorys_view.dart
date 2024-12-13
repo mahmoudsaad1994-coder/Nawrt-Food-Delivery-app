@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/utils/app_router.dart';
 import '../../../core/widgets/custom_search_widget.dart';
 import '../../../core/widgets/custtom_sliver_app_bar.dart';
+import '../../../core/widgets/grid_view.dart';
 import '../../home/presentation/manager/cubit.dart';
 import '../../home/presentation/manager/states.dart';
 import 'widgets/category_item.dart';
@@ -20,7 +21,7 @@ class FoodCategorysView extends StatelessWidget {
       builder: (context, state) {
         var cubit = MainCubit.get(context);
         return CustomScrollView(
-            physics: const NeverScrollableScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             slivers: [
               const CustomSliverAppBar(
                 inLayout: true,
@@ -30,32 +31,21 @@ class FoodCategorysView extends StatelessWidget {
               const SliverToBoxAdapter(
                 child: CustomSearchWidget(),
               ),
-              SliverFillRemaining(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: width * .06, vertical: 20),
-                  child: GridView.count(
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      crossAxisCount: 2,
-                      childAspectRatio: (160 / 120),
-                      crossAxisSpacing: width * .05,
-                      mainAxisSpacing: width * .03,
-                      children: [
-                        ...List.generate(
-                          cubit.categoriesList.length,
-                          (index) => GestureDetector(
-                            onTap: () {
-                              GoRouter.of(context).push(AppRouter.kFoodsView,
-                                  extra: cubit.categoriesList[index]);
-                            },
-                            child: CategoryItem(
-                              categoryName: cubit.categoriesList[index].name,
-                              image: cubit.categoriesList[index].image,
-                            ),
-                          ),
-                        )
-                      ]),
+              SliverToBoxAdapter(
+                child: GridViewWidget(
+                  childrenDelegate: SliverChildBuilderDelegate(
+                    (context, index) => GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kFoodsView,
+                            extra: cubit.categoriesList[index]);
+                      },
+                      child: CategoryItem(
+                        categoryName: cubit.categoriesList[index].name,
+                        image: cubit.categoriesList[index].image,
+                      ),
+                    ),
+                    childCount: cubit.categoriesList.length,
+                  ),
                 ),
               )
             ]);

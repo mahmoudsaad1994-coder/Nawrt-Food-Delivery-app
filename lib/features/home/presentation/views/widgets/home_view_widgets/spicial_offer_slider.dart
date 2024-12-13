@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nawrt/core/utils/extensions.dart';
 
 import '../../../../../../core/constants.dart';
 import '../../../../../../core/utils/assets.dart';
@@ -24,7 +25,6 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     return BlocConsumer<MainCubit, MainStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -37,7 +37,7 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
                     cubit.changeIndexSlider(index);
                   },
                   autoPlay: true,
-                  height: screenSize.height * .22,
+                  height: context.height * .22,
                   viewportFraction: 1,
                 ),
                 items: bannersData.map((image) {
@@ -46,14 +46,14 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
                     clipBehavior: Clip.hardEdge,
                     child: Image.asset(
                       image,
-                      width: screenSize.width * .9,
+                      width: context.width * .85,
                       fit: BoxFit.fill,
                     ),
                   );
                 }).toList(),
               ),
               SizedBox(
-                height: screenSize.height * .01,
+                height: context.height * .01,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -68,12 +68,12 @@ class _SpicialOfferSliderState extends State<SpicialOfferSlider> {
                           milliseconds: 350,
                         ),
                         margin: EdgeInsets.symmetric(
-                          horizontal: screenSize.width * .01,
+                          horizontal: context.width * .01,
                         ),
                         width: cubit.selectedPageIndex == i
-                            ? screenSize.width * .04
-                            : screenSize.width * .02,
-                        height: screenSize.width * .02,
+                            ? context.width * .04
+                            : context.width * .02,
+                        height: context.width * .02,
                         decoration: BoxDecoration(
                           color: cubit.selectedPageIndex == i
                               ? kFFC436Color

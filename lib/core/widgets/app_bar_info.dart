@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nawrt/core/utils/app_router.dart';
 
 import '../constants.dart';
 import '../utils/styles.dart';
@@ -62,7 +64,9 @@ class AppBarInfo extends StatelessWidget {
                         ),
                         const SizedBox(width: 5),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            GoRouter.of(context).push(AppRouter.kOrderTracking);
+                          },
                           child: Text(
                             'تغيير العنوان',
                             style: Styles.textStyleSL(context,

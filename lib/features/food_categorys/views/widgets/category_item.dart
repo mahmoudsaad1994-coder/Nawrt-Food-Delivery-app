@@ -9,25 +9,23 @@ class CategoryItem extends StatelessWidget {
   final String categoryName;
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constrain) {
-      return Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Image.asset(
+    return Card(
+      elevation: 5,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          SizedBox.expand(
+            child: Image.asset(
               image,
               fit: BoxFit.fill,
             ),
-            Text(
-              categoryName,
-              style: Styles.titleLayout(context),
-            ),
-          ],
-        ),
-      );
-    });
+          ),
+          Text(
+            categoryName,
+            style: Styles.titleLayout(context),
+          ),
+        ],
+      ),
+    );
   }
 }

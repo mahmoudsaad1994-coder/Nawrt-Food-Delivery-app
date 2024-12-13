@@ -66,15 +66,11 @@ class HomeViewBody extends StatelessWidget {
                       GoRouter.of(context).push(AppRouter.kSpicialOffersView);
                     },
                   ),
-                  SizedBox(height: width * .02),
                 ],
               ),
             ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.only(bottom: width * .05),
-                child: const SpicialOffersRastt(isHome: true),
-              ),
+            const SliverToBoxAdapter(
+              child: SpicialOffersRastt(isHome: true),
             ),
           ],
         );

@@ -6,6 +6,8 @@ class ToggleFoodFav extends MainStates {}
 
 class ChangeIndexSliderState extends MainStates {}
 
+class DiscountValidateState extends MainStates {}
+
 class ChangeSizeAndPriceState extends MainStates {}
 
 class GetTotalPriceState extends MainStates {}

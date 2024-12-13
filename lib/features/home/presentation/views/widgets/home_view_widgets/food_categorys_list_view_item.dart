@@ -24,30 +24,33 @@ class FoodCategorysListViewItem extends StatelessWidget {
           },
         ),
         SizedBox(height: width * .02),
-        SizedBox(
-          height: width * .26,
-          child: ListView.separated(
-            itemCount: categories.length,
-            padding: EdgeInsets.symmetric(horizontal: width * .06),
-            separatorBuilder: (context, index) => SizedBox(width: width * .05),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => GestureDetector(
-              onTap: () {
-                GoRouter.of(context)
-                    .push(AppRouter.kFoodsView, extra: categories[index]);
-              },
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage(categories[index].image),
-                    radius: width * .1,
-                  ),
-                  ResponsiveText(
-                    height: width * .05,
-                    text: categories[index].name,
-                    style: Styles.textStyleL(context),
-                  ),
-                ],
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: width * .06),
+          child: SizedBox(
+            height: width * .26,
+            child: ListView.separated(
+              itemCount: categories.length,
+              separatorBuilder: (context, index) =>
+                  SizedBox(width: width * .05),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () {
+                  GoRouter.of(context)
+                      .push(AppRouter.kFoodsView, extra: categories[index]);
+                },
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage(categories[index].image),
+                      radius: width * .1,
+                    ),
+                    ResponsiveText(
+                      height: width * .05,
+                      text: categories[index].name,
+                      style: Styles.textStyleL(context),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

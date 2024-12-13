@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nawrt/core/utils/extensions.dart';
 
 import '../constants.dart';
 import '../utils/styles.dart';
@@ -19,8 +20,7 @@ class ViewItemTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * .06),
+      padding: EdgeInsets.symmetric(horizontal: context.width * .06),
       child: Row(
         children: [
           Text(
@@ -31,10 +31,10 @@ class ViewItemTitle extends StatelessWidget {
           if (!isButtonHidden)
             TextButton(
               onPressed: onPressed,
-              child: ResponsiveText(
-                height: MediaQuery.of(context).size.width * .06,
-                text: onPressTitle,
-                style: Styles.textStyle16old.copyWith(
+              child: Text(
+                onPressTitle,
+                style: Styles.titleLayout(
+                  context,
                   color: kFFC436Color,
                   fontWeight: FontWeight.w500,
                 ),

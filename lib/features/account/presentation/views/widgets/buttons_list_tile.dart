@@ -33,7 +33,9 @@ class ButtonsListTile extends StatelessWidget {
             child: ButtonTile(
               name: 'العروض',
               icon: IconAssetsManager.offerIcon,
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kOfferScreen);
+              },
             ),
           ),
           SizedBox(
@@ -41,7 +43,9 @@ class ButtonsListTile extends StatelessWidget {
             child: ButtonTile(
               name: 'الأعدادات',
               icon: IconAssetsManager.settingIcon,
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kSettingsView);
+              },
             ),
           ),
           SizedBox(
@@ -49,7 +53,9 @@ class ButtonsListTile extends StatelessWidget {
             child: ButtonTile(
               name: 'الدفع',
               icon: IconAssetsManager.walletIcon,
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kPaymentsView);
+              },
             ),
           ),
           SizedBox(
@@ -57,7 +63,9 @@ class ButtonsListTile extends StatelessWidget {
             child: ButtonTile(
               name: 'مـساعدة',
               icon: IconAssetsManager.helpIcon,
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kHelpView);
+              },
             ),
           ),
           SizedBox(
@@ -65,7 +73,9 @@ class ButtonsListTile extends StatelessWidget {
             child: ButtonTile(
               name: 'عنـنا',
               icon: IconAssetsManager.aboutUsIcon,
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kAboutUs);
+              },
             ),
           ),
         ],

@@ -10,6 +10,7 @@ import '../utils/app_router.dart';
 import '../utils/styles.dart';
 import 'custom_button.dart';
 import 'dialog.dart';
+import 'discount_widget.dart';
 
 class PaymentInfoWidget extends StatelessWidget {
   const PaymentInfoWidget(
@@ -50,72 +51,41 @@ class PaymentInfoWidget extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              Stack(
-                alignment: AlignmentDirectional.topEnd,
-                children: [
-                  SizedBox(
-                    height: context.width * .12,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.symmetric(vertical: 15.0),
-                        hintText: "كود الخصم",
-                        hintStyle: TextStyle(fontSize: context.width * .035),
-                        prefixIcon: const Icon(
-                            Icons.discount_outlined), // الأيقونة على اليمين
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: const BorderSide(color: Colors.grey),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: const BorderSide(color: Colors.grey),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide:
-                              const BorderSide(color: kFFC436Color, width: 2.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: context.width * .12,
-                    width: context.width * .3,
-                    child: TextButton(
-                      onPressed: cubit.applyDiscount,
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          side: const BorderSide(color: kFFC436Color),
-                        ),
-                        backgroundColor: Colors.white,
-                      ),
-                      child: Text(
-                        "تطبيق",
-                        style: Styles.textStyleL(context,
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              if (isPaymentConfirm) DiscountWidget(cubit: cubit),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "السعر الكلي",
-                    style: Styles.textStyleXL(context,
-                        color: Colors.black, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "${cubit.finalPrice.toStringAsFixed(2)} جنيه",
-                    style: Styles.textStyleXXL(context,
-                        color: kFFC436Color, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              if (cubit.discount != 0.0)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "الخصم",
+                      style: Styles.textStyleXL(context,
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "${cubit.discount} جنيه",
+                      style: Styles.textStyleXXL(context,
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              const SizedBox(height: 10),
+              if (isPaymentConfirm)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "السعر الكلي",
+                      style: Styles.textStyleXL(context,
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "${cubit.finalPrice.toStringAsFixed(2)} جنيه",
+                      style: Styles.textStyleXXL(context,
+                          color: kFFC436Color, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,

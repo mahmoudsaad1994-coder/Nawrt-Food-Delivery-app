@@ -17,9 +17,5 @@ void main() async {
 
   setupServiceLocator();
 
-  runApp(
-    DevicePreview(
-      builder: (context) => const Nawrt(),
-    ),
-  );
+  runApp(Nawrt());
 }

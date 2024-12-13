@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 import '../../features/home/domain/entities/food_entity.dart';
 import '../utils/styles.dart';
-import 'respnsive_text.dart';
 
 class FoodItemWithOffer extends StatelessWidget {
   final double circleRadius = 100.0;
@@ -67,20 +66,21 @@ class FoodItemWithOffer extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ResponsiveText(
-                    height: constraints.maxHeight * .14,
-                    text: food.foodName,
-                    style: Styles.textStyle16old.copyWith(color: kBlackColor),
+                  Text(
+                    food.foodName,
+                    style:
+                        Styles.textStyleL(context, fontWeight: FontWeight.w900),
                   ),
                   Text(
                     food.foodDescreption,
                     style: Styles.textStyleL(
                       context,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w500,
                       color: k96908AColor,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
+                    textDirection: TextDirection.rtl,
                   ),
                 ],
               ),
